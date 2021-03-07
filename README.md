@@ -1,5 +1,5 @@
 <h1>
-	<center>Se bienvenido mi pequeño coder :3</center>
+	<center>Se bienvenido pequeño coder :3</center>
 </h1>
 <div>
 	En este repositorio hacemos un fangame de Undertale el cual llamamos UnderDom.<br>
