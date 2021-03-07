@@ -1,0 +1,523 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/sprites/gui/perfil/menu.png" type="Texture" id=1]
+[ext_resource path="res://mic/fonts/Tfont.tscn" type="PackedScene" id=2]
+[ext_resource path="res://obj/mic/pause.gd" type="Script" id=3]
+[ext_resource path="res://assets/sprites/gui/perfil/back.png" type="Texture" id=4]
+[ext_resource path="res://obj/mic/info.gd" type="Script" id=5]
+[ext_resource path="res://assets/sprites/mic/souls/determinacion.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/characters/frisk/frame0.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/characters/chara/frame0.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/characters/asriel/frame0.png" type="Texture" id=9]
+[ext_resource path="res://obj/mic/items.gd" type="Script" id=10]
+[ext_resource path="res://obj/mic/tlf.gd" type="Script" id=11]
+
+[node name="pause" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="L" type="Control" parent="."]
+anchor_bottom = 1.0
+margin_right = 225.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="u" type="Control" parent="L"]
+anchor_right = 1.0
+margin_bottom = 233.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="back" type="TextureRect" parent="L/u"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="obj" parent="L/u/back" instance=ExtResource( 2 )]
+margin_left = 96.5
+margin_top = 40.5
+margin_right = 178.5
+margin_bottom = 86.5
+text = "Obj"
+
+[node name="info" parent="L/u/back" instance=ExtResource( 2 )]
+margin_left = 96.5
+margin_top = 88.5
+margin_right = 179.5
+margin_bottom = 134.5
+text = "Info"
+
+[node name="conf" parent="L/u/back" instance=ExtResource( 2 )]
+margin_left = 97.0
+margin_top = 139.0
+margin_right = 186.0
+margin_bottom = 185.0
+text = "Tlf"
+
+[node name="nodo" type="Node2D" parent="L/u/back"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="se1" type="Position2D" parent="L/u/back/nodo"]
+position = Vector2( 64, 60.5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="se2" type="Position2D" parent="L/u/back/nodo"]
+position = Vector2( 64, 108.5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="se3" type="Position2D" parent="L/u/back/nodo"]
+position = Vector2( 64, 160.5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="sec" type="Sprite" parent="L/u/back/nodo"]
+position = Vector2( 64.25, 60.5 )
+scale = Vector2( 1.96875, 2 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="d" type="Control" parent="L"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -364.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="back" type="TextureRect" parent="L/d"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -16.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="data" parent="L/d/back" instance=ExtResource( 2 )]
+margin_left = 36.0
+margin_top = 61.8995
+margin_right = 190.0
+margin_bottom = 310.9
+text = "Frask
+G: 0
+
+
+0%
+0:00:00"
+
+[node name="R" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -669.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="back" type="TextureRect" parent="R"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="info" type="Control" parent="R/back"]
+visible = false
+margin_right = 674.0
+margin_bottom = 599.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="frisk" parent="R/back/info" instance=ExtResource( 2 )]
+margin_left = 79.0
+margin_top = 200.0
+margin_right = 255.0
+margin_bottom = 540.0
+text = "Frisk
+lv 1/50
+(10)
+Def: 1
+Atk: 2
+Hp: 20
+PE: 0"
+
+[node name="frame0" type="Sprite" parent="R/back/info/frisk"]
+position = Vector2( 53.4735, -72.1138 )
+scale = Vector2( 3.22233, 2.7142 )
+texture = ExtResource( 7 )
+
+[node name="chara" parent="R/back/info" instance=ExtResource( 2 )]
+margin_left = 256.0
+margin_top = 199.0
+margin_right = 425.0
+margin_bottom = 543.0
+text = "Chara
+lv 1/50
+(30)
+Def: 2
+atk: 5
+Hp: 25
+PE: 2
+"
+
+[node name="frame0" type="Sprite" parent="R/back/info/chara"]
+position = Vector2( 46.4721, -71.3564 )
+scale = Vector2( 3.15499, 2.7142 )
+texture = ExtResource( 8 )
+
+[node name="asriel" parent="R/back/info" instance=ExtResource( 2 )]
+margin_left = 430.0
+margin_top = 196.0
+margin_right = 599.0
+margin_bottom = 534.0
+text = "Asriel
+lv 1/50
+(20)
+Def: 5
+Atk: 3
+Hp: 15
+PE: 1"
+
+[node name="frame1" type="Sprite" parent="R/back/info/asriel"]
+position = Vector2( 44.0061, -71.0288 )
+scale = Vector2( 2.83016, 2.83016 )
+texture = ExtResource( 9 )
+
+[node name="sec" type="Sprite" parent="R/back/info"]
+position = Vector2( 567.344, 90.1985 )
+scale = Vector2( 1.96875, 2 )
+texture = ExtResource( 6 )
+
+[node name="items" type="Control" parent="R/back"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="obj0" type="Position2D" parent="R/back/items"]
+position = Vector2( 99.4091, 133.037 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="obj1" type="Position2D" parent="R/back/items"]
+position = Vector2( 99.4091, 175.037 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="obj2" type="Position2D" parent="R/back/items"]
+position = Vector2( 99.4091, 218.037 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="obj3" type="Position2D" parent="R/back/items"]
+position = Vector2( 99.4091, 261.037 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="obj4" type="Position2D" parent="R/back/items"]
+position = Vector2( 99.4091, 305.037 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="obj5" type="Position2D" parent="R/back/items"]
+position = Vector2( 99.4091, 347.037 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="obj6" type="Position2D" parent="R/back/items"]
+position = Vector2( 99.4091, 391.037 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="obj7" type="Position2D" parent="R/back/items"]
+position = Vector2( 99.4091, 433.037 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="sec" type="Sprite" parent="R/back/items"]
+position = Vector2( 100.654, -39.9091 )
+scale = Vector2( 1.96875, 2 )
+texture = ExtResource( 6 )
+
+[node name="lista" type="VBoxContainer" parent="R/back/items"]
+margin_left = 140.0
+margin_top = 113.0
+margin_right = 595.0
+margin_bottom = 464.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="i1" parent="R/back/items/lista" instance=ExtResource( 2 )]
+margin_right = 455.0
+margin_bottom = 39.0
+text = "---------------------------"
+
+[node name="i2" parent="R/back/items/lista" instance=ExtResource( 2 )]
+margin_top = 43.0
+margin_right = 455.0
+margin_bottom = 82.0
+text = "---------------------------"
+
+[node name="i3" parent="R/back/items/lista" instance=ExtResource( 2 )]
+margin_top = 86.0
+margin_right = 455.0
+margin_bottom = 125.0
+text = "---------------------------"
+
+[node name="i4" parent="R/back/items/lista" instance=ExtResource( 2 )]
+margin_top = 129.0
+margin_right = 455.0
+margin_bottom = 168.0
+text = "---------------------------"
+
+[node name="i5" parent="R/back/items/lista" instance=ExtResource( 2 )]
+margin_top = 172.0
+margin_right = 455.0
+margin_bottom = 211.0
+text = "---------------------------"
+
+[node name="i6" parent="R/back/items/lista" instance=ExtResource( 2 )]
+margin_top = 215.0
+margin_right = 455.0
+margin_bottom = 254.0
+text = "---------------------------"
+
+[node name="i7" parent="R/back/items/lista" instance=ExtResource( 2 )]
+margin_top = 258.0
+margin_right = 455.0
+margin_bottom = 297.0
+text = "---------------------------"
+
+[node name="i8" parent="R/back/items/lista" instance=ExtResource( 2 )]
+margin_top = 301.0
+margin_right = 455.0
+margin_bottom = 340.0
+text = "--------------------------- "
+
+[node name="gui" type="Control" parent="R/back/items"]
+margin_left = 75.0
+margin_top = 471.0
+margin_right = 602.0
+margin_bottom = 537.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="action" parent="R/back/items/gui" instance=ExtResource( 2 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 0.0
+margin_bottom = 0.0
+text = "    Usar       Tirar      Info"
+valign = 1
+
+[node name="char" parent="R/back/items/gui" instance=ExtResource( 2 )]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 0.0
+margin_bottom = 0.0
+text = "    Frisk      Chara      Asriel"
+valign = 1
+
+[node name="a0" type="Position2D" parent="R/back/items/gui"]
+position = Vector2( 30.3553, 33.1127 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="a1" type="Position2D" parent="R/back/items/gui"]
+position = Vector2( 202.355, 33.1127 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="a2" type="Position2D" parent="R/back/items/gui"]
+position = Vector2( 370.355, 33.1127 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="sec" type="Sprite" parent="R/back/items/gui"]
+position = Vector2( 25.6541, -510.909 )
+scale = Vector2( 1.96875, 2 )
+texture = ExtResource( 6 )
+
+[node name="page" parent="R/back/items" instance=ExtResource( 2 )]
+margin_left = 492.146
+margin_top = 73.5391
+margin_right = 573.146
+margin_bottom = 112.539
+text = "1/3"
+align = 2
+
+[node name="tlf" type="Control" parent="R/back"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="lista" type="VBoxContainer" parent="R/back/tlf"]
+margin_left = 144.0
+margin_top = 85.0
+margin_right = 585.0
+margin_bottom = 517.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="t0" parent="R/back/tlf/lista" instance=ExtResource( 2 )]
+margin_right = 441.0
+margin_bottom = 39.0
+text = "-Madre"
+
+[node name="t1" parent="R/back/tlf/lista" instance=ExtResource( 2 )]
+margin_top = 43.0
+margin_right = 441.0
+margin_bottom = 82.0
+text = "-Sans"
+
+[node name="t2" parent="R/back/tlf/lista" instance=ExtResource( 2 )]
+margin_top = 86.0
+margin_right = 441.0
+margin_bottom = 125.0
+text = "-Papyrus"
+
+[node name="t3" parent="R/back/tlf/lista" instance=ExtResource( 2 )]
+margin_top = 129.0
+margin_right = 441.0
+margin_bottom = 168.0
+text = "-Undyne"
+
+[node name="t4" parent="R/back/tlf/lista" instance=ExtResource( 2 )]
+margin_top = 172.0
+margin_right = 441.0
+margin_bottom = 211.0
+text = "-Alphys"
+
+[node name="t5" parent="R/back/tlf/lista" instance=ExtResource( 2 )]
+margin_top = 215.0
+margin_right = 441.0
+margin_bottom = 254.0
+text = "-Muffet"
+
+[node name="t6" parent="R/back/tlf/lista" instance=ExtResource( 2 )]
+margin_top = 258.0
+margin_right = 441.0
+margin_bottom = 297.0
+text = "-Mettaton"
+
+[node name="t7" parent="R/back/tlf/lista" instance=ExtResource( 2 )]
+margin_top = 301.0
+margin_right = 441.0
+margin_bottom = 340.0
+text = "-Asgore"
+
+[node name="tlf0" type="Position2D" parent="R/back/tlf"]
+position = Vector2( 101.409, 106.037 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="tlf1" type="Position2D" parent="R/back/tlf"]
+position = Vector2( 101.409, 148.037 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="tlf2" type="Position2D" parent="R/back/tlf"]
+position = Vector2( 101.409, 191.037 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="tlf3" type="Position2D" parent="R/back/tlf"]
+position = Vector2( 101.409, 234.037 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="tlf4" type="Position2D" parent="R/back/tlf"]
+position = Vector2( 101.409, 278.037 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="tlf5" type="Position2D" parent="R/back/tlf"]
+position = Vector2( 101.409, 320.037 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="tlf6" type="Position2D" parent="R/back/tlf"]
+position = Vector2( 101.409, 364.037 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="tlf7" type="Position2D" parent="R/back/tlf"]
+position = Vector2( 101.409, 406.037 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="sec" type="Sprite" parent="R/back/tlf"]
+position = Vector2( 567.344, 90.1985 )
+scale = Vector2( 1.96875, 2 )
+texture = ExtResource( 6 )
+[connection signal="visibility_changed" from="." to="." method="_on_pause_visibility_changed"]
+[connection signal="visibility_changed" from="R/back/info" to="R/back/info" method="_on_info_visibility_changed"]
+[connection signal="visibility_changed" from="R/back/items" to="R/back/items" method="_on_items_visibility_changed"]
+[connection signal="visibility_changed" from="R/back/tlf" to="R/back/tlf" method="_on_tlf_visibility_changed"]

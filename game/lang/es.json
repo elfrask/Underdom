@@ -1,0 +1,28 @@
+{
+	"story":{
+
+	},
+	"tlf":{
+		"madre":{
+			"di":[
+				"* Intentas llamar a tu madre",
+				"......",
+				"* Pero nadie contesta"
+			],
+			"name":"Madre"
+		}
+	},
+	"gui":{
+		"item":{
+			"vacio":[
+				"Selecciona un objeto"
+			],
+			"info":[
+				"esta herramienta solo la puede usar:",
+				"esta herramienta otorga a quien lo use:"
+			],
+			"action":"    Usar       Tirar      Info",
+			"nouse":"no puede usar un"
+		}
+	}
+}

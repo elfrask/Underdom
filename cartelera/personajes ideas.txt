@@ -1,0 +1,49 @@
+color de almas
+
+
+Voluntad: plateada
+
+Inocencia:rosa
+
+Involuntad: gris
+
+Lujuria: vinotinto
+
+
+vestimenta de Inocencia
+
+Inocencia: Liz
+
+Pelo: negro
+
+Color de piel: blanca
+
+Ojos: roza
+
+Definición: un alma pura sin deseos de dañar a alguien
+
+Zapatos: sandalia
+
+short: negro
+
+Suéter: blanco con un corazón rosa
+
+Vestimenta de Voluntad
+
+Voluntad: Samuel cloud
+
+Pelo: castaño oscuro
+
+Color de piel:moreno claro
+
+Ojos:marrones claro
+
+Definición: Siempre con una sonrisa llena de voluntad
+
+zapatos: naranjas
+
+pantalones: azul marino
+
+suéter: plateado siempre con el cierre puesto
+
+camisa: azul con mangas blancas
