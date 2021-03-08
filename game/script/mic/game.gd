@@ -1,16 +1,18 @@
 extends Node
-
+#establecer nombres comunes
 var frisk = "frisk" 
 var chara = "chara" 
 var asriel = "asriel"
 
+#datos del juego sobre su construccion y version
 var datagame = {
 	"name":"UnderDom",
 	"completname":"Under Kingdom's",
 	"ver":"0.1a",
 	"gd_ver":"godot 3.2.3 stable"
 }
-var lang = {}
+var lang = {}#el idioma
+#la partida
 var player = {
 	"coin":0,
 	"tlf":0,
@@ -88,20 +90,21 @@ var player = {
 }
 #		gen_obj("Escudo de piedra", "def", data(0,0,100), ["frisk", "chara", "asriel"]),
 
-func had(hp=0, atk=0, def=0):
+func had(hp=0, atk=0, def=0):# hp atk def siglas had. genera los valores basicos de los objetos
 	
-	return {
+	return ({
 		"hp":hp,
 		"atk":atk,
 		"def":def
-	}
-
+	})# devolver los objetos con estos valores
+	
+#generar el objeto pasando las propiedades
 func gen_obj(nombre="HotDog", tipo= "hp", data = {"hp":10}, character=["frisk", "chara", "asriel"]):
-	data["nick"] = nombre
-	data["tipo"] = tipo
-	data["char"] = character
+	data["nick"] = nombre#meter nombre
+	data["tipo"] = tipo#meter tipo
+	data["char"] = character#meter personajes
 	return data
-
+#añadir un objeto de forma arbitraria
 func add_obj(nombre="HotDog", tipo= "hp", data = {"hp":10}, character=["frisk", "chara", "asriel"]):
 	
 	data["char"] = character
@@ -119,7 +122,7 @@ func add_obj(nombre="HotDog", tipo= "hp", data = {"hp":10}, character=["frisk", 
 	
 	pass
 
-func include(arr, val):
+func include(arr, val): #verifica si un valor hay en el arreglo
 	
 	for x in arr:
 		
@@ -139,30 +142,31 @@ func use(personaje, id):
 		
 		return [false, "vacio"]
 	#print(dat["char"])
-	if include(dat["char"], personaje):
-		if dat["tipo"] == "hp":
-			hp[personaje] += dat["hp"]
-			if hp[personaje] > player["char"][personaje]["max"]:
-				hp[personaje] = player["char"][personaje]["max"]
+	if include(dat["char"], personaje):# si el personaje segun el objeto esta incluido segun el personaje que selecciono el jugador
+		if dat["tipo"] == "hp":# si el objeto es del tipo aumento de hp
+			hp[personaje] += dat["hp"]# sumarlo con la vida
+			if hp[personaje] > player["char"][personaje]["max"]:# si la suma resulta ser mayor que el maximo
+				hp[personaje] = player["char"][personaje]["max"]# reasignar al maximo
 				pass
 			player["inv"][id] = false
 			pass
-		if dat["tipo"] == "atk":
-			#print("has cambiado tu arma")
-			var tmp_ob = player["char"][personaje]["hit"]
-			player["char"][personaje]["hit"] = dat
-			if str(tmp_ob) == "{}":tmp_ob = false
-			player["inv"][id] = tmp_ob
+		if dat["tipo"] == "atk":# si el objeto es del tipo aumento de atk
+			
+			var tmp_ob = player["char"][personaje]["hit"]# guardar referencia del objeto de ataque actual
+			player["char"][personaje]["hit"] = dat# asignar el nuevo objeto al personaje para aumentar su ataque
+			if str(tmp_ob) == "{}":tmp_ob = false# si no tenia un objeto entonces lo convertira en falso
+			player["inv"][id] = tmp_ob#guardar el objeto que tenia puesto en el inventario
 			pass
-		if dat["tipo"] == "def":
-			#print("has cambiado la defensa")
-			var tmp_ob = player["char"][personaje]["armor"]
-			player["char"][personaje]["armor"] = dat
-			if str(tmp_ob) == "{}":tmp_ob = false
-			player["inv"][id] = tmp_ob
+		if dat["tipo"] == "def":# si el objeto es del tipo aumento de def
+			
+			var tmp_ob = player["char"][personaje]["armor"]# guardar referencia del objeto de defensa actual
+			player["char"][personaje]["armor"] = dat# asignar el nuevo objeto al personaje para aumentar su ataque
+			if str(tmp_ob) == "{}":tmp_ob = false# si no tenia un objeto entonces lo convertira en falso
+			player["inv"][id] = tmp_ob#guardar el objeto que tenia puesto en el inventario
 			pass
 		pass
 	else:
+		#si el personaje seleccionado no esta en la lista decir que el personaje no pudo usar el objeto
 		print("'"+personaje+"' no puede usar un '"+ dat["nick"] + "'")
 		Api.get("say").play("", [
 			"'"+personaje+"' "+ lang["gui"]["item"]["nouse"] +" '"+ dat["nick"] + "'"
@@ -173,7 +177,7 @@ func use(personaje, id):
 
 
 var hp
-func regen():
+func regen():# regenerar a los personajes
 	hp={
 		"frisk":player["char"]["frisk"]["max"],
 		"chara":player["char"]["chara"]["max"],
@@ -181,13 +185,13 @@ func regen():
 	}
 	pass
 
-func load_lang(pkg):
+func load_lang(pkg): #cargar el idioma
 	var fs = File.new()
 	fs.open("res://lang/" + pkg +".json", File.READ)
 	lang =  JSON.parse(fs.get_as_text()).result
 	pass
 
-func loadgame():
+func loadgame():#cargar el juego si no lo logra usa una plantilla
 	var fs= File.new()
 	if true:#(!fs.file_exists("user://game.save")):
 		fs.open("user://game.save", File.WRITE)
@@ -204,7 +208,7 @@ func loadgame():
 	pass
 
 
-func savegame():
+func savegame():#guardar el juego
 	
 	var fs = File.new()
 	fs.open("user://game.save", File.WRITE)
@@ -214,12 +218,12 @@ func savegame():
 
 
 
-func _ready():
+func _ready(): # al iniciar
 	loadgame()
 	regen()
 	
 	pass
 
 
-func _process(delta):
+func _process(delta): # se ejecuta todo el tiempo
 	pass

@@ -13,13 +13,10 @@ var pkg = {
 }
 var logi = null
 func login(v):
-	
-	
 	logi = v
 	v.visible = false
 	v.verify(server)
 	pass
-
 func _ready():
 	var vs = File.new()
 	if (vs.file_exists("res://app.json")):

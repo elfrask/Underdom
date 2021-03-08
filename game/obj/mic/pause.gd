@@ -1,54 +1,47 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var pos = [
 	"L/u/back/nodo/se1",
 	"L/u/back/nodo/se2",
 	"L/u/back/nodo/se3",
-]
+]#asignar los punteros
 var menus = [
 	"R/back/items",
 	"R/back/info",
 	"R/back/tlf",
-]
-var sel = 0
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+]#asgnar los menus
+var sel = 0#cursor es igual a 0
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+
+func _process(delta):#esta funcion se ejecuta todo el rato
 	
-	if visible and !$R/back.visible and !Api.get("say").isplay():
-		if Input.is_action_just_pressed("cancelar"):
-			visible = false
+	if visible and !$R/back.visible and !Api.get("say").isplay():#si el dialogo no esta visible y tampoco la interfaz derecha
+		if Input.is_action_just_pressed("cancelar"):# al dar la tecla asignada (x)
+			visible = false#cerrar el menu
 			pass
 		
-		if Input.is_action_just_pressed("up"):
-			sel -=1
+		if Input.is_action_just_pressed("up"): #al dar la tecla asignada (arriba)
+			sel -=1 #subir el cursor
 			pass
-		if Input.is_action_just_pressed("down"):
-			sel +=1
+		if Input.is_action_just_pressed("down"): # al dar a la tecla asignada (abajo)
+			sel +=1 #bajar el cursor
 			pass
 		
-		if sel == 3:
-			sel = 0
-		if sel == -1:
-			sel = 2
+		if sel == 3:#si el cursor esta en 3 
+			sel = 0#asginarle 0
+		if sel == -1:#si el cursor es -1
+			sel = 2#asignarle 2
 		
-		$L/u/back/nodo/sec.position = get_node(pos[sel]).position
-		if Input.is_action_just_released("aceptar"):
-			for x in [0,1,2]:
+		$L/u/back/nodo/sec.position = get_node(pos[sel]).position # mover el cursor (alma) a la poscicion asignada
+		if Input.is_action_just_released("aceptar"):#al dar la tecla asignada (z) 
+			for x in [0,1,2]:# ocultar todos los menus
 				get_node(menus[x]).visible = false
 				pass
 			
-			get_node(menus[sel]).visible = true
-			$R/back.visible = true
+			get_node(menus[sel]).visible = true # en el mismo frame mostrar el menu a abrirce
+			$R/back.visible = true# mostrar el menu derecho 
 			
 			pass
 		
@@ -64,17 +57,17 @@ func _process(delta):
 		$L/u/back/nodo/sec.visible = true
 
 
-func _on_pause_visibility_changed():
+func _on_pause_visibility_changed():#cuando se abre el menu
 	
-	var dat = game.player["time"]
-	var hora = str(int(dat/3600)%100)
-	var minuto = str(int((int(dat) % 3600)/(60)))
-	var segundo = str(int(dat) % 60)
-	if len(segundo) == 1:
-		segundo = "0"+segundo
-	if len(minuto) == 1:
+	var dat = game.player["time"]#tomar el tiempo y convertirlo de un numero de conteo a tiempo
+	var hora = str(int(dat/3600)%100)#saca la hora
+	var minuto = str(int((int(dat) % 3600)/(60)))# los minutos
+	var segundo = str(int(dat) % 60)# y segundos
+	if len(segundo) == 1:#si segundos tiene una longitud de 1 
+		segundo = "0"+segundo # asignale un 0 antes
+	if len(minuto) == 1: # lo mismo que segundo pero con el minuto
 		minuto = "0"+minuto
-	
+	#actualizar la informacion de la caja de texto
 	$L/d/back/data.text = "" + str(game.player['name']) + "\nG: " + str(game.player['coin'])+ "\n\n\n" + str(game.player['pro']) +"%\n" + str(hora) + ":" + str(minuto) + ":" + str(segundo)
 	
 	

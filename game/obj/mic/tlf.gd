@@ -1,41 +1,34 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-var sel = 0
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var sel = 0# establecer el cursor en 0
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
-	if visible and !Api.get("say").isplay():
-		if Input.is_action_just_pressed("menu"):
-			get_parent().visible = false
-			visible = false
+	if visible and !Api.get("say").isplay(): # si el dialogo no es visible
+		if Input.is_action_just_pressed("menu"):# al dar a la tecla asignada (c)
+			get_parent().visible = false# cerrar el menu derecho
+			visible = false#cerrar este menu
 			pass
-		if Input.is_action_just_pressed("cancelar"):
-			get_parent().visible = false
-			visible = false
+		if Input.is_action_just_pressed("cancelar"):# al dar a la tecla asignada (x)
+			get_parent().visible = false# cerrar el menu derecho
+			visible = false#cerrar este menu
 			pass
-		if Input.is_action_just_pressed("up"):
-			if sel == -1:
-				sel = game.player["tlf"]
+		if Input.is_action_just_pressed("up"):# al dar a la tecla asignada (arriba)
+			if sel == -1:# si el cursor esta en -1
+				sel = game.player["tlf"] # moverlo al ultimo disponible
 				pass
 			pass
-		if Input.is_action_just_pressed("down"):
-			if sel == game.player["tlf"]+1:
-				sel = 0
+		if Input.is_action_just_pressed("down"):# al dar a la tecla asignada (abajo)
+			if sel == game.player["tlf"]+1:#si el cursor esta en el ultimo disponeble
+				sel = 0# establecerlo en 0
 				pass
 			pass
 		get_node("sec").position = get_node("tlf" + str(sel)).position
-		if Input.is_action_just_pressed("aceptar"):
-				if sel == 0:
-					Api.get("say").play("", game.lang["tlf"]["madre"]["di"])
+		if Input.is_action_just_pressed("aceptar"):# al dar a la tecla asignada (z)
+				if sel == 0:# comunicarce con mama
+					Api.get("say").play("", game.lang["tlf"]["madre"]["di"]) #dar un dialogo segun el idioma configurado
 					pass
 				pass
 		pass

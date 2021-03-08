@@ -1,31 +1,26 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var vacio = "---------------------------"# establecer la prevista de slot vacio
 
-var vacio = "---------------------------"
+var sel = 0# establcer cursor1 como 0
+var mode = "select" #esta en el modo "select"
+var set = 0# establcer cursor2 como 0
 
-var sel = 0
-var mode = "select"
-var set = 0
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass 
 
 func render(i, f):
-	var iterador = 0
-	for x in game.player["inv"].slice(i, f-1):
-		iterador =1+iterador
-		if str(x) == "False":
+	var iterador = 0# iterador = 0
+	for x in game.player["inv"].slice(i, f-1):# pasar por cada objeto del inventario deacuerdo a la posicion
+		iterador =1+iterador # sumar al iterador
+		if str(x) == "False": # si el objeto es igual a falso
 			#print(iterador)
-			get_node("lista/i" + str(iterador)).text = vacio
+			get_node("lista/i" + str(iterador)).text = vacio# asignar el valor vacio
 			pass
-		else:
-			#print(x)
-			get_node("lista/i" + str(iterador)).text = x["nick"]
+		else:# si no
+			
+			get_node("lista/i" + str(iterador)).text = x["nick"] # asignar el nombre del objeto
 			pass
 		
 		pass
@@ -42,92 +37,95 @@ func join(arr, ch):
 	salida = salida.substr(0, len(salida)-len(ch))
 	
 	return salida
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	
 func _process(delta):
 	
-	if visible and !Api.get("say").isplay():
-		if Input.is_action_just_pressed("menu"):
-			get_parent().visible = false
-			visible = false
-			mode = "select"
+	if visible and !Api.get("say").isplay(): # si el dialogo esta oculto
+		if Input.is_action_just_pressed("menu"):# al dar la tecla asignada (c)
+			get_parent().visible = false# ocultar el menu derecho
+			visible = false#ocultar este menu
+			mode = "select"# hacer que este modo se re-asigne
 			pass
-		$sec.visible = (mode == "select")
-		$gui/sec.visible = (mode == "action" or mode == "char")
-		$gui/action.visible = (mode == "action")
-		$gui/action.text = game.lang["gui"]["item"]["action"]
-		$gui/char.visible = (mode == "char")
+		$sec.visible = (mode == "select")#si modo es select el cursor1 es visible
+		$gui/sec.visible = (mode == "action" or mode == "char") #si el modo es action o char entonces el cursor2 es visible
+		$gui/action.visible = (mode == "action")# si el modo es action entonces el menu de acciones es visible 
+		$gui/action.text = game.lang["gui"]["item"]["action"]# establecer segun el idioma el nombre de las acciones
+		$gui/char.visible = (mode == "char") # si el modo es char entonces mostrar el menu de personajes
 		
-		if mode == "select":
+		if mode == "select":# si el modo es select
 			
-			if Input.is_action_just_pressed("cancelar"):
-				get_parent().visible = false
-				visible = false
+			if Input.is_action_just_pressed("cancelar"):# al dar la tecla asignada (x)
+				get_parent().visible = false# ocultar el el menu derecho
+				visible = false# ocultar este menu
 				pass
 			
 			
-			if Input.is_action_just_pressed("up"):
-				sel -= 1
-				if sel == -1:
-					sel = len(game.player["inv"])-1
+			if Input.is_action_just_pressed("up"):# al dar la tecla asignada (arriba)
+				sel -= 1# subir el cursor1
+				if sel == -1:# si el cursor1 es igual a -1
+					sel = len(game.player["inv"])-1# asignar el cursor1 al ultimo objeto
 					pass
 				pass
-			if Input.is_action_just_pressed("down"):
-				sel +=1
-				if sel == len(game.player["inv"]):
-					sel = 0
+			if Input.is_action_just_pressed("down"):# al dar la tecla asignada (abajo)
+				sel +=1# bajar el cursor1
+				if sel == len(game.player["inv"]):# si esta sobre el ultimo objeto
+					sel = 0# devolverlo al objeto 0 del inventario
+					
 					pass
 				pass
 			
-			render(int(sel/8)*8, (int(sel/8)+1)*8)
-			$page.text = str(int(sel/8)+1) + "/" + str(int(len(game.player["inv"])/8))
-			$sec.position = get_node("obj" + str(int(sel)%8)).position
-			if Input.is_action_just_pressed("aceptar"):
-				mode = "action"
-				set = 0
-				if str(game.player["inv"][sel]) == "False":
+			render(int(sel/8)*8, (int(sel/8)+1)*8)#renderizar la lista de objetos
+			$page.text = str(int(sel/8)+1) + "/" + str(int(len(game.player["inv"])/8))# cambiar la pagina
+			$sec.position = get_node("obj" + str(int(sel)%8)).position# cambiar la posicion del objeto
+			if Input.is_action_just_pressed("aceptar"):# al dar la tecla asignada (z)
+				mode = "action"# cambiar al modo action
+				set = 0# establecer la poscion 0 del cursor2
+				if str(game.player["inv"][sel]) == "False":# si no hay un objeto
 					# Decir lo que pasa cuando el slot esta vacio
 					Api.get("say").play("", game.lang["gui"]["item"]["vacio"])
-					mode = "select"
+					mode = "select"# devolverlo al modo select
 					pass
 				
 				pass
 			
 			pass
-		elif mode == "action":
+		elif mode == "action":#modo action
 			
 			
-			if Input.is_action_just_pressed("cancelar"):
-				mode = "select"
+			if Input.is_action_just_pressed("cancelar"):# al dar la tecla asignada (x)
+				mode = "select"#devolverlo al modo select
 				pass
 			
-			if Input.is_action_just_pressed("left"):
-				set -= 1
-				if set == -1:
-					set = 2
+			if Input.is_action_just_pressed("left"):# al dar la tecla asignada (izquierda)
+				set -= 1# mover el cursor2 a la izquierda
+				if set == -1:#si cursor2 esta en -1
+					set = 2# moverlo a 2
 					pass
 				pass
-			if Input.is_action_just_pressed("right"):
-				set += 1
-				if set == 3:
-					set = 0
+			if Input.is_action_just_pressed("right"):# al dar la tecla asignada (derecha)
+				set += 1# mover el cursor2 a la derecha
+				if set == 3:# si cirsor2 esta en 3
+					set = 0#moverlo a 0
 					pass
 				pass
 			
 			
 			
-			$gui/sec.position = get_node("gui/a" + str(set)).position
+			$gui/sec.position = get_node("gui/a" + str(set)).position#hacer visible la posicion del cursor2
 			
-			if Input.is_action_just_pressed("aceptar"):
+			if Input.is_action_just_pressed("aceptar"):# al dar la tecla asignada (z)
 			
-				if set == 1:
-					game.player["inv"][sel] = false
-					mode = "select"
+				#si crusor2 esta:
+				
+				if set == 1:#si esta en 1 
+					game.player["inv"][sel] = false #tirara el objeto
+					mode = "select"#volver al modo select
 					pass
-				if set == 0:
-					mode = "char"
-					set = 0
+				if set == 0:#si esta en 0
+					mode = "char"# ir a seleccionar una personaje en char
+					set = 0# establecer el cursor2 en 0
 					pass
-				if set == 2:
+				if set == 2:# si es 2
 					var co = game.player["inv"][sel]
 					
 					# Decir informacion sobre el objeto
@@ -135,7 +133,7 @@ func _process(delta):
 						"'" + co["nick"] + "' " + game.lang["gui"]["item"]["info"][0] +" " + join(co["char"], ", "),
 						game.lang["gui"]["item"]["info"][1]+"\nDef: +" + str(co["def"]) + " Atk: +" + str(co["atk"]) + " Hp: +" + str(co["hp"])
 					])
-					mode = "select"
+					mode = "select"# volver al modo select
 					pass
 				
 				
@@ -145,41 +143,42 @@ func _process(delta):
 			
 			
 			pass
-		elif mode == "char":
+		elif mode == "char":# modo char
 			
 			
-			if Input.is_action_just_pressed("cancelar"):
-				mode = "action"
+			if Input.is_action_just_pressed("cancelar"):# al dar la tecla asignada (x)
+				mode = "action"#volver al modo action
 				pass
 			
-			if Input.is_action_just_pressed("left"):
-				set -= 1
-				if set == -1:
-					set = 2
+			if Input.is_action_just_pressed("left"):# al dar la tecla asignada (izquierda)
+				set -= 1# mover al cursor2 a la izquierda 
+				if set == -1:# si el cusor2 esta en -1
+					set = 2# ponerlo en 2
 					pass
 				pass
-			if Input.is_action_just_pressed("right"):
-				set += 1
-				if set == 3:
-					set = 0
+			if Input.is_action_just_pressed("right"):# al dar la tecla asignada (derecha)
+				set += 1# mover al cursor2 a la derecha
+				if set == 3:# si el cusor2 esta en 3
+					set = 0# ponerlo en 0
 					pass
 				pass
 			
 			
 			
-			$gui/sec.position = get_node("gui/a" + str(set)).position
+			$gui/sec.position = get_node("gui/a" + str(set)).position # hacer visible la posicion del cursor2
 			
-			if Input.is_action_just_pressed("aceptar"):
-				if set == 1:
-					game.use("chara", sel)
+			if Input.is_action_just_pressed("aceptar"):# al dar la tecla asignada (z)
+				#si el cursor uno esta en:
+				if set == 1:# 1
+					game.use("chara", sel)# darle el objeto a chara
 					pass
-				if set == 0:
-					game.use("frisk", sel)
+				if set == 0:# 0
+					game.use("frisk", sel)# darle el objeto a frisk
 					pass
-				if set == 2:
-					game.use("asriel", sel)
+				if set == 2:# 2
+					game.use("asriel", sel)# darle el objeto a asriel
 					pass
-				mode = "select"
+				mode = "select"# volver al modo select
 				pass
 			
 			
@@ -191,8 +190,9 @@ func _process(delta):
 	pass
 
 
-func _on_items_visibility_changed():
-	render(0,8)
-	mode = "select"
+func _on_items_visibility_changed():# si se hace visible
+	render(0,8)#renderizar el inventario
+	mode = "select"# poner el modo select
+	#mostrar la pagina del inventario
 	$page.text = str(int(sel/8)+1) + "/" + str(int(len(game.player["inv"])/8))
-	pass # Replace with function body.
+	pass 

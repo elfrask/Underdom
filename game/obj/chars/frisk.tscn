@@ -22,9 +22,9 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 17 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 16 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ) ],
 "loop": true,
-"name": "izquierda",
+"name": "abajo",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 14 ) ],
@@ -32,14 +32,14 @@ animations = [ {
 "name": "arriba",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 17 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "izquierda",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "derecha",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "abajo",
 "speed": 5.0
 } ]
 
@@ -52,6 +52,9 @@ script = ExtResource( 9 )
 
 [node name="v" type="YSort" parent="."]
 sort_enabled = false
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="visual" type="AnimatedSprite" parent="v"]
 position = Vector2( -10.4298, -27.4004 )
@@ -73,6 +76,9 @@ __meta__ = {
 position = Vector2( 0, -4 )
 enabled = true
 cast_to = Vector2( 0, 15 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="camara" type="Camera2D" parent="."]
 current = true
