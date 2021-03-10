@@ -61,7 +61,7 @@ func moving(dir):#esta funcion se llama cuando se esta moviendo
 
 func _physics_process(delta): #esta funcion se actualiza todo el rato
 	
-	if !$camara/menu.visible and !$camara/dbox.visible:# si el menu y el dialogo no estan visibles
+	if !$camara/menu.visible and !$camara/dbox.visible and !Api.get("trans").is_ani():# si el menu y el dialogo no estan visibles
 		_move(delta)# dejar que el jugador haga los movimientos normales
 		pass
 	elif $camara/menu.visible and !$camara/dbox.visible:# pero si el menu es visible
