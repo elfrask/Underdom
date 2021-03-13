@@ -8,6 +8,8 @@ var mode = "select" #esta en el modo "select"
 var set = 0# establcer cursor2 como 0
 
 func _ready():
+	visible = false
+	get_parent().visible= false
 	pass 
 
 func render(i, f):
@@ -126,8 +128,19 @@ func _process(delta):
 					mode = "select"#volver al modo select
 					pass
 				if set == 0:#si esta en 0
-					mode = "char"# ir a seleccionar una personaje en char
-					set = 0# establecer el cursor2 en 0
+					var win = $"../../../C/win"#obtener la ventana
+					var selector = $"../../../C/win/select"#obtener el modo de seleccion
+					
+					selector.indice = sel#establecer ese indice al selector
+					selector.visible = true#renderizar el selector
+					win.visible= true#y despues la ventana
+					
+					mode = "select"# devolver al modo select
+					$gui/action.visible = false #para evitar retrasos de transicion
+					#se hace ya para evitar que esto se mantenga un frame en pantalla
+					$sec.visible = true
+					$gui/sec.visible = false
+					
 					pass
 				if set == 2:# si es 2
 					var co = game.player["inv"][sel]
@@ -150,40 +163,10 @@ func _process(delta):
 		elif mode == "char":# modo char
 			
 			
-			if Input.is_action_just_pressed("cancelar"):# al dar la tecla asignada (x)
-				mode = "action"#volver al modo action
-				pass
-			
-			if Input.is_action_just_pressed("left"):# al dar la tecla asignada (izquierda)
-				set -= 1# mover al cursor2 a la izquierda 
-				if set == -1:# si el cusor2 esta en -1
-					set = 2# ponerlo en 2
-					pass
-				pass
-			if Input.is_action_just_pressed("right"):# al dar la tecla asignada (derecha)
-				set += 1# mover al cursor2 a la derecha
-				if set == 3:# si el cusor2 esta en 3
-					set = 0# ponerlo en 0
-					pass
-				pass
 			
 			
 			
-			$gui/sec.position = get_node("gui/a" + str(set)).position # hacer visible la posicion del cursor2
 			
-			if Input.is_action_just_pressed("aceptar"):# al dar la tecla asignada (z)
-				#si el cursor uno esta en:
-				if set == 1:# 1
-					game.use("chara", sel)# darle el objeto a chara
-					pass
-				if set == 0:# 0
-					game.use("frisk", sel)# darle el objeto a frisk
-					pass
-				if set == 2:# 2
-					game.use("asriel", sel)# darle el objeto a asriel
-					pass
-				mode = "select"# volver al modo select
-				pass
 			
 			
 			

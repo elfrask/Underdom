@@ -1,13 +1,19 @@
 extends Control
 
-
+var indice =0
 var sec= 0
 var maxsel = 0
 var chars = []
+var protect = true
+
+func _ready():
+	visible = false
+	
+	pass
 
 func _process(delta):
 	
-	if visible:
+	if visible and !Api.get("say").isplay():
 		
 		if Input.is_action_just_pressed("menu"):# al dar a la tecla asignada (c)
 			get_parent().visible = false# cerrar el menu derecho
@@ -30,23 +36,22 @@ func _process(delta):
 				pass
 			pass
 		get_node("sec").position = get_node("char" + str(sec)).position
-		if Input.is_action_just_pressed("aceptar"):# al dar a la tecla asignada (z)
-			var win = $"../../../C/win"#obtener win
-			var info = $"../../../C/win/info"#obtener info de win
-			win.visible = true#hacer win visible
-			
-			info.data = chars[sec]["char"]# darle la data
-			info.nombre = chars[sec]["name"]#darle el nombre de variable del personaje
-			info.visible = true#hacer visible
-			
-			pass
-		
-		
+		if Input.is_action_just_pressed("aceptar"):# al dar la tecla asignada (z)
+				#si el cursor uno esta en:
+				if !protect:
+					game.use(chars[sec]["name"], indice)
+					visible = false
+					get_parent().visible = false
+				else:
+					protect = false
 		pass
-
+	else:
+		protect = true
+		pass
 	pass
 
-func _on_info_visibility_changed():
+func _on_select_visibility_changed():
+	#print("renderiza")
 	var salida = []#generar un recopilador
 	var index = 0#crear una indexacion empezando de 0
 	for i in game.player["char"]:#con el for recopilar los personajes
@@ -69,3 +74,5 @@ func _on_info_visibility_changed():
 	#print(maxsel)
 	
 	pass 
+
+

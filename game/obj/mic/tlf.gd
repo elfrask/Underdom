@@ -3,7 +3,9 @@ extends Control
 
 var sel = 0# establecer el cursor en 0
 
-
+func _ready():
+	visible=false 
+	pass
 
 func _process(delta):
 	if visible and !Api.get("say").isplay(): # si el dialogo no es visible

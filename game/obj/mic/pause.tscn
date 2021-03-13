@@ -143,6 +143,7 @@ __meta__ = {
 }
 
 [node name="back" type="TextureRect" parent="R"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 1 )
@@ -272,6 +273,7 @@ scale = Vector2( 1.96875, 2 )
 texture = ExtResource( 6 )
 
 [node name="items" type="Control" parent="R/back"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 10 )
@@ -657,6 +659,7 @@ Maximo Hp: 20
 Determinacion"
 
 [node name="select" type="Control" parent="C/win"]
+process_priority = 1
 margin_left = 17.0
 margin_top = 17.0
 margin_right = 592.0
@@ -784,3 +787,4 @@ __meta__ = {
 [connection signal="visibility_changed" from="R/back/items" to="R/back/items" method="_on_items_visibility_changed"]
 [connection signal="visibility_changed" from="R/back/tlf" to="R/back/tlf" method="_on_tlf_visibility_changed"]
 [connection signal="visibility_changed" from="C/win/info" to="C/win/info" method="_on_info_visibility_changed"]
+[connection signal="visibility_changed" from="C/win/select" to="C/win/select" method="_on_select_visibility_changed"]

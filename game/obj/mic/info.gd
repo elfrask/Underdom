@@ -4,6 +4,10 @@ var sec= 0
 var maxsel = 0
 var chars = []
 
+func _ready():
+	visible = false
+	pass
+
 func _process(delta):
 	
 	if visible and !Api.get("win").is_visible():
