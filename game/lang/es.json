@@ -24,5 +24,13 @@
 			"action":"    Usar       Tirar      Info",
 			"nouse":"no puede usar un"
 		}
+	},
+	"soul":{
+		"red":"Determinacion",
+		"plata":"Voluntad",
+		"rose":"Inocencia",
+		"white":"Monstruo",
+		"redblack":"Lujuria",
+		"gray":"Involuntad"
 	}
 }

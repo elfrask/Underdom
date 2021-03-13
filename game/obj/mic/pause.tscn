@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://assets/sprites/gui/perfil/menu.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/gui/box_sq_space.png" type="Texture" id=1]
 [ext_resource path="res://mic/fonts/Tfont.tscn" type="PackedScene" id=2]
 [ext_resource path="res://obj/mic/pause.gd" type="Script" id=3]
-[ext_resource path="res://assets/sprites/gui/perfil/back.png" type="Texture" id=4]
 [ext_resource path="res://obj/mic/info.gd" type="Script" id=5]
 [ext_resource path="res://assets/sprites/mic/souls/determinacion_toon.png" type="Texture" id=6]
 [ext_resource path="res://assets/sprites/characters/frisk/frame0.png" type="Texture" id=7]
@@ -11,6 +10,8 @@
 [ext_resource path="res://assets/sprites/characters/asriel/frame0.png" type="Texture" id=9]
 [ext_resource path="res://obj/mic/items.gd" type="Script" id=10]
 [ext_resource path="res://obj/mic/tlf.gd" type="Script" id=11]
+[ext_resource path="res://assets/sprites/gui/box_sq.png" type="Texture" id=12]
+[ext_resource path="res://obj/mic/win.gd" type="Script" id=13]
 
 [node name="pause" type="Control"]
 anchor_right = 1.0
@@ -145,7 +146,7 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 4 )
+texture = ExtResource( 1 )
 expand = true
 __meta__ = {
 "_edit_lock_": true
@@ -178,6 +179,9 @@ PE: 0"
 position = Vector2( 53.4735, -72.1138 )
 scale = Vector2( 3.22233, 2.7142 )
 texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="chara" parent="R/back/info" instance=ExtResource( 2 )]
 margin_left = 256.0
@@ -197,6 +201,9 @@ PE: 2
 position = Vector2( 46.4721, -71.3564 )
 scale = Vector2( 3.15499, 2.7142 )
 texture = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="asriel" parent="R/back/info" instance=ExtResource( 2 )]
 margin_left = 430.0
@@ -215,11 +222,75 @@ PE: 1"
 position = Vector2( 44.0061, -71.0288 )
 scale = Vector2( 2.83016, 2.83016 )
 texture = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="sec" type="Sprite" parent="R/back/info"]
 position = Vector2( 567.344, 90.1985 )
 scale = Vector2( 1.96875, 2 )
 texture = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="lista" type="VBoxContainer" parent="R/back/info"]
+visible = false
+margin_left = 144.0
+margin_top = 85.0
+margin_right = 585.0
+margin_bottom = 517.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="t0" parent="R/back/info/lista" instance=ExtResource( 2 )]
+margin_right = 441.0
+margin_bottom = 39.0
+text = "-Madre"
+
+[node name="t1" parent="R/back/info/lista" instance=ExtResource( 2 )]
+margin_top = 43.0
+margin_right = 441.0
+margin_bottom = 82.0
+text = "-Sans"
+
+[node name="t2" parent="R/back/info/lista" instance=ExtResource( 2 )]
+margin_top = 86.0
+margin_right = 441.0
+margin_bottom = 125.0
+text = "-Papyrus"
+
+[node name="t3" parent="R/back/info/lista" instance=ExtResource( 2 )]
+margin_top = 129.0
+margin_right = 441.0
+margin_bottom = 168.0
+text = "-Undyne"
+
+[node name="t4" parent="R/back/info/lista" instance=ExtResource( 2 )]
+margin_top = 172.0
+margin_right = 441.0
+margin_bottom = 211.0
+text = "-Alphys"
+
+[node name="t5" parent="R/back/info/lista" instance=ExtResource( 2 )]
+margin_top = 215.0
+margin_right = 441.0
+margin_bottom = 254.0
+text = "-Muffet"
+
+[node name="t6" parent="R/back/info/lista" instance=ExtResource( 2 )]
+margin_top = 258.0
+margin_right = 441.0
+margin_bottom = 297.0
+text = "-Mettaton"
+
+[node name="t7" parent="R/back/info/lista" instance=ExtResource( 2 )]
+margin_top = 301.0
+margin_right = 441.0
+margin_bottom = 340.0
+text = "-Asgore"
 
 [node name="items" type="Control" parent="R/back"]
 visible = false
@@ -517,6 +588,93 @@ __meta__ = {
 position = Vector2( 567.344, 90.1985 )
 scale = Vector2( 1.96875, 2 )
 texture = ExtResource( 6 )
+
+[node name="C" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="win" type="TextureRect" parent="C"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -304.0
+margin_top = -276.0
+margin_right = 304.0
+margin_bottom = 276.0
+texture = ExtResource( 12 )
+expand = true
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="info" type="Control" parent="C/win"]
+margin_left = 17.0
+margin_top = 17.0
+margin_right = 592.0
+margin_bottom = 537.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="foto" type="TextureRect" parent="C/win/info"]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 207.0
+margin_bottom = 216.0
+texture = ExtResource( 12 )
+expand = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="t" type="TextureRect" parent="C/win/info/foto"]
+margin_right = 64.0
+margin_bottom = 67.0
+rect_scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+stretch_mode = 4
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="basic" parent="C/win/info" instance=ExtResource( 2 )]
+margin_left = 15.0
+margin_top = 231.0
+margin_right = 205.0
+margin_bottom = 511.0
+text = "Frisk
+lv 1/100
+Def: 2
+Atk: 2
+Hp: 20
+PE: 0
+"
+
+[node name="more" parent="C/win/info" instance=ExtResource( 2 )]
+margin_left = 223.0
+margin_top = 20.0
+margin_right = 543.0
+margin_bottom = 494.0
+text = "Level UP: 10
+
+Fuerza: 2
+Arma: 2
+
+Resistencia: 3
+Escudo: 3
+
+Maximo Hp: 20
+
+Determinacion"
 [connection signal="visibility_changed" from="." to="." method="_on_pause_visibility_changed"]
 [connection signal="visibility_changed" from="R/back/info" to="R/back/info" method="_on_info_visibility_changed"]
 [connection signal="visibility_changed" from="R/back/items" to="R/back/items" method="_on_items_visibility_changed"]

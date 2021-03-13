@@ -13,81 +13,83 @@ var datagame = {
 }
 var lang = {}#el idioma
 #la partida
-var player = {
-	"coin":0,
-	"tlf":0,
-	"fun":0,
-	"x":0,
-	"y":0,
-	"lang":"es",
-	"room":"main",
-	"name":false,
-	"pro":0.0,
-	"char":{
-		"frisk":{
-			"lv":1,
-			"atk":1,
-			"def":2,
-			"lvup":10,
-			"pe":0,
-			"max":20,
-			"armor":{},
-			"hit":{},
+
+#con esta funcion generamos el personaje 
+#(nombre, ataque, defensa, subir de nivel, maximo hp, mostrar, alma)
+
+
+func gen_char(name:String = "frisk", atk:int = 1, def:int = 1, lvup:int = 10, maxi:int = 20, show:bool = true, soul:String = "soul"):
+	return({
+		"name":name,
+		"lv":1,
+		"atk":atk,
+		"def":def,
+		"lvup":lvup,
+		"pe":0,
+		"max":maxi,
+		"armor":{},
+		"hit":{},
+		"show":show,
+		"soul":soul
+	})
+	pass
+var player
+func ini():
+	player = {
+		"coin":0,
+		"tlf":0,
+		"fun":0,
+		"x":0,
+		"y":0,
+		"lang":"es",
+		"room":"main",
+		"name":false,
+		"pro":0.0,
+		"char":{
+			"frisk": gen_char("Frisk", 2, 3, 10, 20, true, "red"),
+			"chara": gen_char("Chara", 4, 3, 20, 25, false, "red"),
+			"asriel": gen_char("Asriel", 2, 5, 20, 15, false, "white"),
+			"liz": gen_char("Liz", 2, 4, 10, 15, false, "rose"),
+			"samuel": gen_char("Samuel", 3, 2, 10, 30, false, "plata"),
+			"kris": gen_char("Kris", 2, 2, 20, 25, false, "red"),
+			"susie": gen_char("Susie", 5, 3, 25, 35, false, "white"),
+			"ralsei": gen_char("Ralsei", 2, 2, 15, 15, false, "white"),
+			
 		},
-		"chara":{
-			"lv":1,
-			"atk":2,
-			"def":1,
-			"lvup":20,
-			"pe":0,
-			"max":25,
-			"armor":{},
-			"hit":{},
-		},
-		"asriel":{
-			"lv":1,
-			"atk":1,
-			"def":5,
-			"lvup":20,
-			"pe":0,
-			"max":15,
-			"armor":{},
-			"hit":{},
-		},
-	},
-	"time":int(0),
-	"inv":[
-		false,
-		false,
-		false,
-		gen_obj("cuchillo", "atk", had(0, 10, 0), [frisk, chara, asriel]),
-		gen_obj("cuchillo", "atk", had(0, 10, 0), [frisk, chara, asriel]),
-		gen_obj("cuchillo", "atk", had(0, 10, 0), [frisk, chara, asriel]),
-		gen_obj("cuchillo Frisk", "atk", had(0, 5, 0), [frisk]),
-		gen_obj("cuchillo Chara", "atk", had(0, 100, 0), [chara]),
-		
-		false,
-		false,
-		false,
-		false,
-		false,
-		false,
-		false,
-		false,
-		
-		false,
-		false,
-		false,
-		false,
-		false,
-		false,
-		false,
-		false,
-	],
-	"story":{
-		
+		"time":int(0),
+		"inv":[
+			false,
+			false,
+			false,
+			gen_obj("cuchillo", "atk", had(0, 10, 0), [frisk, chara, asriel]),
+			gen_obj("cuchillo", "atk", had(0, 10, 0), [frisk, chara, asriel]),
+			gen_obj("cuchillo", "atk", had(0, 10, 0), [frisk, chara, asriel]),
+			gen_obj("cuchillo Frisk", "atk", had(0, 5, 0), [frisk]),
+			gen_obj("cuchillo Chara", "atk", had(0, 100, 0), [chara]),
+			
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+		],
+		"story":{
+			
+		}
 	}
-}
+	pass
 #		gen_obj("Escudo de piedra", "def", data(0,0,100), ["frisk", "chara", "asriel"]),
 
 func had(hp=0, atk=0, def=0):# hp atk def siglas had. genera los valores basicos de los objetos
@@ -219,6 +221,7 @@ func savegame():#guardar el juego
 
 
 func _ready(): # al iniciar
+	ini()
 	loadgame()
 	regen()
 	
