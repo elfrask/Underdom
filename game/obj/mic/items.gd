@@ -40,7 +40,11 @@ func join(arr, ch):
 	
 func _process(delta):
 	
-	if visible and !Api.get("say").isplay(): # si el dialogo esta oculto
+	if (visible and 
+		!Api.get("say").isplay() and 
+		!Api.get("win").is_visible()): # si el dialogo esta oculto
+		
+		
 		if Input.is_action_just_pressed("menu"):# al dar la tecla asignada (c)
 			get_parent().visible = false# ocultar el menu derecho
 			visible = false#ocultar este menu

@@ -1,12 +1,13 @@
 extends Control
 
+
 var sec= 0
 var maxsel = 0
 var chars = []
 
 func _process(delta):
 	
-	if visible and !Api.get("win").is_visible():
+	if visible:
 		
 		if Input.is_action_just_pressed("menu"):# al dar a la tecla asignada (c)
 			get_parent().visible = false# cerrar el menu derecho

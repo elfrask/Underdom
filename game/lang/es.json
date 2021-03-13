@@ -23,6 +23,14 @@
 			],
 			"action":"    Usar       Tirar      Info",
 			"nouse":"no puede usar un"
+		},
+		"info":{
+			"lv":"Subir nivel: ",
+			"force":"Fuerza: ",
+			"weapon":"Arma: ",
+			"resist":"Resistencia: ",
+			"shield":"Escudo: ",
+			"max":"Maximo de Hp: "
 		}
 	},
 	"soul":{

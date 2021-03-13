@@ -34,6 +34,15 @@ func gen_char(name:String = "frisk", atk:int = 1, def:int = 1, lvup:int = 10, ma
 	})
 	pass
 var player
+
+var foto = {
+	"frisk":preload("res://assets/sprites/characters/frisk/frame0.png"),
+	"chara":preload("res://assets/sprites/characters/chara/frame0.png"),
+	"asriel":preload("res://assets/sprites/characters/asriel/frame0.png"),
+}
+
+
+
 func ini():
 	player = {
 		"coin":0,
@@ -47,8 +56,8 @@ func ini():
 		"pro":0.0,
 		"char":{
 			"frisk": gen_char("Frisk", 2, 3, 10, 20, true, "red"),
-			"chara": gen_char("Chara", 4, 3, 20, 25, false, "red"),
-			"asriel": gen_char("Asriel", 2, 5, 20, 15, false, "white"),
+			"chara": gen_char("Chara", 4, 3, 20, 25, true, "red"),
+			"asriel": gen_char("Asriel", 2, 5, 20, 15, true, "white"),
 			"liz": gen_char("Liz", 2, 4, 10, 15, false, "rose"),
 			"samuel": gen_char("Samuel", 3, 2, 10, 30, false, "plata"),
 			"kris": gen_char("Kris", 2, 2, 20, 25, false, "red"),

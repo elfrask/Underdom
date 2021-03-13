@@ -24,6 +24,7 @@ config/icon="res://icon.png"
 game="*res://script/mic/game.gd"
 Api="*res://script/mic/apigame.gd"
 Gstore="*res://Gstore_api/Gstore.gd"
+Lib="*res://script/mic/lib.gd"
 
 [gdnative]
 

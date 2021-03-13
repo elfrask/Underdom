@@ -16,11 +16,13 @@ func _process(delta):
 			visible = false#cerrar este menu
 			pass
 		if Input.is_action_just_pressed("up"):# al dar a la tecla asignada (arriba)
+			sel -=1
 			if sel == -1:# si el cursor esta en -1
 				sel = game.player["tlf"] # moverlo al ultimo disponible
 				pass
 			pass
 		if Input.is_action_just_pressed("down"):# al dar a la tecla asignada (abajo)
+			sel +=1
 			if sel == game.player["tlf"]+1:#si el cursor esta en el ultimo disponeble
 				sel = 0# establecerlo en 0
 				pass
