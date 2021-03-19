@@ -8,6 +8,7 @@ var ismove = false# si se esta moviendo = falso
 var ray_distant =15#distancia del rayo en busca de un objeto
 
 func _ready():# esta funcion se ejecuta al inicio
+	print("crear personaje")
 	var vis = $v/visual#captura el sprite
 	y_l = vis.position.y# asignar el valor de este
 	pass # Replace with function body.

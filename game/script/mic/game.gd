@@ -63,7 +63,6 @@ func ini():
 			"kris": gen_char("Kris", 2, 2, 20, 25, false, "red"),
 			"susie": gen_char("Susie", 5, 3, 25, 35, false, "white"),
 			"ralsei": gen_char("Ralsei", 2, 2, 15, 15, false, "white"),
-			
 		},
 		"time":int(0),
 		"inv":[
@@ -95,7 +94,12 @@ func ini():
 			false,
 		],
 		"story":{
-			
+			"room":{
+				"x":0,
+				"y":0,
+				"room":"res://scene/start.tscn",
+				"point":"init"
+			}
 		}
 	}
 	pass
@@ -230,6 +234,7 @@ func savegame():#guardar el juego
 
 
 func _ready(): # al iniciar
+	print("inicio el juego")
 	ini()
 	loadgame()
 	regen()

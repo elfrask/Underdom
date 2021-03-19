@@ -1,16 +1,18 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/sprites/scene/completa/main.png" type="Texture" id=1]
-[ext_resource path="res://obj/chars/frisk.tscn" type="PackedScene" id=2]
+[ext_resource path="res://obj/chars/frisk.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sprites/scene/completa/main.png" type="Texture" id=2]
 
-[node name="TestRoom" type="Node2D"]
+[node name="Start" type="Node2D"]
 
 [node name="back" type="StaticBody2D" parent="."]
+position = Vector2( -8, 1000 )
+scale = Vector2( 1, -1 )
 
 [node name="back" type="Sprite" parent="back"]
 position = Vector2( 373.113, 332.501 )
 scale = Vector2( 0.93636, 0.93636 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="back"]
 polygon = PoolVector2Array( 352, 168, 352, 320, 288, 320, 288, 376, 248, 376, 248, 472, 248, 536, 264, 536, 264, 552, 280, 552, 280, 576, 304, 576, 304, 592, 432, 592, 432, 576, 456, 576, 456, 552, 488, 552, 488, 376, 448, 376, 448, 320, 392, 320, 392, 168, 368, 168, 368, 128, 557.859, 186.951, 547.96, 611.536, 135.009, 612.243, 136, 128, 368, 128, 368, 168 )
@@ -19,5 +21,5 @@ polygon = PoolVector2Array( 352, 168, 352, 320, 288, 320, 288, 376, 248, 376, 24
 
 [node name="YSort2" type="YSort" parent="scena"]
 
-[node name="frisk" parent="scena/YSort2" instance=ExtResource( 2 )]
-position = Vector2( 369.11, 502.046 )
+[node name="frisk" parent="scena/YSort2" instance=ExtResource( 1 )]
+position = Vector2( 360, 498.246 )

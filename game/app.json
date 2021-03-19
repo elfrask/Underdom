@@ -2,5 +2,5 @@
     "name":"frask.fangame.underdom",
     "ver":"0.1a",
     "key":"F24A-0C2E-BBC2-972D",
-    "play":"res://scene/TestRoom.tscn"
+    "play":"res://scene/start.tscn"
 }
