@@ -95,10 +95,10 @@ func ini():
 		],
 		"story":{
 			"room":{
-				"x":0,
-				"y":0,
-				"room":"res://scene/start.tscn",
-				"point":"init"
+				
+			},
+			"location":{
+				"room":"main"
 			}
 		}
 	}

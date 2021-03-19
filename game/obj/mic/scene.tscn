@@ -2,5 +2,6 @@
 
 [ext_resource path="res://obj/mic/move_scene.gd" type="Script" id=1]
 
-[node name="move_scene" type="Node2D"]
+[node name="scene" type="Node2D"]
+process_priority = 10
 script = ExtResource( 1 )

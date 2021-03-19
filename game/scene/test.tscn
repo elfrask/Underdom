@@ -1,25 +1,37 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://obj/chars/frisk.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/scene/completa/main.png" type="Texture" id=2]
+[ext_resource path="res://obj/mic/scene.tscn" type="PackedScene" id=3]
+[ext_resource path="res://obj/scene/general/Portal.tscn" type="PackedScene" id=4]
 
-[node name="Start" type="Node2D"]
+[node name="root" type="Node2D"]
 
-[node name="back" type="StaticBody2D" parent="."]
+[node name="scene" parent="." instance=ExtResource( 3 )]
+nombre = "test"
+player = NodePath("scena/YSort2/frisk")
+
+[node name="back" type="StaticBody2D" parent="scene"]
 position = Vector2( -8, 1000 )
 scale = Vector2( 1, -1 )
 
-[node name="back" type="Sprite" parent="back"]
+[node name="back" type="Sprite" parent="scene/back"]
 position = Vector2( 373.113, 332.501 )
 scale = Vector2( 0.93636, 0.93636 )
 texture = ExtResource( 2 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="back"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="scene/back"]
 polygon = PoolVector2Array( 352, 168, 352, 320, 288, 320, 288, 376, 248, 376, 248, 472, 248, 536, 264, 536, 264, 552, 280, 552, 280, 576, 304, 576, 304, 592, 432, 592, 432, 576, 456, 576, 456, 552, 488, 552, 488, 376, 448, 376, 448, 320, 392, 320, 392, 168, 368, 168, 368, 128, 557.859, 186.951, 547.96, 611.536, 135.009, 612.243, 136, 128, 368, 128, 368, 168 )
 
-[node name="scena" type="Node2D" parent="."]
+[node name="scena" type="Node2D" parent="scene"]
 
-[node name="YSort2" type="YSort" parent="scena"]
+[node name="YSort2" type="YSort" parent="scene/scena"]
 
-[node name="frisk" parent="scena/YSort2" instance=ExtResource( 1 )]
-position = Vector2( 360, 498.246 )
+[node name="frisk" parent="scene/scena/YSort2" instance=ExtResource( 1 )]
+position = Vector2( 360.707, 800.668 )
+see = 0
+
+[node name="Portal" parent="scene/scena" instance=ExtResource( 4 )]
+position = Vector2( 360.354, 821.907 )
+scale = Vector2( 4.30314, 1.64 )
+to_scene = "res://scene/start.tscn"

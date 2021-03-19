@@ -3,17 +3,22 @@ extends KinematicBody2D
 
 export (int) var vel = 100 #exportar la velocidad para su modificacion simple
 
-var y_l = 0#establecer "Y" de el sprite para simular movimiento al caminar
-var ismove = false# si se esta moviendo = falso
-var ray_distant =15#distancia del rayo en busca de un objeto
+var y_l = 0 #establecer "Y" de el sprite para simular movimiento al caminar
+var ismove = false #si se esta moviendo = falso
+var ray_distant =15 #distancia del rayo en busca de un objeto
+export (int) var see= 2 #0 arriba, 1 derecha, 2 abajo, 3 izquierda
+var array_see = ["arriba", "derecha", "abajo", "izquierda"] #arreglo de posiciones
+func _ready(): #esta funcion se ejecuta al inicio
+	#print("crear personaje")
+	var vis = $v/visual #captura el sprite
+	y_l = vis.position.y #asignar el valor de este
+	vis.play(array_see[see])
+	vis.stop()
+	vis.frame = 0
+	$camara/transition.white()
+	pass 
 
-func _ready():# esta funcion se ejecuta al inicio
-	print("crear personaje")
-	var vis = $v/visual#captura el sprite
-	y_l = vis.position.y# asignar el valor de este
-	pass # Replace with function body.
-
-func vs(ani):#vs visual start, iniciar la animacion pasada por el argumento ani
+func vs(ani): #vs visual start, iniciar la animacion pasada por el argumento ani
 	var vis = $v/visual#capturar el sprite
 	
 	if true:
@@ -22,7 +27,7 @@ func vs(ani):#vs visual start, iniciar la animacion pasada por el argumento ani
 	
 	pass
 
-func moving(dir):#esta funcion se llama cuando se esta moviendo
+func moving(dir): #esta funcion se llama cuando se esta moviendo
 	var vis = $v/visual
 	
 	if dir.x == 0 and dir.y == 0:# si no se esta moviendo
@@ -35,10 +40,12 @@ func moving(dir):#esta funcion se llama cuando se esta moviendo
 		
 		if dir.y > 0: #si Y es mayor a 0
 			vs("abajo")#asignamos la animacion de bajar
+			see = 2
 			$cast.cast_to = Vector2(0, 1*ray_distant)#cambiar la direccion del rayo a vertical
 			pass
 			
 		elif dir.y < 0:#si es menor a 0, lo mismo que el de arriba pero el rayo al otro lado
+			see = 0
 			vs("arriba")
 			$cast.cast_to = Vector2(0, -1*ray_distant)
 			pass
@@ -49,11 +56,15 @@ func moving(dir):#esta funcion se llama cuando se esta moviendo
 			
 			$cast.cast_to = Vector2(1*ray_distant, 0)# asignar una orientacion horizontal al rayo
 			vs("derecha") # asginar una animacion a la derecha
+			see = 1
+			
 			pass
 		elif dir.x < 0:# si es menor a 0, lo mismo de arriba pero al revez
 			
 			$cast.cast_to = Vector2(-1*ray_distant, 0)
 			vs("izquierda")
+			see = 3
+			
 			pass
 		pass	
 	
@@ -62,19 +73,24 @@ func moving(dir):#esta funcion se llama cuando se esta moviendo
 
 func _physics_process(delta): #esta funcion se actualiza todo el rato
 	
-	if !$camara/menu.visible and !$camara/dbox.visible and !Api.get("trans").is_ani():# si el menu y el dialogo no estan visibles
+	if !$camara/menu.visible and !$camara/dbox.visible and !Api.get("trans").get_see():# si el menu y el dialogo no estan visibles
 		_move(delta)# dejar que el jugador haga los movimientos normales
 		pass
 	elif $camara/menu.visible and !$camara/dbox.visible:# pero si el menu es visible
+		
 		if Input.is_action_just_pressed("menu"): #al precionar la tecla asignada (c) 
 			$camara/menu.visible = false #se cerrara el menu
 			pass
+		pass
+	else:
+		$v/visual.stop()
+		$v/visual.frame= 0
 		pass
 	
 	
 	pass
 
-func _move(delta):#esta funcion se encarga de dar la meccanica RPG
+func _move(delta): #esta funcion se encarga de dar la meccanica RPG
 	
 	var vis = $v/visual#capturar el sprite
 	
@@ -114,7 +130,7 @@ func _move(delta):#esta funcion se encarga de dar la meccanica RPG
 	
 	pass
 
-func _on_Timer_timeout():# cada segundo
+func _on_Timer_timeout(): #cada segundo
 	if !$camara/menu.visible: # si el menu no esta abierto
 		game.player["time"] +=1 # sumarle un segundo al tiempo de la partida
 		pass

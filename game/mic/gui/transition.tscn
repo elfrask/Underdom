@@ -1,49 +1,37 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://mic/gui/transition.gd" type="Script" id=1]
+
+[sub_resource type="Animation" id=3]
+resource_name = "black"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("a/c:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "dif"
 length = 0.8
+
+[sub_resource type="Animation" id=2]
+resource_name = "ready"
+length = 0.5
 tracks/0/type = "bezier"
-tracks/0/path = NodePath("c:color:r")
+tracks/0/path = NodePath("a/c:color:a")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = false
+tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray(  ),
-"times": PoolRealArray(  )
-}
-tracks/1/type = "bezier"
-tracks/1/path = NodePath("c:color:g")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/keys = {
-"points": PoolRealArray(  ),
-"times": PoolRealArray(  )
-}
-tracks/2/type = "bezier"
-tracks/2/path = NodePath("c:color:b")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = false
-tracks/2/keys = {
-"points": PoolRealArray(  ),
-"times": PoolRealArray(  )
-}
-tracks/3/type = "bezier"
-tracks/3/path = NodePath("c:color:a")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.3, 0.5, 0.8 )
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
 }
 
 [node name="transition" type="Control"]
@@ -54,13 +42,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="c" type="ColorRect" parent="."]
+[node name="ani" type="AnimationPlayer" parent="."]
+anims/black = SubResource( 3 )
+anims/dif = SubResource( 1 )
+anims/ready = SubResource( 2 )
+
+[node name="a" type="CanvasLayer" parent="."]
+
+[node name="c" type="ColorRect" parent="a"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0 )
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="ani" type="AnimationPlayer" parent="."]
-anims/dif = SubResource( 1 )
