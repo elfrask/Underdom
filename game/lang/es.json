@@ -40,5 +40,22 @@
 		"white":"Monstruo",
 		"redblack":"Lujuria",
 		"gray":"Involuntad"
+	},
+	"dialogos":{
+		"none":["..."],
+		"chara":[
+			["mmm... hola Frisk", "Chara"],
+			["Que quieres?", "Chara"],
+			["porque me vez asi acaso tengo monos en la cara? -_-", "Chara"],
+			["=) acaso quieres que te corte las piernas?", "Chara"],
+			["pss como sea => vete de aqui jirafa", "Chara"]
+		],
+		"asriel":[
+			["hey! Hola Frisk que tal :3? como te va hoy tu día??.", "Asriel"],
+			["espero que bien como puedes saber esta solo es la segunda demo PreAlfa de UD.", "Asriel"],
+			["si lo se esta algo vacia ^^' pero asi es como se empieza no?.", "Asriel"],
+			["bueno jeje espero que Frask le de mas vida ha este mundo ^^.", "Asriel"],
+			["bueno es todo ^^ ya puedes salir de la demo.", "Asriel"]
+		]
 	}
 }
