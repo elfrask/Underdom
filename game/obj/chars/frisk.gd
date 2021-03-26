@@ -112,7 +112,7 @@ func _move(delta): #esta funcion se encarga de dar la meccanica RPG
 			var obj = $cast.get_collider() #obtener el objeto
 			if obj.is_in_group("say"): #verificar si pertenece al grupo de "say"
 				var data = obj.say() #obtener lo que quiere decir
-				Api.get("say").play(data[0], data[1]) #evia a la api del dialogo data 0 el nombre y en 1 los dialogos
+				Api.get("say").play(data[0], data[1], data[2], data[3]) #evia a la api del dialogo data 0 el nombre y en 1 los dialogos
 				pass
 			pass
 		pass

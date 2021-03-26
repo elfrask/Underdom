@@ -4,9 +4,11 @@
 [ext_resource path="res://obj/chars/static_char.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 6.5625, 1.9375 )
+extents = Vector2( 6.5625, 5.31916 )
 
-[node name="static_char" type="KinematicBody2D"]
+[node name="static_char" type="KinematicBody2D" groups=[
+"say",
+]]
 script = ExtResource( 2 )
 
 [node name="vs" type="Sprite" parent="."]
@@ -18,4 +20,5 @@ __meta__ = {
 }
 
 [node name="coll" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -1 )
 shape = SubResource( 1 )

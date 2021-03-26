@@ -1,5 +1,20 @@
 extends Node
 
+#usar este valot unicamente cuando estes seguro que estas pasando una funcion
+class Funcion:
+	var call
+	func _init(s):
+		call = s
+		pass
+	
+	pass
+func isnull(o):
+	
+	return str(o)!="[Object:null]"
+func funci(f): 
+	
+	return Funcion.new(f)
+
 func re_list():
 	var salida = []#generar un recopilador
 	var index = 0#crear una indexacion empezando de 0

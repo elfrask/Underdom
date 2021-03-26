@@ -43,19 +43,27 @@
 	},
 	"dialogos":{
 		"none":["..."],
-		"chara":[
-			["mmm... hola Frisk", "Chara"],
-			["Que quieres?", "Chara"],
-			["porque me vez asi acaso tengo monos en la cara? -_-", "Chara"],
-			["=) acaso quieres que te corte las piernas?", "Chara"],
-			["pss como sea => vete de aqui jirafa", "Chara"]
-		],
-		"asriel":[
-			["hey! Hola Frisk que tal :3? como te va hoy tu día??.", "Asriel"],
-			["espero que bien como puedes saber esta solo es la segunda demo PreAlfa de UD.", "Asriel"],
-			["si lo se esta algo vacia ^^' pero asi es como se empieza no?.", "Asriel"],
-			["bueno jeje espero que Frask le de mas vida ha este mundo ^^.", "Asriel"],
-			["bueno es todo ^^ ya puedes salir de la demo.", "Asriel"]
-		]
+		"chara":{
+			"name":"Chara",
+			"say":[
+				"mmm... hola Frisk",
+				"Que quieres?",
+				"porque me vez asi acaso tengo monos en la cara? -_-",
+				"=) acaso quieres que te corte las piernas?",
+				"pss como sea => vete de aqui jirafa"
+				]
+			},
+		"asriel":{
+			"name":"Asriel",
+			"say":[
+					"hey! Hola Frisk que tal :3? como te va hoy tu día??.", 
+					"espero que bien como puedes saber esta solo es la segunda demo PreAlfa de UD.", 
+					"si lo se esta algo vacia ^^' pero asi es como se empieza no?.", 
+					"bueno jeje espero que Frask le de mas vida ha este mundo ^^.", 
+					"bueno es todo ^^ ya no hay mas nada en esta demo.",
+					"se mejoro el sistema de dialogo que ejecuta acciones al final de cada dialogo",
+					"como este..."
+			]
+		}
 	}
 }

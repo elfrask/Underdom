@@ -11,6 +11,8 @@ var N = "\n"
 var dii = []
 var sel = 0
 var nombre = ""
+var final = []
+var cara = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -21,7 +23,9 @@ func _ready():
 
 
 func printf(text = ""):
+# warning-ignore:unused_variable
 	var i = 0
+# warning-ignore:unused_variable
 	var salida = ""
 	$u/text.text = ""
 	
@@ -29,7 +33,8 @@ func printf(text = ""):
 	texto = text
 	
 	pass
-func play(nom, dialogos = []):
+
+func play(nom, dialogos = [], on_finish=[], face=false):
 	dii = dialogos
 	texto = ""
 	lon = 0
@@ -37,11 +42,14 @@ func play(nom, dialogos = []):
 	$u/text.text = ""
 	visible = true
 	nombre = nom
+	final = on_finish
+	cara = face 
 	pass
 func isplay():
 	
 	return visible
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+# warning-ignore:unused_argument
 func _process(delta):
 	
 	if visible:
@@ -55,6 +63,11 @@ func _process(delta):
 		if Input.is_action_just_pressed("aceptar"):
 			if len($u/text.text) >= len(texto):
 				if sel == len(dii)-1:
+					for functiones in (final):
+						functiones._dialog_finish()
+						#Lib.funci(functiones).call()
+						
+						pass
 					visible = false
 					pass
 				else:

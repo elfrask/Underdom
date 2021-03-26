@@ -1,32 +1,71 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://obj/chars/frisk.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/scene/completa/main.png" type="Texture" id=2]
 [ext_resource path="res://obj/mic/scene.tscn" type="PackedScene" id=3]
 [ext_resource path="res://obj/scene/general/Portal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://obj/chars/static_char.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/sprites/characters/chara/frame0.png" type="Texture" id=6]
+[ext_resource path="res://obj/mic/Script.tscn" type="PackedScene" id=7]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node
+
+
+func _dialog_finish():
+	print(\"terminado\")
+	pass
+"
 
 [node name="Start" type="Node2D"]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="scene" parent="." instance=ExtResource( 3 )]
 nombre = "inicio"
 player = NodePath("scena/YSort2/frisk")
 
 [node name="back" type="StaticBody2D" parent="scene"]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="back" type="Sprite" parent="scene/back"]
 position = Vector2( 373.113, 332.501 )
 scale = Vector2( 0.93636, 0.93636 )
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="scene/back"]
 polygon = PoolVector2Array( 352, 168, 352, 320, 288, 320, 288, 376, 248, 376, 248, 472, 248, 536, 264, 536, 264, 552, 280, 552, 280, 576, 304, 576, 304, 592, 432, 592, 432, 576, 456, 576, 456, 552, 488, 552, 488, 376, 448, 376, 448, 320, 392, 320, 392, 168, 368, 168, 368, 128, 557.859, 186.951, 547.96, 611.536, 135.009, 612.243, 136, 128, 368, 128, 368, 168 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="scena" type="Node2D" parent="scene"]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="YSort2" type="YSort" parent="scene/scena"]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="frisk" parent="scene/scena/YSort2" instance=ExtResource( 1 )]
 position = Vector2( 369.11, 502.046 )
+
+[node name="chara" parent="scene/scena/YSort2" instance=ExtResource( 5 )]
+position = Vector2( 368, 376 )
+texture = ExtResource( 6 )
+dialog_static = "chara/say"
+nombre = "chara"
+
+[node name="eventos" parent="scene/scena/YSort2/chara" instance=ExtResource( 7 )]
+script = SubResource( 1 )
 
 [node name="Portal" parent="scene/scena" instance=ExtResource( 4 )]
 position = Vector2( 370.347, 182.232 )

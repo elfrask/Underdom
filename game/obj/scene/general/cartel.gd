@@ -1,20 +1,18 @@
 extends StaticBody2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 export (String) var nombre = ""
 export (Array) var di = []
-
-# Called when the node enters the scene tree for the first time.
+var event
 func _ready():
-	pass # Replace with function body.
-
+	event =get_node_or_null("event")
+	pass
 func say():
 	
-	return [nombre, di]
+	var out = []
+	if str(event)!="[Object:null]": out.append(event)
+	
+	return [nombre, di, out, false]
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
