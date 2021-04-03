@@ -8,6 +8,7 @@ var ismove = false #si se esta moviendo = falso
 var ray_distant =15 #distancia del rayo en busca de un objeto
 export (int) var see= 2 #0 arriba, 1 derecha, 2 abajo, 3 izquierda
 var array_see = ["arriba", "derecha", "abajo", "izquierda"] #arreglo de posiciones
+var on_wall = false # e el muro?
 func _ready(): #esta funcion se ejecuta al inicio
 	#print("crear personaje")
 	var vis = $v/visual #captura el sprite
@@ -30,44 +31,52 @@ func vs(ani): #vs visual start, iniciar la animacion pasada por el argumento ani
 func moving(dir): #esta funcion se llama cuando se esta moviendo
 	var vis = $v/visual
 	
-	if dir.x == 0 and dir.y == 0:# si no se esta moviendo
+	if !on_wall:
+		
+		if dir.x == 0 and dir.y == 0:# si no se esta moviendo
+			vis.stop() #detener la animacion
+			vis.frame = 0 #asignar el fotograma cero de la animacion
+			#vis.animation = "none" #asignar una animacion nula
+			
+			pass
+		if dir.x == 0: #si el movimiento X es igual a 0
+			
+			if dir.y > 0: #si Y es mayor a 0
+				vs("abajo")#asignamos la animacion de bajar
+				see = 2
+				$cast.cast_to = Vector2(0, 1*ray_distant)#cambiar la direccion del rayo a vertical
+				pass
+				
+			elif dir.y < 0:#si es menor a 0, lo mismo que el de arriba pero el rayo al otro lado
+				see = 0
+				vs("arriba")
+				$cast.cast_to = Vector2(0, -1*ray_distant)
+				pass
+				
+			pass
+		if dir.y == 0: # si "Y" es 0
+			if dir.x > 0:# si X es mayor a 0
+				
+				$cast.cast_to = Vector2(1*ray_distant, 0)# asignar una orientacion horizontal al rayo
+				vs("derecha") # asginar una animacion a la derecha
+				see = 1
+				
+				pass
+			elif dir.x < 0:# si es menor a 0, lo mismo de arriba pero al revez
+				
+				$cast.cast_to = Vector2(-1*ray_distant, 0)
+				vs("izquierda")
+				see = 3
+				
+				pass
+			pass	
+		pass
+	else:
 		vis.stop() #detener la animacion
 		vis.frame = 0 #asignar el fotograma cero de la animacion
-		vis.animation = "none" #asignar una animacion nula
+		#vis.animation = "none" #asignar una animacion nula
 		
 		pass
-	if dir.x == 0: #si el movimiento X es igual a 0
-		
-		if dir.y > 0: #si Y es mayor a 0
-			vs("abajo")#asignamos la animacion de bajar
-			see = 2
-			$cast.cast_to = Vector2(0, 1*ray_distant)#cambiar la direccion del rayo a vertical
-			pass
-			
-		elif dir.y < 0:#si es menor a 0, lo mismo que el de arriba pero el rayo al otro lado
-			see = 0
-			vs("arriba")
-			$cast.cast_to = Vector2(0, -1*ray_distant)
-			pass
-			
-		pass
-	if dir.y == 0: # si "Y" es 0
-		if dir.x > 0:# si X es mayor a 0
-			
-			$cast.cast_to = Vector2(1*ray_distant, 0)# asignar una orientacion horizontal al rayo
-			vs("derecha") # asginar una animacion a la derecha
-			see = 1
-			
-			pass
-		elif dir.x < 0:# si es menor a 0, lo mismo de arriba pero al revez
-			
-			$cast.cast_to = Vector2(-1*ray_distant, 0)
-			vs("izquierda")
-			see = 3
-			
-			pass
-		pass	
-	
 	
 	pass
 
@@ -118,8 +127,22 @@ func _move(delta): #esta funcion se encarga de dar la meccanica RPG
 		pass
 	
 	dir*=vel#asignar la velocidad al personaje
-	move_and_slide(dir)#mover el personaje
-	
+	var wally =move_and_slide(dir, Vector2(0, 0))#mover el personaje
+	"""if is_on_wall():
+		if wally.x == 0:
+			if wally.y == 0:
+				on_wall = true
+				pass
+			else: 
+				on_wall = false
+				pass
+			pass
+		else:
+			on_wall = false
+		pass
+	else:
+		on_wall = false"""
+			
 	if Input.is_action_just_pressed("menu"): # al dar la tecla asignada (c)
 		$camara/menu.visible = true #abrir el menu
 		vis.stop()#parar la animacion
@@ -135,3 +158,22 @@ func _on_Timer_timeout(): #cada segundo
 		game.player["time"] +=1 # sumarle un segundo al tiempo de la partida
 		pass
 	pass 
+
+"""if is_on_wall():
+		if !(dir.x == 0 and dir.y == 0):#si se esta moviendo
+			if (wally.x != 0 or wally.y != 0): #y el resultado es moviendo se
+				on_wall = true#esta en el muro
+				pass
+			else:
+				on_wall = false#sino no
+				
+				pass
+			pass
+		else:
+			on_wall = false#sino no
+			
+			pass
+	else:
+		on_wall = true#sino no
+		
+		pass"""

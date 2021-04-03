@@ -49,25 +49,36 @@ __meta__ = {
 }
 
 [node name="obj" parent="L/u/back" instance=ExtResource( 2 )]
-margin_left = 96.5
-margin_top = 40.5
-margin_right = 178.5
-margin_bottom = 86.5
+margin_left = 96.0
+margin_top = 41.0
+margin_right = 178.0
+margin_bottom = 87.0
+rect_scale = Vector2( 0.855, 0.855 )
 text = "Obj"
 
 [node name="info" parent="L/u/back" instance=ExtResource( 2 )]
-margin_left = 96.5
-margin_top = 88.5
-margin_right = 179.5
-margin_bottom = 134.5
+margin_left = 96.0
+margin_top = 76.5
+margin_right = 179.0
+margin_bottom = 122.5
+rect_scale = Vector2( 0.855, 0.855 )
 text = "Info"
 
 [node name="conf" parent="L/u/back" instance=ExtResource( 2 )]
-margin_left = 97.0
-margin_top = 139.0
-margin_right = 186.0
-margin_bottom = 185.0
+margin_left = 96.0
+margin_top = 115.83
+margin_right = 185.0
+margin_bottom = 161.83
+rect_scale = Vector2( 0.855, 0.855 )
 text = "Tlf"
+
+[node name="exit" parent="L/u/back" instance=ExtResource( 2 )]
+margin_left = 96.0
+margin_top = 152.801
+margin_right = 185.0
+margin_bottom = 191.801
+rect_scale = Vector2( 0.855, 0.855 )
+text = "exit"
 
 [node name="nodo" type="Node2D" parent="L/u/back"]
 __meta__ = {
@@ -81,20 +92,26 @@ __meta__ = {
 }
 
 [node name="se2" type="Position2D" parent="L/u/back/nodo"]
-position = Vector2( 64, 108.5 )
+position = Vector2( 64, 96 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="se3" type="Position2D" parent="L/u/back/nodo"]
-position = Vector2( 64, 160.5 )
+position = Vector2( 64, 136 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="se4" type="Position2D" parent="L/u/back/nodo"]
+position = Vector2( 64, 176 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="sec" type="Sprite" parent="L/u/back/nodo"]
 position = Vector2( 64.25, 60.5 )
-scale = Vector2( 1.96875, 2 )
+scale = Vector2( 1.7, 1.7 )
 texture = ExtResource( 6 )
 __meta__ = {
 "_edit_lock_": true

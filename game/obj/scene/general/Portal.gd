@@ -10,7 +10,6 @@ func _ready(): #se ejecuta al iniciar
 	$Timer.connect("timeout", self, "fin")
 	$Timer.start()
 	pass 
-
 func _process(delta): #se ejecuta a cada rato
 	if wait:
 		if disa: #se ejecuta al inicio
@@ -39,6 +38,7 @@ func _process(delta): #se ejecuta a cada rato
 			pass
 		pass
 	if trasport and !Api.get("trans").get_see_invert():
+		print(to_scene)
 		Api.get("room").to_scene(to_scene)
 		
 		pass

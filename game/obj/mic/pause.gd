@@ -5,6 +5,7 @@ var pos = [
 	"L/u/back/nodo/se1",
 	"L/u/back/nodo/se2",
 	"L/u/back/nodo/se3",
+	"L/u/back/nodo/se4",
 ]#asignar los punteros
 var menus = [
 	"R/back/items",
@@ -29,19 +30,22 @@ func _process(delta):#esta funcion se ejecuta todo el rato
 			sel +=1 #bajar el cursor
 			pass
 		
-		if sel == 3:#si el cursor esta en 3 
+		if sel == 4:#si el cursor esta en 3 
 			sel = 0#asginarle 0
 		if sel == -1:#si el cursor es -1
-			sel = 2#asignarle 2
+			sel = 3#asignarle 2
 		
 		$L/u/back/nodo/sec.position = get_node(pos[sel]).position # mover el cursor (alma) a la poscicion asignada
 		if Input.is_action_just_released("aceptar"):#al dar la tecla asignada (z) 
-			for x in [0,1,2]:# ocultar todos los menus
-				get_node(menus[x]).visible = false
-				pass
-			
-			get_node(menus[sel]).visible = true # en el mismo frame mostrar el menu a abrirce
-			$R/back.visible = true# mostrar el menu derecho 
+			if sel == 3:
+				get_tree().change_scene("res://mic/menu/main.tscn")
+			else:
+				for x in [0,1,2]:# ocultar todos los menus
+					get_node(menus[x]).visible = false
+					pass
+				
+				get_node(menus[sel]).visible = true # en el mismo frame mostrar el menu a abrirce
+				$R/back.visible = true# mostrar el menu derecho 
 			
 			pass
 		

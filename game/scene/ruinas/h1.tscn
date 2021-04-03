@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://obj/mic/scene.tscn" type="PackedScene" id=1]
+[ext_resource path="res://obj/chars/frisk.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/sprites/scene/tiles/enter.png" type="Texture" id=3]
+[ext_resource path="res://obj/scene/general/Portal.tscn" type="PackedScene" id=4]
+
+[node name="mundo" type="Node2D"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="scene" parent="." instance=ExtResource( 1 )]
+nombre = "ruinas_h1"
+player = NodePath("YSort/frisk")
+
+[node name="mundo" type="StaticBody2D" parent="scene"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="v" type="Sprite" parent="scene/mundo"]
+scale = Vector2( 1.07623, 1.07623 )
+texture = ExtResource( 3 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="coll" type="CollisionPolygon2D" parent="scene/mundo"]
+polygon = PoolVector2Array( 100, 100, 100, 80, 140, 80, 140, 100, 320, 100, 320, 480, -80, 480, -80, 100, 80, 100, 80, 0, -180, 0, -180, 580, 420, 580, 420, 0, 80, 0, 80, 100 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Portal" parent="scene/mundo" instance=ExtResource( 4 )]
+position = Vector2( 120, 100 )
+scale = Vector2( 2.64, -2.28 )
+to_scene = "res://scene/ruinas/h2.tscn"
+
+[node name="Portal2" parent="scene/mundo" instance=ExtResource( 4 )]
+position = Vector2( 120, 480 )
+scale = Vector2( 2.63566, 1.89007 )
+to_scene = "res://scene/start.tscn"
+
+[node name="YSort" type="YSort" parent="scene"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="frisk" parent="scene/YSort" instance=ExtResource( 2 )]
+position = Vector2( 120, 380 )
+see = 0

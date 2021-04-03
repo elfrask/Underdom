@@ -1,0 +1,44 @@
+[</>]~ Frask ~[</>]
+
+UnderDom -> Fangame de Undertale
+
+UnderDom un juego totalmente family friendly xD. Hoy no vengo a dar una actualización en 
+si, si no hacer una pregunta a los que esperan una demo del juego. recientemente se 
+compartió una pre-Alpha privada con el equipo de desarrollo con el objetivo de buscar 
+problemas en caso de que el juego no corriera. hoy me se me ocurrió preguntar si quieren 
+tener una Pre-Alpha del juego publica la cual seria la PreAlpha-0.1.5 del juego o 
+esperar a que la primera demo este lista (ATENCION La PRE-ALPHA es actualmente una 
+versión muy vacía solo esta para presentar ciertas mecánicas durante el desarrollo del 
+juego) las pre-alphas pueden tener bug's muy glishados aunque se trata de mantener todos 
+en margen. 
+
+dependiendo de la decisión de los que quieran ver los primeros inicios del desarrollo de 
+este Fangame decidiré si, si o no lanzar la primera pre-alpha publica.
+
+cosas por corregir:
+	-resolución para android: la resolución del juego no esta adaptada a android por 
+lo que puede que no se vea de la mejor manera en todos los dispositivos
+	-por ahora mas nada xD
+
+ATENCION: el objetivo de la pre-Alpha es para buscar errores a la hora de ejecutar el 
+juego por lo que si el juego no te corre entonces no dudes en notificarlo requiere del 
+opengl 2.0 antes de correrlo ya que este es con la librería con la que trabaja xd
+
+
+si quieres saber mas sobre el proyecto aqui les dejo informacion de este:
+https://frasko-projects.blogspot.com/2021/01/bienvenidos-una-nueva-seccion-este-
+blog.html
+
+si quieres leer la trama entonces: ...
+https://frasko-projects.blogspot.com/2021/01/trama-de-underdom.html
+
+puedes pasarte también por mi canal:
+https://www.youtube.com/channel/UCthcRkrv9UHcwd86vBbs91g
+
+mis otras redes sociales:
+
+twitter: https://twitter.com/ElFrask
+instagram: https://www.instagram.com/soyelfrask/
+
+espero pasen unas buenas noches :3 miren a los dos lados antes de cruzar, lávense las 
+manos y usen el tapabocas al salir a la calle sin mas nada que decir me despido

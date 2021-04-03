@@ -1,6 +1,6 @@
-extends KinematicBody2D
+extends StaticBody2D
 
-export (Texture) var texture:Texture
+
 export (String) var dialog_static = "none"
 export (String) var nombre = ""
 export (bool) var Disable = false
@@ -8,10 +8,9 @@ var dialogo = []
 var event
 func _ready():
 	$coll.disabled = Disable
-	$vs.visible = !Disable
 	event = get_node_or_null("event")
 	
-	var di = game.lang["dialogos"]
+	var di = game.lang["cartel"]
 	var to = dialog_static.split("/")
 	for i in to:
 		di = di[i]
@@ -20,7 +19,6 @@ func _ready():
 		dialogo = di["say"]
 	else:
 		dialogo = di
-	$vs.texture = texture
 	
 	pass 
 
@@ -30,4 +28,5 @@ func say():
 	if str(event)!="[Object:null]": out.append(event)
 	
 	return [nombre, dialogo, out, false]
+
 

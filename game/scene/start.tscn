@@ -40,7 +40,7 @@ __meta__ = {
 }
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="scene/back"]
-polygon = PoolVector2Array( 352, 168, 352, 320, 288, 320, 288, 376, 248, 376, 248, 472, 248, 536, 264, 536, 264, 552, 280, 552, 280, 576, 304, 576, 304, 592, 432, 592, 432, 576, 456, 576, 456, 552, 488, 552, 488, 376, 448, 376, 448, 320, 392, 320, 392, 168, 368, 168, 368, 128, 557.859, 186.951, 547.96, 611.536, 135.009, 612.243, 136, 128, 368, 128, 368, 168 )
+polygon = PoolVector2Array( 352, 168, 352, 320, 288, 320, 288, 376, 248, 376, 248, 472, 248, 536, 264, 536, 264, 552, 280, 552, 280, 576, 304, 576, 304, 592, 432, 592, 432, 576, 456, 576, 456, 552, 488, 552, 488, 376, 448, 376, 448, 320, 392, 320, 392, 168, 368, 168, 368, 128, 560, 128, 560, 608, 135.009, 612.243, 136, 128, 368, 128, 368, 168 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -64,10 +64,10 @@ texture = ExtResource( 6 )
 dialog_static = "chara/say"
 nombre = "chara"
 
-[node name="eventos" parent="scene/scena/YSort2/chara" instance=ExtResource( 7 )]
+[node name="event" parent="scene/scena/YSort2/chara" instance=ExtResource( 7 )]
 script = SubResource( 1 )
 
 [node name="Portal" parent="scene/scena" instance=ExtResource( 4 )]
 position = Vector2( 370.347, 182.232 )
 scale = Vector2( 3.48623, 1.97962 )
-to_scene = "res://scene/test.tscn"
+to_scene = "res://scene/ruinas/h1.tscn"
