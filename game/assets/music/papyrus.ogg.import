@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/papyrus.ogg-11c633286ee84512d0aab19f16957355.oggstr"
+
+[deps]
+
+source_file="res://assets/music/papyrus.ogg"
+dest_files=[ "res://.import/papyrus.ogg-11c633286ee84512d0aab19f16957355.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

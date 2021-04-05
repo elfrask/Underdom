@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/voluntad.ogg-de1d5449f4f923de3a39680bbe78d11e.oggstr"
+
+[deps]
+
+source_file="res://assets/music/voluntad.ogg"
+dest_files=[ "res://.import/voluntad.ogg-de1d5449f4f923de3a39680bbe78d11e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

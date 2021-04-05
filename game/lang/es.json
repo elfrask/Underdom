@@ -31,6 +31,10 @@
 			"resist":"Resistencia: ",
 			"shield":"Escudo: ",
 			"max":"Maximo de Hp: "
+		},
+		"music":{
+			"author":"Autor:",
+			"title":"Rincon Musical"
 		}
 	},
 	"soul":{

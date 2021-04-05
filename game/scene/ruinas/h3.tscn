@@ -84,9 +84,9 @@ __meta__ = {
 
 [node name="frisk" parent="scene/obj" instance=ExtResource( 3 )]
 position = Vector2( 220, 540 )
+see = 0
 
 [node name="static_char" parent="scene/obj" instance=ExtResource( 6 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 220, -200 )
 texture = ExtResource( 5 )
 dialog_static = "asriel"

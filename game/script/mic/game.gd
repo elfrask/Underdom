@@ -13,9 +13,9 @@ var datagame = {
 }
 var lang = {}#el idioma
 #la partida
-
 #con esta funcion generamos el personaje 
 #(nombre, ataque, defensa, subir de nivel, maximo hp, mostrar, alma)
+
 
 
 func gen_char(name:String = "frisk", atk:int = 1, def:int = 1, lvup:int = 10, maxi:int = 20, show:bool = true, soul:String = "soul"):
