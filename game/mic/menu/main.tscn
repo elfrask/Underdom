@@ -19,15 +19,7 @@ __meta__ = {
 stream = ExtResource( 5 )
 autoplay = true
 
-[node name="main" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="gui" type="TextureRect" parent="main"]
+[node name="gui" type="TextureRect" parent="."]
 margin_left = 180.0
 margin_top = 100.0
 margin_right = 880.0
@@ -35,6 +27,14 @@ margin_bottom = 480.0
 texture = ExtResource( 4 )
 expand = true
 __meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="main" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -47,39 +47,75 @@ margin_right = -464.0
 margin_bottom = -310.0
 rect_scale = Vector2( 2, 2 )
 text = "Jugar
-Rincon Musical
+Extras
 Salir"
 align = 3
 valign = 3
 
-[node name="sec1" type="Position2D" parent="main/Tfont"]
-position = Vector2( -20, 20 )
+[node name="extras" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="sec2" type="Position2D" parent="main/Tfont"]
-position = Vector2( -20, 65 )
+[node name="Tfont" parent="extras" instance=ExtResource( 1 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 320.0
+margin_top = 160.0
+margin_right = -468.0
+margin_bottom = -310.0
+rect_scale = Vector2( 2, 2 )
+text = "Rincon Musical
+Galeria
+dibujos fandom"
+align = 3
+valign = 3
+
+[node name="Tfont" parent="." instance=ExtResource( 1 )]
+margin_top = 560.0
+margin_right = 1020.0
+margin_bottom = 599.0
+text = "Underdom (2021) Pre-Alfa 0.2.1 - Undertale (2015) TobyFox"
+align = 1
+
+[node name="Tfont2" parent="." instance=ExtResource( 1 )]
+margin_right = 1020.0
+margin_bottom = 39.0
+text = "UnderDom - (Frask - UD Team)"
+align = 1
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="sec1" type="Position2D" parent="Control"]
+position = Vector2( 280, 200 )
+scale = Vector2( 2, 2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="sec3" type="Position2D" parent="main/Tfont"]
-position = Vector2( -20, 110 )
+[node name="sec2" type="Position2D" parent="Control"]
+position = Vector2( 280, 290 )
+scale = Vector2( 2, 2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="sel" type="Sprite" parent="main/Tfont"]
-position = Vector2( -50, -170 )
-scale = Vector2( 1.5, 1.5 )
+[node name="sec3" type="Position2D" parent="Control"]
+position = Vector2( 280, 380 )
+scale = Vector2( 2, 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="sel" type="Sprite" parent="Control"]
+position = Vector2( 220, -180 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="Tfont" parent="." instance=ExtResource( 1 )]
-margin_top = 560.0
-margin_right = 81.0
-margin_bottom = 599.0
-text = "Underdom Pre-Alfa 0.2.0"

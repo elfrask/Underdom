@@ -2,12 +2,17 @@ extends Node2D
 
 export (String) var nombre = "main"
 export (NodePath) var player
-
+export (String) var sound = ""
 
 func _ready():
 	var pla = get_node(player)
 	Api.set("room", self)
-	
+	if sound=="":
+		Auda.seti("res://assets/music/menu0.ogg")
+	else:
+		Auda.seti("res://assets/music/" + sound + ".ogg")
+		
+		
 	#si la escena no esta en la lista deacuerdo a su nombre entonces lo crea
 	if str(game.player["story"]["room"].get(nombre, "__void__")) == "__void__":
 		game.player["story"]["room"][nombre] = {

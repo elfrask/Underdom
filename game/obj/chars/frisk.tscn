@@ -24,14 +24,14 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 12 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 14 ) ],
-"loop": true,
-"name": "arriba",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "abajo",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "arriba",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 17 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 16 ) ],
@@ -120,12 +120,13 @@ margin_right = 205.0
 margin_bottom = 133.809
 
 [node name="Tfont" parent="camara" instance=ExtResource( 21 )]
+visible = false
 margin_left = -192.0
 margin_top = 111.0
 margin_right = 843.0
 margin_bottom = 150.0
 rect_scale = Vector2( 0.371, 0.371 )
-text = "UnderDom Alpha-Preview 0.2.0"
+text = "UnderDom Alpha-Preview 0.2.1"
 align = 2
 valign = 2
 

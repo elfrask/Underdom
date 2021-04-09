@@ -9,6 +9,7 @@ func _ready():
 func _process(delta):
 	if visible:
 		if Input.is_action_just_pressed("cancelar"):
+			Auda.beat("res://assets/sound/cancel.wav")
 			visible = false
 			get_parent().visible = false
 		pass

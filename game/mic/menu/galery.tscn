@@ -1,0 +1,173 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/sprites/bg/galery.png" type="Texture" id=1]
+[ext_resource path="res://mic/fonts/Tfont.tscn" type="PackedScene" id=2]
+[ext_resource path="res://mic/menu/galery.gd" type="Script" id=3]
+[ext_resource path="res://assets/sprites/gui/marco.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/gui/control.png" type="Texture" id=5]
+[ext_resource path="res://assets/music/galery.ogg" type="AudioStream" id=6]
+
+[node name="menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
+
+[node name="bg" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="L" type="Control" parent="bg"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="title" parent="bg/L" instance=ExtResource( 2 )]
+margin_left = 240.0
+margin_top = 160.0
+margin_right = 460.0
+margin_bottom = 200.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Galeria sdasdfafsdasdasdsdasds"
+align = 1
+autowrap = true
+clip_text = true
+
+[node name="gui1" parent="bg/L" instance=ExtResource( 2 )]
+margin_left = 240.0
+margin_top = 200.0
+margin_right = 460.0
+margin_bottom = 240.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "por:"
+align = 1
+autowrap = true
+clip_text = true
+
+[node name="des" parent="bg/L" instance=ExtResource( 2 )]
+margin_left = 240.0
+margin_top = 300.0
+margin_right = 460.0
+margin_bottom = 340.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Descripcion:"
+align = 1
+autowrap = true
+clip_text = true
+
+[node name="autor" parent="bg/L" instance=ExtResource( 2 )]
+margin_left = 200.0
+margin_top = 240.0
+margin_right = 500.0
+margin_bottom = 280.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "Autor"
+align = 1
+autowrap = true
+clip_text = true
+
+[node name="detalle" parent="bg/L" instance=ExtResource( 2 )]
+margin_left = 200.0
+margin_top = 340.0
+margin_right = 500.0
+margin_bottom = 480.0
+custom_colors/font_color = Color( 0.0941176, 0, 1, 1 )
+text = "pequeña descripcion para la imagen :3"
+align = 1
+autowrap = true
+clip_text = true
+
+[node name="R" type="Control" parent="bg"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="marco" type="TextureRect" parent="bg/R"]
+margin_left = 560.0
+margin_top = 180.0
+margin_right = 820.0
+margin_bottom = 440.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="c" type="Control" parent="bg/R/marco"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 240.0
+margin_bottom = 240.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="img" type="TextureRect" parent="bg/R/marco/c"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="U" type="Control" parent="bg"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="C" type="TextureRect" parent="bg/U"]
+margin_left = 540.0
+margin_top = 140.0
+margin_right = 580.0
+margin_bottom = 180.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="C2" type="TextureRect" parent="bg/U"]
+margin_left = 455.0
+margin_top = 140.0
+margin_right = 495.0
+margin_bottom = 180.0
+texture = ExtResource( 5 )
+expand = true
+flip_h = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="count" parent="." instance=ExtResource( 2 )]
+margin_left = 420.0
+margin_top = 40.0
+margin_right = 620.0
+margin_bottom = 79.0
+text = "0/0"
+align = 1

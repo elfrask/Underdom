@@ -1,0 +1,29 @@
+{
+	"list":[
+		{
+			"name":"Menu Undertale",
+			"path":"res://assets/music/menu0.ogg",
+			"autor":"TobyFox - Undertale"
+		},
+		{
+			"name":"Galeria de Sprites",
+			"path":"res://assets/music/galery.ogg",
+			"autor":"Frask - UnderDom"
+		},
+		{
+			"name":"the power of will",
+			"path":"res://assets/music/papyrus.ogg",
+			"autor":"jeanking12 - Aporte"
+		},
+		{
+			"name":"will-rampage",
+			"path":"res://assets/music/papyrus_genocide.ogg",
+			"autor":"Maxy - UD Team"
+		},
+		{
+			"name":"One last wish for my friends - UD",
+			"path":"res://assets/music/voluntad.ogg",
+			"autor":"Maxy - UD Team"
+		},
+	]
+}

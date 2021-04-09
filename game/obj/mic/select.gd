@@ -16,21 +16,25 @@ func _process(delta):
 	if visible and !Api.get("say").isplay():
 		
 		if Input.is_action_just_pressed("menu"):# al dar a la tecla asignada (c)
+			Auda.beat("res://assets/sound/cancel.wav")
 			get_parent().visible = false# cerrar el menu derecho
 			visible = false#cerrar este menu
 			pass
 		if Input.is_action_just_pressed("cancelar"):# al dar a la tecla asignada (x)
 			get_parent().visible = false# cerrar el menu derecho
+			Auda.beat("res://assets/sound/cancel.wav")
 			visible = false#cerrar este menu
 			pass
 		if Input.is_action_just_pressed("up"):# al dar a la tecla asignada (arriba)
 			sec -=1
+			Auda.beat("res://assets/sound/control.wav")
 			if sec == -1:# si el cursor esta en -1
 				sec = maxsel # moverlo al ultimo disponible
 				pass
 			pass
 		if Input.is_action_just_pressed("down"):# al dar a la tecla asignada (abajo)
 			sec +=1
+			Auda.beat("res://assets/sound/control.wav")
 			if sec == maxsel:#si el cursor esta en el ultimo disponeble
 				sec = 0# establecerlo en 0
 				pass
@@ -38,6 +42,7 @@ func _process(delta):
 		get_node("sec").position = get_node("char" + str(sec)).position
 		if Input.is_action_just_pressed("aceptar"):# al dar la tecla asignada (z)
 				#si el cursor uno esta en:
+				Auda.beat("res://assets/sound/done.wav")
 				if !protect:
 					game.use(chars[sec]["name"], indice)
 					visible = false

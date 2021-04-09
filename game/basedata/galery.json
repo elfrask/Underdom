@@ -1,0 +1,54 @@
+{
+	"list":[
+		{
+			"autor":"Alph - UD Team",
+			"des":"Fondo de la galeria",
+			"path":"res://assets/sprites/bg/galery.png"
+		},
+		{
+			"autor":"Alph - UD Team",
+			"des":"Fondo del Rincon musical",
+			"path":"res://assets/sprites/bg/music.png"
+		},
+		{
+			"autor":"Frask - UD Team",
+			"des":"Sprite de frisk",
+			"path":"res://assets/sprites/characters/frisk/frame0.png"
+		},
+		{
+			"autor":"Frask - UD Team",
+			"des":"Sprite de chara",
+			"path":"res://assets/sprites/characters/chara/frame0.png"
+		},
+		{
+			"autor":"Frask - UD Team",
+			"des":"Sprite de asriel",
+			"path":"res://assets/sprites/characters/asriel/frame0.png"
+		},
+		{
+			"autor":"Frask - UD Team",
+			"des":"Control",
+			"path":"res://assets/sprites/gui/control.png"
+		},
+		{
+			"autor":"Frask - UD Team",
+			"des":"Escenario principal",
+			"path":"res://assets/sprites/scene/completa/main.png"
+		},
+		{
+			"autor":"Frask - UD Team",
+			"des":"Encuentro con Flowey",
+			"path":"res://assets/sprites/scene/tiles/enter.png"
+		},
+		{
+			"autor":"Alph - UD Team",
+			"des":"Tiles de las ruinas",
+			"path":"res://assets/sprites/scene/tiles/ruinas.png"
+		},
+		{
+			"autor":"Alph - UD Team",
+			"des":"Banner principal",
+			"path":"res://assets/sprites/bg.png"
+		},
+	]
+}

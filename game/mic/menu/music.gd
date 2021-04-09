@@ -41,7 +41,7 @@ func render(i):
 	
 	pass
 func loaddata():
-	var path = "res://basedata/music/rincon.json"
+	var path = "res://basedata/music.json"
 	var list_file = File.new()
 	list_file.open(path, File.READ)
 	var lista_cruda = JSON.parse(list_file.get_as_text()).result

@@ -1,0 +1,48 @@
+Diálogo inicial:
+Solo se puede oír el viento Entonceeeeees...aquí estamos...tu y yo,yo y tu en la batalla que desidira el destino de...espera...ups jeje me equivoqué de línea, comencemos de nuevo,inicia un tema tranquilo soy Samuel el alma de la voluntad es un placer,como verás este es un simulador de batalla, ojo no es canónica está batalla así que si me ves lanzando arepas por aquí y por allá no creas que es mi poder explica el uso de las opciones muy bien entonces...te parece si comenzamos ya? Inicia el tema de voluntad
+
+Check:
+Samuel: ATK:?? Def:??
+Siempre con una sonrisa llena de voluntad
+¿Porque no intentas ser su amigo?
+O TAL VES QUITARLO DE TU CAMINO ^_^
+
+Preguntar:
+1:le preguntas a Samuel que hace en el subsuelo
+R:(Samuel luce pensativo) jeje la verdad es una larga historia...solo digamos que aquí está mi verdadera familia
+2:le preguntas a Samuel si tiene algún amigo
+R:la verdad es que si,tengo varios entre ellos están, Alphys, Undyne, sans, papyrus,cha...¿chara es mi amiga? O y si quieres también podemos ser amigos jeje (Samuel parece contento)
+3:le preguntas a Samuel si está enamorado de alguien?
+R:ammm jeje sabes que esa pregunta puede ser para otro momento jeje (Samuel parece incómodo
+
+Elogiar:
+1:le dices a Samuel que tiene un bonito suéter plateado
+R:oh gracias Sans y papyrus me lo regalaron hace algún tiempo,me dijeron que iba bien con el color de mi alma jeje (Samuel luce muy contento por el elogió)
+2:elogias a Samuel diciéndole que tiene bonitos ojos
+R:ah...jeje gr-gracias es muy amable de tu parte jeje (Samuel luce algo sonrojado)
+3:le dices a Samuel que tiene una bonita sonrisa... puedes ver la felicidad en sus ojos al haber escuchado eso
+R:ammm bu-bueno jeje la verdad a mi me gusta mucho tu ropa
+
+Insultar:
+1:le dices a Samuel que sus vestimentas son horribles
+R:¿Eh? Pero a mí si me gustan, que cruel eres
+La defensa de Samuel a disminuido 
+2:le dices a Samuel que su existencia en el juego está demás y que el echo de que "ellos" lo aceptarán no significa que lo quieran de verdad
+Al parecer no está muy contento con lo que acabas de decir
+La defensa de Samuel baja un poco, su ataque aumenta
+3:le dices a Samuel que haga lo que haga el fandom no lo amara...eso parece a verlo afectado bastante... Puedes ver cómo su expresión feliz desaparece y cambia por una sin emociones 
+R:... supongo que así es como quieres que sea...eres el tipo de persona que solo busca hacer sentir mal a los demás solo por diversión,pues bien vayamos encerio ahora
+El ataque de Samuel parece aver aumentado bastante...parece ir encerio ahora
+Luego de hacerlo enojar
+Disculparse, elogiar:
+Ya no sirve de nada,alparecer solo haces que se enfade más
+Su ataque aumenta
+Preguntar:
+1:le preguntas a Samuel que quiere
+Te ve con una expresión sin emociones
+R:Tu muerte
+El ataque de Samuel está por las nubes
+Check: Samuel: ATK:99 DEF:99
+No se le ve muy contento,lo único que quiere en este momento es eliminarte
+
+¡QUE LO INTENTE! ^_^

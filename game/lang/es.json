@@ -35,6 +35,12 @@
 		"music":{
 			"author":"Autor:",
 			"title":"Rincon Musical"
+		},
+		"galery":{
+			"title":"Galeria",
+			"gui1":"por:",
+			"des":"Descripcion:",
+
 		}
 	},
 	"soul":{

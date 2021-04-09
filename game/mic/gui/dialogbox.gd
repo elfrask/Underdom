@@ -77,6 +77,7 @@ func _process(delta):
 				pass
 			pass
 		if Input.is_action_just_pressed("cancelar"):
+			Auda.beat("res://assets/sound/letter.wav")
 			$u/text.text = texto
 			pass
 		
@@ -88,5 +89,7 @@ func _on_Timer_timeout():
 	if visible:
 		if len($u/text.text) < len(texto):
 			$u/text.text = $u/text.text + texto[len($u/text.text)]
+			Auda.beat("res://assets/sound/letter.wav")
+			
 		pass
 	pass # Replace with function body.
