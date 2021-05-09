@@ -17,6 +17,7 @@ var cara = false
 func _ready():
 	
 	Api.set("say", self)
+	visible = false
 	
 	pass # Replace with function body.
 

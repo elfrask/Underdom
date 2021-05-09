@@ -14,7 +14,9 @@ var menus = [
 ]#asgnar los menus
 var sel = 0#cursor es igual a 0
 
-
+func _ready():
+	visible =false
+	pass
 
 func _process(delta):#esta funcion se ejecuta todo el rato
 	

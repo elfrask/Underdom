@@ -82,13 +82,13 @@ func moving(dir): #esta funcion se llama cuando se esta moviendo
 
 func _physics_process(delta): #esta funcion se actualiza todo el rato
 	
-	if !$camara/menu.visible and !$camara/dbox.visible and !Api.get("trans").get_see():# si el menu y el dialogo no estan visibles
+	if !$camara/menu/pause.visible and !$camara/dbox/dbox.visible and !Api.get("trans").get_see():# si el menu y el dialogo no estan visibles
 		_move(delta)# dejar que el jugador haga los movimientos normales
 		pass
-	elif $camara/menu.visible and !$camara/dbox.visible:# pero si el menu es visible
+	elif $camara/menu/pause.visible and !$camara/dbox/dbox.visible:# pero si el menu es visible
 		
 		if Input.is_action_just_pressed("menu"): #al precionar la tecla asignada (c) 
-			$camara/menu.visible = false #se cerrara el menu
+			$camara/menu/pause.visible = false #se cerrara el menu
 			pass
 		pass
 	else:
@@ -144,7 +144,7 @@ func _move(delta): #esta funcion se encarga de dar la meccanica RPG
 		on_wall = false"""
 			
 	if Input.is_action_just_pressed("menu"): # al dar la tecla asignada (c)
-		$camara/menu.visible = true #abrir el menu
+		$camara/menu/pause.visible = true #abrir el menu
 		vis.stop()#parar la animacion
 		vis.frame = 0#asignar el fotograma 0 de la animacion actual
 		vis.position.y = y_l#devolver el sprite a su sitio
@@ -154,7 +154,7 @@ func _move(delta): #esta funcion se encarga de dar la meccanica RPG
 	pass
 
 func _on_Timer_timeout(): #cada segundo
-	if !$camara/menu.visible: # si el menu no esta abierto
+	if !$camara/menu/pause.visible: # si el menu no esta abierto
 		game.player["time"] +=1 # sumarle un segundo al tiempo de la partida
 		pass
 	pass 
