@@ -12,32 +12,34 @@ func _process(delta):
 		if Input.is_action_just_pressed("menu"):# al dar a la tecla asignada (c)
 			get_parent().visible = false# cerrar el menu derecho
 			visible = false#cerrar este menu
-			Auda.beat("res://assets/sound/cancel.wav")
+			Auda.beat(Lib.control_sound_cancel)
 			pass
 		if Input.is_action_just_pressed("cancelar"):# al dar a la tecla asignada (x)
 			get_parent().visible = false# cerrar el menu derecho
 			visible = false#cerrar este menu
-			Auda.beat("res://assets/sound/cancel.wav")
+			Auda.beat(Lib.control_sound_cancel)
 			pass
 		if Input.is_action_just_pressed("up"):# al dar a la tecla asignada (arriba)
 			sel -=1
-			Auda.beat("res://assets/sound/control.wav")
+			Auda.beat(Lib.control_sound)
 			if sel == -1:# si el cursor esta en -1
 				sel = game.player["tlf"] # moverlo al ultimo disponible
 				pass
 			pass
 		if Input.is_action_just_pressed("down"):# al dar a la tecla asignada (abajo)
 			sel +=1
-			Auda.beat("res://assets/sound/control.wav")
+			Auda.beat(Lib.control_sound)
 			if sel == game.player["tlf"]+1:#si el cursor esta en el ultimo disponeble
 				sel = 0# establecerlo en 0
 				pass
 			pass
 		get_node("sec").position = get_node("tlf" + str(sel)).position
 		if Input.is_action_just_pressed("aceptar"):# al dar a la tecla asignada (z)
-				Auda.beat("res://assets/sound/done.wav")
+				Auda.beat(Lib.control_sound_acept)
 				if sel == 0:# comunicarce con mama
-					Api.get("say").play("", game.lang["tlf"]["madre"]["di"]) #dar un dialogo segun el idioma configurado
+					var decir = Lib.dialogbox()
+					decir["text"] = game.lang["tlf"]["madre"]["di"]
+					Api.get("say").play(decir) #dar un dialogo segun el idioma configurado
 					pass
 				pass
 		pass

@@ -20,13 +20,16 @@ func _ready():
 	pass
 
 func _on_ani_animation_finished(anim_name):
-	Api.get(\"say\").play(\"Asriel\", [
+	var decir = Lib.dialogbox()
+	decir[\"text\"] = [
 		\"jeje no es genial? :3\",
 		\"bueno creo que deberia parar -w-'' no te quiero quitar mucho tiempo\",
 		\"este juego tiene muy buena pinta y no quiero arruinarlo u.u\",
 		\"ok vale ya puedes irte si quieres ^^.\",
 		\"Byeee\"
-	], [], false)
+	]
+	decir[\"name\"] = \"Asriel\"
+	Api.get(\"say\").play(decir)
 	pass 
 "
 

@@ -1,5 +1,8 @@
 extends Node
 
+var control_sound_cancel = "res://assets/sound/cancel.wav"
+var control_sound = "res://assets/sound/cancel.wav"
+var control_sound_acept = "res://assets/sound/cancel.wav"
 #usar este valot unicamente cuando estes seguro que estas pasando una funcion
 class Funcion:
 	var call
@@ -14,7 +17,18 @@ func isnull(o):
 func funci(f): 
 	
 	return Funcion.new(f)
+func dialogbox(event="[Object:null]"):
 
+	var out = []
+	print(event)
+	if str(event)!="[Object:null]": out.append(event)
+	return {
+		"onfinish":out,
+		"text":["texto"],
+		"face":false,
+		"name":"",
+		"voice":"global"
+	}
 func re_list():
 	var salida = []#generar un recopilador
 	var index = 0#crear una indexacion empezando de 0

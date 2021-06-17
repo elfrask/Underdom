@@ -22,16 +22,16 @@ func _process(delta):#esta funcion se ejecuta todo el rato
 	
 	if visible and !$R/back.visible and !Api.get("say").isplay():#si el dialogo no esta visible y tampoco la interfaz derecha
 		if Input.is_action_just_pressed("cancelar"):# al dar la tecla asignada (x)
-			Auda.beat("res://assets/sound/cancel.wav")
+			Auda.beat(Lib.control_sound_cancel)
 			visible = false#cerrar el menu
 			pass
 		
 		if Input.is_action_just_pressed("up"): #al dar la tecla asignada (arriba)
-			Auda.beat("res://assets/sound/control.wav")
+			Auda.beat(Lib.control_sound)
 			sel -=1 #subir el cursor
 			pass
 		if Input.is_action_just_pressed("down"): # al dar a la tecla asignada (abajo)
-			Auda.beat("res://assets/sound/control.wav")
+			Auda.beat(Lib.control_sound)
 			sel +=1 #bajar el cursor
 			pass
 		
@@ -42,7 +42,7 @@ func _process(delta):#esta funcion se ejecuta todo el rato
 		
 		$L/u/back/nodo/sec.position = get_node(pos[sel]).position # mover el cursor (alma) a la poscicion asignada
 		if Input.is_action_just_released("aceptar"):#al dar la tecla asignada (z) 
-			Auda.beat("res://assets/sound/done.wav")
+			Auda.beat(Lib.control_sound_acept)
 			if sel == 3:
 				Auda.seti("none")
 				get_tree().change_scene("res://mic/menu/main.tscn")

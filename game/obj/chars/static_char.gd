@@ -3,6 +3,7 @@ extends KinematicBody2D
 export (Texture) var texture:Texture
 export (String) var dialog_static = "none"
 export (String) var nombre = ""
+export (String) var voice = "letters"
 export (bool) var Disable = false
 var dialogo = []
 var event
@@ -25,9 +26,9 @@ func _ready():
 	pass 
 
 func say():
-	
-	var out = []
-	if str(event)!="[Object:null]": out.append(event)
-	
-	return [nombre, dialogo, out, false]
+	var out = Lib.dialogbox(event)
+	out["name"] = nombre
+	out["text"] = dialogo
+	out["face"] = texture
+	return out
 

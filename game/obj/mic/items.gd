@@ -62,21 +62,21 @@ func _process(delta):
 			
 			if Input.is_action_just_pressed("cancelar"):# al dar la tecla asignada (x)
 				get_parent().visible = false# ocultar el el menu derecho
-				Auda.beat("res://assets/sound/cancel.wav")
+				Auda.beat(Lib.control_sound_cancel)
 				visible = false# ocultar este menu
 				pass
 			
 			
 			if Input.is_action_just_pressed("up"):# al dar la tecla asignada (arriba)
 				sel -= 1# subir el cursor1
-				Auda.beat("res://assets/sound/control.wav")
+				Auda.beat(Lib.control_sound)
 				if sel == -1:# si el cursor1 es igual a -1
 					sel = len(game.player["inv"])-1# asignar el cursor1 al ultimo objeto
 					pass
 				pass
 			if Input.is_action_just_pressed("down"):# al dar la tecla asignada (abajo)
 				sel +=1# bajar el cursor1
-				Auda.beat("res://assets/sound/control.wav")
+				Auda.beat(Lib.control_sound)
 				if sel == len(game.player["inv"]):# si esta sobre el ultimo objeto
 					sel = 0# devolverlo al objeto 0 del inventario
 					
@@ -87,7 +87,7 @@ func _process(delta):
 			$page.text = str(int(sel/8)+1) + "/" + str(int(len(game.player["inv"])/8))# cambiar la pagina
 			$sec.position = get_node("obj" + str(int(sel)%8)).position# cambiar la posicion del objeto
 			if Input.is_action_just_pressed("aceptar"):# al dar la tecla asignada (z)
-				Auda.beat("res://assets/sound/done.wav")
+				Auda.beat(Lib.control_sound_acept)
 				mode = "action"# cambiar al modo action
 				set = 0# establecer la poscion 0 del cursor2
 				if str(game.player["inv"][sel]) == "False":# si no hay un objeto
@@ -104,19 +104,19 @@ func _process(delta):
 			
 			if Input.is_action_just_pressed("cancelar"):# al dar la tecla asignada (x)
 				mode = "select"#devolverlo al modo select
-				Auda.beat("res://assets/sound/cancel.wav")
+				Auda.beat(Lib.control_sound_cancel)
 				pass
 			
 			if Input.is_action_just_pressed("left"):# al dar la tecla asignada (izquierda)
 				set -= 1# mover el cursor2 a la izquierda
-				Auda.beat("res://assets/sound/control.wav")
+				Auda.beat(Lib.control_sound_cancel)
 				if set == -1:#si cursor2 esta en -1
 					set = 2# moverlo a 2
 					pass
 				pass
 			if Input.is_action_just_pressed("right"):# al dar la tecla asignada (derecha)
 				set += 1# mover el cursor2 a la derecha
-				Auda.beat("res://assets/sound/control.wav")
+				Auda.beat(Lib.control_sound)
 				if set == 3:# si cirsor2 esta en 3
 					set = 0#moverlo a 0
 					pass
@@ -129,7 +129,7 @@ func _process(delta):
 			if Input.is_action_just_pressed("aceptar"):# al dar la tecla asignada (z)
 			
 				#si crusor2 esta:
-				Auda.beat("res://assets/sound/done.wav")
+				Auda.beat(Lib.control_sound_acept)
 				
 				if set == 1:#si esta en 1 
 					game.player["inv"][sel] = false #tirara el objeto
@@ -154,10 +154,12 @@ func _process(delta):
 					var co = game.player["inv"][sel]
 					
 					# Decir informacion sobre el objeto
-					Api.get("say").play("", [
+					var decir = Lib.dialogbox()
+					decir["text"] = [
 						"'" + co["nick"] + "' " + game.lang["gui"]["item"]["info"][0] +" " + join(co["char"], ", "),
 						game.lang["gui"]["item"]["info"][1]+"\nDef: +" + str(co["def"]) + " Atk: +" + str(co["atk"]) + " Hp: +" + str(co["hp"])
-					])
+					]
+					Api.get("say").play(decir)
 					mode = "select"# volver al modo select
 					pass
 				

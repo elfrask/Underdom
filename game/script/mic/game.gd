@@ -183,9 +183,11 @@ func use(personaje, id):
 	else:
 		#si el personaje seleccionado no esta en la lista decir que el personaje no pudo usar el objeto
 		print("'"+personaje+"' no puede usar un '"+ dat["nick"] + "'")
-		Api.get("say").play("", [
+		var decir = Lib.dialogbox()
+		decir["text"] = [
 			"'"+personaje+"' "+ lang["gui"]["item"]["nouse"] +" '"+ dat["nick"] + "'"
-		])
+		]
+		Api.get("say").play(decir)
 		return [false, "'"+personaje+"' no puede usar un '"+ dat["nick"] + "'"]
 	
 	pass
@@ -241,6 +243,10 @@ func _ready(): # al iniciar
 	
 	pass
 
-
+var full_display = false
 func _process(delta): # se ejecuta todo el tiempo
+	
+	if Input.is_action_just_pressed("full_screen"):
+		OS.window_fullscreen = !OS.window_fullscreen
+		pass
 	pass

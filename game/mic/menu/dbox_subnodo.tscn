@@ -37,16 +37,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="name" type="Label" parent="u/backin" instance=ExtResource( 3 )]
+[node name="name" parent="u/backin" instance=ExtResource( 3 )]
 margin_left = 14.0
 margin_top = 192.0
 margin_right = 341.0
 margin_bottom = 231.0
 custom_fonts/font = SubResource( 1 )
-text = "Hola "
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="back" type="TextureRect" parent="u"]
 anchor_left = 0.5
@@ -64,7 +60,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="text" type="Label" parent="u" instance=ExtResource( 3 )]
+[node name="text" parent="u" instance=ExtResource( 3 )]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -81,9 +77,6 @@ valign = 1
 autowrap = true
 clip_text = true
 max_lines_visible = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.025

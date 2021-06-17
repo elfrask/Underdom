@@ -24,9 +24,10 @@ func _ready():
 
 func say():
 	
-	var out = []
-	if str(event)!="[Object:null]": out.append(event)
 	
-	return [nombre, dialogo, out, false]
+	var decir = Lib.dialogbox(event)
+	decir["name"] = nombre
+	decir["text"] = dialogo
+	return decir
 
 

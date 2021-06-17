@@ -13,6 +13,8 @@ var sel = 0
 var nombre = ""
 var final = []
 var cara = false
+var voice = "global"
+var sound = ""
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -35,16 +37,30 @@ func printf(text = ""):
 	
 	pass
 
-func play(nom, dialogos = [], on_finish=[], face=false):
-	dii = dialogos
+func play(data={}, on_finish=[]):
+	dii = data["text"]
 	texto = ""
 	lon = 0
 	sel = -1
 	$u/text.text = ""
 	visible = true
-	nombre = nom
-	final = on_finish
-	cara = face 
+	nombre = data["name"]
+	final = data["onfinish"]
+	cara = data["face"]
+	var defecto = "res://assets/voice/letter.wav"
+	if File.new().file_exists("res://assets/voice/"+data["voice"]+".wav"):
+		sound = "res://assets/voice/"+data["voice"]+".wav"
+		pass
+	elif File.new().file_exists("res://assets/voice/"+data["voice"]+".ogg"):
+		sound = "res://assets/voice/"+data["voice"]+".ogg"
+		pass
+	elif File.new().file_exists("res://assets/voice/"+data["voice"]+".mp3"):
+		sound = "res://assets/voice/"+data["voice"]+".mp3"
+		pass
+	else:
+		sound = "res://assets/sound/letter.wav"
+		pass
+	
 	pass
 func isplay():
 	
@@ -78,7 +94,7 @@ func _process(delta):
 				pass
 			pass
 		if Input.is_action_just_pressed("cancelar"):
-			Auda.beat("res://assets/sound/letter.wav")
+			Auda.beat(sound)
 			$u/text.text = texto
 			pass
 		
@@ -90,7 +106,7 @@ func _on_Timer_timeout():
 	if visible:
 		if len($u/text.text) < len(texto):
 			$u/text.text = $u/text.text + texto[len($u/text.text)]
-			Auda.beat("res://assets/sound/letter.wav")
+			Auda.beat(sound)
 			
 		pass
 	pass # Replace with function body.
