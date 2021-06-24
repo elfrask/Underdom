@@ -3,6 +3,9 @@ extends KinematicBody2D
 
 export (int) var vel = 100 #exportar la velocidad para su modificacion simple
 
+var scale_dash:float = 1
+
+
 var y_l = 0 #establecer "Y" de el sprite para simular movimiento al caminar
 var ismove = false #si se esta moviendo = falso
 var ray_distant =15 #distancia del rayo en busca de un objeto
@@ -30,6 +33,7 @@ func vs(ani): #vs visual start, iniciar la animacion pasada por el argumento ani
 
 func moving(dir): #esta funcion se llama cuando se esta moviendo
 	var vis = $v/visual
+	vis.speed_scale = scale_dash
 	
 	if !on_wall:
 		
@@ -103,6 +107,13 @@ func _move(delta): #esta funcion se encarga de dar la meccanica RPG
 	
 	var vis = $v/visual#capturar el sprite
 	
+	if Input.is_action_pressed("run"):
+		scale_dash = 1.5
+		
+		pass
+	else:
+		scale_dash = 1.0
+		pass
 	var dir = Vector2()# asignar que la direccion sera (x=0, y=0)
 	if vis.frame == 1 or vis.frame == 3:#si la aniacion actual esta en el fotograma 1 o 3
 		vis.position.y = y_l +1# porner el sprite un pixel mas abajo
@@ -118,30 +129,21 @@ func _move(delta): #esta funcion se encarga de dar la meccanica RPG
 	
 	if Input.is_action_just_pressed("aceptar"): #al dar la tecla asignada (z)
 		if $cast.is_colliding(): #si el rayo esta capturando un objeto
+			
 			var obj = $cast.get_collider() #obtener el objeto
 			if obj.is_in_group("say"): #verificar si pertenece al grupo de "say"
 				var data = obj.say() #obtener lo que quiere decir
 				Api.get("say").play(data) #evia a la api del dialogo data 0 el nombre y en 1 los dialogos
 				pass
+			else:
+				print("este objeto no pertenece al grupo say")
+				pass
 			pass
 		pass
-	
-	dir*=vel#asignar la velocidad al personaje
+	dir.normalized()
+	dir*=vel*scale_dash#asignar la velocidad al personaje
 	var wally =move_and_slide(dir, Vector2(0, 0))#mover el personaje
-	"""if is_on_wall():
-		if wally.x == 0:
-			if wally.y == 0:
-				on_wall = true
-				pass
-			else: 
-				on_wall = false
-				pass
-			pass
-		else:
-			on_wall = false
-		pass
-	else:
-		on_wall = false"""
+	
 			
 	if Input.is_action_just_pressed("menu"): # al dar la tecla asignada (c)
 		$camara/menu/pause.visible = true #abrir el menu
@@ -158,22 +160,3 @@ func _on_Timer_timeout(): #cada segundo
 		game.player["time"] +=1 # sumarle un segundo al tiempo de la partida
 		pass
 	pass 
-
-"""if is_on_wall():
-		if !(dir.x == 0 and dir.y == 0):#si se esta moviendo
-			if (wally.x != 0 or wally.y != 0): #y el resultado es moviendo se
-				on_wall = true#esta en el muro
-				pass
-			else:
-				on_wall = false#sino no
-				
-				pass
-			pass
-		else:
-			on_wall = false#sino no
-			
-			pass
-	else:
-		on_wall = true#sino no
-		
-		pass"""

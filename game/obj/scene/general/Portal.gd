@@ -1,5 +1,5 @@
 extends Area2D
-export (String) var to_scene #pon la ruta de la scena aqui
+export (String) var to_scene:String = "" #pon la ruta de la scena aqui
 
 
 var disa = true #sera disa al iniciar
@@ -9,6 +9,10 @@ var wait = false
 func _ready(): #se ejecuta al iniciar
 	$Timer.connect("timeout", self, "fin")
 	$Timer.start()
+	while to_scene.substr(0,1) == " ":
+		to_scene = to_scene.substr(1)
+	while to_scene.substr(len(to_scene)-1,1) == " ":
+		to_scene = to_scene.substr(0, len(to_scene)-1)
 	pass 
 func _process(delta): #se ejecuta a cada rato
 	if wait:

@@ -76,16 +76,18 @@ align = 3
 valign = 3
 
 [node name="Tfont" parent="." instance=ExtResource( 1 )]
+anchor_top = -0.00333333
+anchor_bottom = -0.00333333
 margin_top = 560.0
 margin_right = 1020.0
 margin_bottom = 599.0
-text = "Underdom (2021) Pre-Alfa 0.2.1 - Undertale (2015) TobyFox"
+text = "Deltarune (2018) - Undertale (2015) TobyFox"
 align = 1
 
 [node name="Tfont2" parent="." instance=ExtResource( 1 )]
 margin_right = 1020.0
 margin_bottom = 39.0
-text = "UnderDom - (Frask - UD Team)"
+text = "UnderDom Pre-Alfa 0.2.2 (2021) - Frask - Vinestar"
 align = 1
 
 [node name="Control" type="Control" parent="."]

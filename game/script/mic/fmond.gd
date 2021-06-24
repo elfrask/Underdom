@@ -15,6 +15,7 @@ func _ready():
 	add_child(sound)
 	sound.bus = "sounds"
 	
+	
 	pass
 
 func beat(f:String) -> void:
@@ -22,6 +23,12 @@ func beat(f:String) -> void:
 	if f != "none":# si no es none entonces reproducir el sonido
 		sound.stop()
 		var au = load(f)
+		
+		#verifica el tipo de archivo y modificalo para que no se haga bucle
+		if au is AudioStreamOGGVorbis: au.loop = false
+		if au is AudioStreamSample: au.loop_mode = AudioStreamSample.LOOP_DISABLED
+		if au is AudioStreamMP3: au.loop = false
+		
 		sound.stream = au
 		sound.play()
 		pass

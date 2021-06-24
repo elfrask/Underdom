@@ -15,7 +15,13 @@ var final = []
 var cara = false
 var voice = "global"
 var sound = ""
+
+var bee:bool = false
 # Called when the node enters the scene tree for the first time.
+
+func issay():
+	return bee
+
 func _ready():
 	
 	Api.set("say", self)
@@ -92,6 +98,8 @@ func _process(delta):
 					printf(dii[sel])
 					pass
 				pass
+			else:
+				bee = false
 			pass
 		if Input.is_action_just_pressed("cancelar"):
 			Auda.beat(sound)

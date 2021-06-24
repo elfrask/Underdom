@@ -25,7 +25,7 @@ __meta__ = {
 [node name="scene" parent="." instance=ExtResource( 3 )]
 nombre = "inicio"
 player = NodePath("scena/YSort2/frisk")
-sound = "ruins"
+sound = "none"
 
 [node name="back" type="StaticBody2D" parent="scene"]
 __meta__ = {

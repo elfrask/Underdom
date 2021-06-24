@@ -1,0 +1,19 @@
+Lista de Tareas por hacer para UnderDom prealfa -> 0.3 <-
+
+X-> Implementar la opción de correr
+
+-> colocar más personajes y un nuevo scenario
+
+X-> colocar diálogos y sonidos únicos a cada NPC
+
+-> Colocar a sans que ya Ricardo lo creo
+
+X-> poner en el salón musical todos los soundtracks que ya tenemos echos junto con los respectivos nombres de sus creadores
+
+-> [movido a la demo 1 de la rama publica]-> no estoy múy seguro de si deberíamos implementar ya la elección de nombres y sus Easter eggs
+
+-> empezar a poner easter eggs
+
+-> [movido a la demo 1 de la rama battle]-Y la batalla contra samuel aunque creo que será en la beta de las battles y no parte de la alpha
+
+-> mejorar la interfaz principal a una mas dinamica
