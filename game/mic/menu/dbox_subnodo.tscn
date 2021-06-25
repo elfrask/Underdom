@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://mic/gui/dialogbox.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/8bitoperator.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://mic/fonts/Tfont.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/sprites/gui/box.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/gui/completo/dialog.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/gui/completo/name_d.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
-size = 25
+size = 21
 font_data = ExtResource( 2 )
 
 [node name="dbox" type="Control"]
@@ -14,23 +15,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="u" type="Control" parent="."]
 anchor_right = 1.0
-margin_bottom = 215.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="backin" type="TextureRect" parent="u"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -440.0
-margin_top = -93.5
-margin_right = -83.0
-margin_bottom = 157.5
-texture = ExtResource( 4 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
 expand = true
 __meta__ = {
 "_edit_lock_": true,
@@ -38,21 +37,18 @@ __meta__ = {
 }
 
 [node name="name" parent="u/backin" instance=ExtResource( 3 )]
-margin_left = 14.0
-margin_top = 192.0
-margin_right = 341.0
-margin_bottom = 231.0
+margin_left = 98.0
+margin_top = 214.0
+margin_right = 340.0
+margin_bottom = 268.0
 custom_fonts/font = SubResource( 1 )
+text = "Personaje"
+align = 1
+valign = 1
 
 [node name="back" type="TextureRect" parent="u"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -451.5
-margin_top = -95.0
-margin_right = 451.5
-margin_bottom = 95.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 texture = ExtResource( 4 )
 expand = true
 __meta__ = {
@@ -65,15 +61,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -412.0
-margin_top = -63.5
-margin_right = 419.0
-margin_bottom = 64.5
+margin_left = -421.0
+margin_top = -249.0
+margin_right = 424.0
+margin_bottom = -108.0
 custom_fonts/font = SubResource( 1 )
 text = "Hola gente como estan yo estoy muy bien y sdadadwe
 ustedes? me alegro ahora mismo empezare a
 crear este fangame para todo el mundo"
-valign = 1
 autowrap = true
 clip_text = true
 max_lines_visible = 3

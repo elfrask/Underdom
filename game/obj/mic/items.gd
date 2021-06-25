@@ -109,7 +109,7 @@ func _process(delta):
 			
 			if Input.is_action_just_pressed("left"):# al dar la tecla asignada (izquierda)
 				set -= 1# mover el cursor2 a la izquierda
-				Auda.beat(Lib.control_sound_cancel)
+				Auda.beat(Lib.control_sound)
 				if set == -1:#si cursor2 esta en -1
 					set = 2# moverlo a 2
 					pass

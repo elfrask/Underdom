@@ -1,8 +1,8 @@
 extends Node
 
 var control_sound_cancel = "res://assets/sound/cancel.wav"
-var control_sound = "res://assets/sound/cancel.wav"
-var control_sound_acept = "res://assets/sound/cancel.wav"
+var control_sound = "res://assets/sound/control.wav"
+var control_sound_acept = "res://assets/sound/done.wav"
 #usar este valot unicamente cuando estes seguro que estas pasando una funcion
 class Funcion:
 	var call

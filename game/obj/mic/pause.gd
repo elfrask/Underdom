@@ -79,7 +79,7 @@ func _on_pause_visibility_changed():#cuando se abre el menu
 	if len(minuto) == 1: # lo mismo que segundo pero con el minuto
 		minuto = "0"+minuto
 	#actualizar la informacion de la caja de texto
-	$L/d/back/data.text = "" + str(game.player['name']) + "\nG: " + str(game.player['coin'])+ "\n\n\n" + str(game.player['pro']) +"%\n" + str(hora) + ":" + str(minuto) + ":" + str(segundo)
+	$L/d/back/data.text = "" + str(game.player['name']) + "\nG: " + str(game.player['coin'])+ "\n\n" + str(game.player['pro']) +"%\n" + str(hora) + ":" + str(minuto) + ":" + str(segundo)
 	
 	
 	pass 

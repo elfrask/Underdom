@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6.5625, 5.31916 )
 
-[sub_resource type="GDScript" id=2]
+[sub_resource type="GDScript" id=4]
 script/source = "extends StaticBody2D
 
 
@@ -41,8 +41,9 @@ shape = SubResource( 1 )
 ]]
 collision_layer = 2
 collision_mask = 2
-script = SubResource( 2 )
+script = SubResource( 4 )
 
 [node name="coll" type="CollisionShape2D" parent="dialogo"]
+visible = false
 position = Vector2( -0.166855, -13.7655 )
 shape = SubResource( 3 )
