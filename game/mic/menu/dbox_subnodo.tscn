@@ -37,10 +37,10 @@ __meta__ = {
 }
 
 [node name="name" parent="u/backin" instance=ExtResource( 3 )]
-margin_left = 98.0
-margin_top = 214.0
-margin_right = 340.0
-margin_bottom = 268.0
+margin_left = 85.0
+margin_top = 185.0
+margin_right = 354.0
+margin_bottom = 239.0
 custom_fonts/font = SubResource( 1 )
 text = "Personaje"
 align = 1
@@ -64,7 +64,7 @@ anchor_bottom = 0.5
 margin_left = -421.0
 margin_top = -249.0
 margin_right = 424.0
-margin_bottom = -108.0
+margin_bottom = -140.0
 custom_fonts/font = SubResource( 1 )
 text = "Hola gente como estan yo estoy muy bien y sdadadwe
 ustedes? me alegro ahora mismo empezare a

@@ -1,7 +1,32 @@
-Como estaaaan gente sexi?
+Como estaaaan gente Sexi?
 
-Tengo ya desde hace tiempo que no publico nada en este grupo ya que un colega promocionaba este proyecto por mi pero bueno seguramente habran notado una inactividad deacuerdo al desarrollo del juego UnderDom disculpa si os he hecho esperar.
+Tengo ya desde hace tiempo que no publico nada en este grupo ya que un colega promocionaba este proyecto por mi pero bueno seguramente habrán notado una inactividad significativa con el desarrollo del juego UnderDom disculpa si os he hecho esperar una nueva actualización sobre este proyecto :v
 
-para los que no me conoscan soy frask el desarrollador de este fangame y lider de UD TEAM la inactividad se debe a porque simple y llanamente tenia problemas con las materias pero bueno en unos dias me graduo pero lo que son las clases ya las termine y volvi de lleno! al proyecto despues de 2 meses de averlo abandonado dejandolo acargo de unos de mis colegas los cuales hizo un buen trabajo de mantener el proyecto fresco por mi. gracias al colider @Moises Alejandro Escobar por tomar el cargo de UnderDom por mi.
+para los que no me conozcan soy Frask el desarrollador de este fangame y líder de UD TEAM la inactividad se debe a porque simple y llanamente tenia problemas con las materias y a su vez soy el único programador en el proyecto pero bueno en unos días me graduó pero lo que son las clases ya las termine y volví de lleno al proyecto después de 2 meses de a verlo abandonado dejándolo a cargo de unos de mis colegas los cuales hizo un buen trabajo de mantener el proyecto fresco por mi. gracias al co-lider @Moises Alejandro Escobar por tomar el cargo de UnderDom por mi mientras yo no estaba.
 
-bueno ya desues de esta introduccion os vengo a contar que volvere a trabajar activamente en underdom
+bueno ya después de esta algo larga introducción os vengo a contar que volveré a trabajar activamente en UnderDom después de haber vuelto, tomado un descanso y preparar algunas cosas antes de continuar con el desarrollo de UnderDom.
+
+>la actualización que os presento hoy es:
+
+-alternación de pantalla completa y ventana al dar F4
+-re diseño de la interfaz y cambio de texturas en estas
+-se agrego a sans y un nuevo escenario
+-se a re mapeado y cambiado la forma de la creación de mapas
+-se agrego reponsibilidad de la ventana para que se adapte a todas las pantallas
+-se reparo el bug de instalación para Android
+-eliminación del bug de las franjas negras y errores gráficos
+
+>esto en estos últimos 3 días
+
+>El equipo cambia su nombre de "UnderDom Team" a "Vinestar"
+
+>se esta trabajando en la futura web donde se encontrara de forma centralizada nueva información y todo contenido del proyecto UnderDom y pagina Oficial de descarga la cual estará bajo el dominio de la pagina del equipo "Vinestar" de forma gratuita 
+
+>novedades pensadas y aspirantes para UnderDom:
+
+-llevara soporte de mods usando JavaScript o CLS (la segunda fue creada por mi) (seguro)
+-habrá una beta cerrada (seguro)
+-inicio de sección y verificación de cuentas (en la Beta) (en tal vez)
+-UnderDom se ejecutara bajo un launcher (para hacer posible lo anterior dicho) (seguro)
+
+bueno esto fue mucho texto espero no haberlos detenido mucho con esto ^^" espero pasen un lindo dia, tarde o noche y nos veremos en una próxima actualización :3 Byeeee!!!!

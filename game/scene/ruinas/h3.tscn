@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://obj/mic/tiles/ruinas.tscn" type="PackedScene" id=1]
 [ext_resource path="res://obj/mic/scene.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://obj/mic/Script.tscn" type="PackedScene" id=7]
 [ext_resource path="res://obj/scene/general/saybox.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/sprites/scene/completa/h2.png" type="Texture" id=9]
+[ext_resource path="res://obj/scene/general/point.tscn" type="PackedScene" id=10]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node
@@ -54,9 +55,18 @@ __meta__ = {
 }
 
 [node name="scene" parent="." instance=ExtResource( 2 )]
-nombre = "ruinas_h3"
 player = NodePath("obj/frisk")
 sound = "ruins"
+
+[node name="point" type="Node2D" parent="scene"]
+
+[node name="point" parent="scene/point" instance=ExtResource( 10 )]
+position = Vector2( 360, -500 )
+nombre = "out"
+see = 3
+
+[node name="point2" parent="scene/point" instance=ExtResource( 10 )]
+position = Vector2( 160, 400 )
 
 [node name="vs" type="Node2D" parent="scene"]
 __meta__ = {
@@ -133,7 +143,8 @@ dialog_static = "ciudad"
 [node name="Portal2" parent="scene/vs" instance=ExtResource( 4 )]
 position = Vector2( 400.945, -497.296 )
 scale = Vector2( 1.29867, 3.05426 )
-to_scene = " res://scene/ruinas/h4.tscn"
+to_scene = "res://scene/ruinas/h4.tscn"
+point = "in"
 
 [node name="obj" type="YSort" parent="scene"]
 __meta__ = {
@@ -141,7 +152,7 @@ __meta__ = {
 }
 
 [node name="frisk" parent="scene/obj" instance=ExtResource( 3 )]
-position = Vector2( 160, 391.037 )
+position = Vector2( 240, 440 )
 see = 0
 
 [node name="static_char" parent="scene/obj" instance=ExtResource( 6 )]

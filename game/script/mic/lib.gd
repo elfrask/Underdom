@@ -3,6 +3,13 @@ extends Node
 var control_sound_cancel = "res://assets/sound/cancel.wav"
 var control_sound = "res://assets/sound/control.wav"
 var control_sound_acept = "res://assets/sound/done.wav"
+
+enum vista {
+	Arriba=0,
+	Derecha=1,
+	Abajo=2,
+	Izquierda=3
+}
 #usar este valot unicamente cuando estes seguro que estas pasando una funcion
 class Funcion:
 	var call
@@ -11,6 +18,14 @@ class Funcion:
 		pass
 	
 	pass
+func trim(v:String):
+	while v.substr(0,1) ==" ":
+		v=v.substr(1)
+	while v.substr(len(v)-1, 1) == " ":
+		v=v.substr(0, len(v)-1)
+	return v
+	
+
 func isnull(o):
 	
 	return str(o)!="[Object:null]"

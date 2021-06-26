@@ -42,6 +42,8 @@ singletons=[  ]
 
 display=false
 gri=false
+cy=false
+c=false
 
 [importer_defaults]
 

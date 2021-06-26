@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://obj/mic/scene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/scene/completa/inicio.png" type="Texture" id=2]
 [ext_resource path="res://obj/chars/frisk.tscn" type="PackedScene" id=3]
 [ext_resource path="res://obj/scene/general/Portal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://obj/scene/general/saybox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://obj/scene/general/point.tscn" type="PackedScene" id=6]
 
 [node name="mundo" type="Node2D"]
 __meta__ = {
@@ -12,9 +13,18 @@ __meta__ = {
 }
 
 [node name="scene" parent="." instance=ExtResource( 1 )]
-nombre = " ruinas_h2"
 player = NodePath("ysoft/frisk")
 sound = "ruins"
+
+[node name="puntos" type="Node2D" parent="scene"]
+
+[node name="point" parent="scene/puntos" instance=ExtResource( 6 )]
+position = Vector2( 240, -100 )
+nombre = "out"
+see = 2
+
+[node name="point2" parent="scene/puntos" instance=ExtResource( 6 )]
+position = Vector2( 240, 440 )
 
 [node name="escenario" type="Node2D" parent="scene"]
 __meta__ = {
@@ -34,6 +44,7 @@ __meta__ = {
 }
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="scene/escenario/StaticBody2D"]
+visible = false
 polygon = PoolVector2Array( 220, 480, 260, 480, 260, 440, 280, 420, 320, 420, 320, 380, 320, 360, 400, 360, 400, -120, 260, -120, 260, -140, 220, -140, 220, -120, 80, -120, 80, 360, 160, 360, 160, 380, 160, 420, 200, 420, 220, 440, 220, 460, 160, 460, -160, 460, -160, -320, 640, -320, 640, 520, 160, 520, 160, 460, 220, 460 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="scene/escenario/StaticBody2D"]
@@ -47,11 +58,13 @@ __meta__ = {
 position = Vector2( 240, 480 )
 scale = Vector2( 2.18789, 1.44124 )
 to_scene = "res://scene/ruinas/h1.tscn"
+point = "out"
 
 [node name="h3" parent="scene/escenario" instance=ExtResource( 4 )]
 position = Vector2( 240, -140 )
 scale = Vector2( 2.16, 1.44 )
 to_scene = "res://scene/ruinas/h3.tscn"
+point = "in"
 
 [node name="ysoft" type="YSort" parent="scene"]
 __meta__ = {
@@ -59,7 +72,7 @@ __meta__ = {
 }
 
 [node name="frisk" parent="scene/ysoft" instance=ExtResource( 3 )]
-position = Vector2( 240, 440 )
+position = Vector2( 360, 420 )
 see = 0
 
 [node name="carteles" type="Node2D" parent="scene"]

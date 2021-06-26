@@ -9,11 +9,19 @@ var scale_dash:float = 1
 var y_l = 0 #establecer "Y" de el sprite para simular movimiento al caminar
 var ismove = false #si se esta moviendo = falso
 var ray_distant =15 #distancia del rayo en busca de un objeto
-export (int) var see= 2 #0 arriba, 1 derecha, 2 abajo, 3 izquierda
+export (Lib.vista) var see= 2 #0 arriba, 1 derecha, 2 abajo, 3 izquierda
 var array_see = ["arriba", "derecha", "abajo", "izquierda"] #arreglo de posiciones
 var on_wall = false # e el muro?
+
+func vew(ver:int):
+	var vis = $v/visual #captura el sprite	
+	vis.play(array_see[ver])
+	vis.stop()
+	vis.frame = 0
+	pass
+
 func _ready(): #esta funcion se ejecuta al inicio
-	#print("crear personaje")
+	print("crear personaje")
 	var vis = $v/visual #captura el sprite
 	y_l = vis.position.y #asignar el valor de este
 	vis.play(array_see[see])

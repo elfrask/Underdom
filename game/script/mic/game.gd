@@ -16,7 +16,10 @@ var lang = {}#el idioma
 #con esta funcion generamos el personaje 
 #(nombre, ataque, defensa, subir de nivel, maximo hp, mostrar, alma)
 
-
+var puntos = []
+func add_point(o): puntos.append(o)
+func clear_points(): puntos.clear()
+func get_points(): return puntos
 
 func gen_char(name:String = "frisk", atk:int = 1, def:int = 1, lvup:int = 10, maxi:int = 20, show:bool = true, soul:String = "soul"):
 	return({
@@ -40,8 +43,6 @@ var foto = {
 	"chara":preload("res://assets/sprites/characters/chara/frame0.png"),
 	"asriel":preload("res://assets/sprites/characters/asriel/frame0.png"),
 }
-
-
 
 func ini():
 	player = {
@@ -93,13 +94,9 @@ func ini():
 			false,
 			false,
 		],
-		"story":{
-			"room":{
-				
-			},
-			"location":{
-				"room":"main"
-			}
+		"last":{
+			"room":"",
+			"point":"",
 		}
 	}
 	pass
