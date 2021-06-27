@@ -83,4 +83,4 @@ __meta__ = {
 [node name="saybox" parent="scene/carteles" instance=ExtResource( 5 )]
 position = Vector2( 240, 20 )
 scale = Vector2( 4.14767, 4.22052 )
-dialog_static = "poso"
+dialog_file = "res://lang/dialogos/poso.json"

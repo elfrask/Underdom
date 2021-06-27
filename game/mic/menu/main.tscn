@@ -4,9 +4,15 @@
 [ext_resource path="res://assets/sprites/gui/control_new.png" type="Texture" id=2]
 [ext_resource path="res://mic/menu/main.gd" type="Script" id=3]
 [ext_resource path="res://assets/sprites/gui/completo/menu_principal.png" type="Texture" id=4]
-[ext_resource path="res://assets/music/menu0.ogg" type="AudioStream" id=5]
+[ext_resource path="res://mic/gui/principal_bg.tscn" type="PackedScene" id=5]
 
-[node name="main" type="Control"]
+[node name="Node" type="Node"]
+
+[node name="bg" type="Node2D" parent="."]
+
+[node name="bg" parent="bg" instance=ExtResource( 5 )]
+
+[node name="main" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_clip_content = true
@@ -16,11 +22,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
-autoplay = true
-
-[node name="gui" type="TextureRect" parent="."]
+[node name="gui" type="TextureRect" parent="main"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 4 )
@@ -30,7 +32,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="main" type="Control" parent="."]
+[node name="main" type="Control" parent="main"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -38,7 +40,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tfont" parent="main" instance=ExtResource( 1 )]
+[node name="Tfont" parent="main/main" instance=ExtResource( 1 )]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 768.0
@@ -52,7 +54,7 @@ Salir"
 align = 1
 valign = 3
 
-[node name="extras" type="Control" parent="."]
+[node name="extras" type="Control" parent="main"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -60,7 +62,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Tfont" parent="extras" instance=ExtResource( 1 )]
+[node name="Tfont" parent="main/extras" instance=ExtResource( 1 )]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 767.0
@@ -74,7 +76,7 @@ dibujos fandom"
 align = 1
 valign = 3
 
-[node name="Tfont" parent="." instance=ExtResource( 1 )]
+[node name="Tfont" parent="main" instance=ExtResource( 1 )]
 anchor_top = -0.00333333
 anchor_bottom = -0.00333333
 margin_left = -1.49835
@@ -84,7 +86,7 @@ margin_bottom = 77.5857
 text = "Undertale (2015) TobyFox - Deltarune (2018)"
 align = 1
 
-[node name="Tfont2" parent="." instance=ExtResource( 1 )]
+[node name="Tfont2" parent="main" instance=ExtResource( 1 )]
 margin_left = 1.50171
 margin_top = 518.916
 margin_right = 1021.5
@@ -92,7 +94,7 @@ margin_bottom = 557.916
 text = "UnderDom Pre-Alfa 0.2.2 (2021) - Frask - Vinestar"
 align = 1
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="main"]
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -100,28 +102,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="sec1" type="Position2D" parent="Control"]
+[node name="sec1" type="Position2D" parent="main/Control"]
 position = Vector2( 682.596, 211.654 )
 scale = Vector2( 2, 2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="sec2" type="Position2D" parent="Control"]
+[node name="sec2" type="Position2D" parent="main/Control"]
 position = Vector2( 682.596, 301.654 )
 scale = Vector2( 2, 2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="sec3" type="Position2D" parent="Control"]
+[node name="sec3" type="Position2D" parent="main/Control"]
 position = Vector2( 682.596, 391.654 )
 scale = Vector2( 2, 2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="sel" type="Sprite" parent="Control"]
+[node name="sel" type="Sprite" parent="main/Control"]
 position = Vector2( 593.233, 225.669 )
 scale = Vector2( 1.5, 2 )
 texture = ExtResource( 2 )

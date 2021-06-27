@@ -38,7 +38,8 @@ func _process(delta):
 				Auda.beat(Lib.control_sound_acept)
 				if sel == 0:# comunicarce con mama
 					var decir = Lib.dialogbox()
-					decir["text"] = game.lang["tlf"]["madre"]["di"]
+					var idioma = Lang.get(Lang.MENUGAME)
+					decir["text"] = idioma["tlf"]["madre"]["di"]
 					Api.get("say").play(decir) #dar un dialogo segun el idioma configurado
 					pass
 				pass
@@ -53,6 +54,8 @@ func _on_tlf_visibility_changed():
 	for i in range(0, game.player["tlf"]+1):
 		$lista.get_child(i).visible = true
 		pass
-	$lista/t0.text = game.lang["tlf"]["madre"]["name"]
+	var idioma = Lang.get(Lang.MENUGAME)
+	
+	$lista/t0.text = idioma["tlf"]["madre"]["name"]
 	
 	pass # Replace with function body.

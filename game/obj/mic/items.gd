@@ -52,10 +52,11 @@ func _process(delta):
 			visible = false#ocultar este menu
 			mode = "select"# hacer que este modo se re-asigne
 			pass
+		
 		$sec.visible = (mode == "select")#si modo es select el cursor1 es visible
 		$gui/sec.visible = (mode == "action" or mode == "char") #si el modo es action o char entonces el cursor2 es visible
 		$gui/action.visible = (mode == "action")# si el modo es action entonces el menu de acciones es visible 
-		$gui/action.text = game.lang["gui"]["item"]["action"]# establecer segun el idioma el nombre de las acciones
+		$gui/action.text = Lang.get(Lang.MENUGAME)["action"]# establecer segun el idioma el nombre de las acciones
 		$gui/char.visible = (mode == "char") # si el modo es char entonces mostrar el menu de personajes
 		
 		if mode == "select":# si el modo es select
@@ -155,9 +156,10 @@ func _process(delta):
 					
 					# Decir informacion sobre el objeto
 					var decir = Lib.dialogbox()
+					var idioma =  Lang.get(Lang.MENUGAME)
 					decir["text"] = [
-						"'" + co["nick"] + "' " + game.lang["gui"]["item"]["info"][0] +" " + join(co["char"], ", "),
-						game.lang["gui"]["item"]["info"][1]+"\nDef: +" + str(co["def"]) + " Atk: +" + str(co["atk"]) + " Hp: +" + str(co["hp"])
+						"'" + co["nick"] + "' " + idioma["gui"]["item"]["info"][0] +" " + join(co["char"], ", "),
+						idioma["gui"]["item"]["info"][1]+"\nDef: +" + str(co["def"]) + " Atk: +" + str(co["atk"]) + " Hp: +" + str(co["hp"])
 					]
 					Api.get("say").play(decir)
 					mode = "select"# volver al modo select

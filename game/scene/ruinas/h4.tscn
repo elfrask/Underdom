@@ -105,7 +105,7 @@ point = "in"
 [node name="saybox" parent="scene/vs" instance=ExtResource( 7 )]
 position = Vector2( 980, 300 )
 scale = Vector2( 4.16, 4.16 )
-dialog_static = "poso2"
+dialog_file = "res://lang/dialogos/poso2.json"
 
 [node name="obj" type="YSort" parent="scene"]
 __meta__ = {
@@ -119,4 +119,4 @@ see = 1
 [node name="static_char" parent="scene/obj" instance=ExtResource( 5 )]
 position = Vector2( 700, 400 )
 texture = ExtResource( 6 )
-dialog_static = "sans"
+dialog_file = "res://lang/dialogos/sans.json"

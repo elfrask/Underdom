@@ -22,9 +22,9 @@ config/icon="res://icono.png"
 
 [autoload]
 
+Lang="*res://script/mic/lang.gd"
 game="*res://script/mic/game.gd"
 Api="*res://script/mic/apigame.gd"
-Gstore="*res://Gstore_api/Gstore.gd"
 Lib="*res://script/mic/lib.gd"
 Auda="*res://script/mic/fmond.gd"
 TestVisual="*res://script/test_visual.vs"

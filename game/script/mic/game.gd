@@ -51,7 +51,7 @@ func ini():
 		"fun":0,
 		"x":0,
 		"y":0,
-		"lang":"es",
+		"lang":"res://lang/",
 		"room":"main",
 		"name":false,
 		"pro":0.0,
@@ -97,7 +97,8 @@ func ini():
 		"last":{
 			"room":"",
 			"point":"",
-		}
+		},
+		"persist":{}
 	}
 	pass
 #		gen_obj("Escudo de piedra", "def", data(0,0,100), ["frisk", "chara", "asriel"]),
@@ -182,7 +183,7 @@ func use(personaje, id):
 		print("'"+personaje+"' no puede usar un '"+ dat["nick"] + "'")
 		var decir = Lib.dialogbox()
 		decir["text"] = [
-			"'"+personaje+"' "+ lang["gui"]["item"]["nouse"] +" '"+ dat["nick"] + "'"
+			"'"+personaje+"' "+ Lang.get(Lang.MENUGAME)["nouse"] +" '"+ dat["nick"] + "'"
 		]
 		Api.get("say").play(decir)
 		return [false, "'"+personaje+"' no puede usar un '"+ dat["nick"] + "'"]
@@ -200,10 +201,14 @@ func regen():# regenerar a los personajes
 	pass
 
 func load_lang(pkg): #cargar el idioma
+	
 	var fs = File.new()
 	fs.open("res://lang/" + pkg +".json", File.READ)
 	lang =  JSON.parse(fs.get_as_text()).result
+	lang["load"]
 	pass
+
+var wait = Timer.new()
 
 func loadgame():#cargar el juego si no lo logra usa una plantilla
 	var fs= File.new()
@@ -218,7 +223,9 @@ func loadgame():#cargar el juego si no lo logra usa una plantilla
 		player = JSON.parse(fs.get_as_text()).result
 		
 		pass
-	load_lang(player["lang"])
+	var idioma = player["lang"]
+	print(idioma)
+	Lang.set_data(idioma)
 	pass
 
 
@@ -230,9 +237,11 @@ func savegame():#guardar el juego
 	
 	pass
 
+func _ready():
+	_inicio()
+	return
 
-
-func _ready(): # al iniciar
+func _inicio(): # al iniciar
 	print("inicio el juego")
 	ini()
 	loadgame()

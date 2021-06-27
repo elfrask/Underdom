@@ -78,6 +78,7 @@ func _process(delta):
 		if (sel == -1):
 			if nombre == "": $u/backin.visible = false; else: $u/backin.visible = true
 			sel +=1
+			print(dii)
 			printf(dii[sel])
 			$u/backin/name.text = nombre
 			pass

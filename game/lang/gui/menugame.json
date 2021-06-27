@@ -1,0 +1,43 @@
+{
+	"action":"    Usar       Tirar      Info",
+	"nouse":"no puede usar un",
+	"gui":{
+		"info":{
+			"lv":"Subir nivel: ",
+			"force":"Fuerza: ",
+			"weapon":"Arma: ",
+			"resist":"Resistencia: ",
+			"shield":"Escudo: ",
+			"max":"Maximo de Hp: "
+		},
+		"item":{
+			"vacio":[
+				"Selecciona un objeto"
+			],
+			"info":[
+				"esta herramienta solo la puede usar:",
+				"esta herramienta otorga a quien lo use:"
+			],
+			"action":"    Usar       Tirar      Info",
+			"nouse":"no puede usar un"
+		},
+	},
+	"soul":{
+		"red":"Determinacion",
+		"plata":"Voluntad",
+		"rose":"Inocencia",
+		"white":"Monstruo",
+		"redblack":"Lujuria",
+		"gray":"Involuntad"
+	},
+	"tlf":{
+		"madre":{
+			"name":"Madre",
+			"di":[
+				"* Intentas llamar a tu madre",
+				"......",
+				"* Pero nadie contesta..."
+			]
+		}
+	}
+}

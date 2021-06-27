@@ -18,13 +18,29 @@ func _ready():
 	
 	pass
 
-func beat(f:String) -> void:
-	
-	if f != "none":# si no es none entonces reproducir el sonido
-		sound.stop()
-		var au = load(f)
-		
-		#verifica el tipo de archivo y modificalo para que no se haga bucle
+func beat(f) -> void:
+	if f is String:
+		if f != "none":# si no es none entonces reproducir el sonido
+			sound.stop()
+			var au = load(f)
+			
+			#verifica el tipo de archivo y modificalo para que no se haga bucle
+			if au is AudioStreamOGGVorbis: au.loop = false
+			if au is AudioStreamSample: au.loop_mode = AudioStreamSample.LOOP_DISABLED
+			if au is AudioStreamMP3: au.loop = false
+			
+			sound.stream = au
+			sound.play()
+			pass
+		else:# de lo contrario lo detiene
+			sound.stop()
+		pass
+	elif (
+		(f  is AudioStreamOGGVorbis) or
+		(f  is AudioStreamSample) or
+		(f  is AudioStreamMP3)
+		) :
+		var au = f
 		if au is AudioStreamOGGVorbis: au.loop = false
 		if au is AudioStreamSample: au.loop_mode = AudioStreamSample.LOOP_DISABLED
 		if au is AudioStreamMP3: au.loop = false
@@ -32,22 +48,34 @@ func beat(f:String) -> void:
 		sound.stream = au
 		sound.play()
 		pass
-	else:# de lo contrario lo detiene
-		sound.stop()
 	
 	pass
-func seti(f:String) -> void:
+func seti(f) -> void:
 	
-	if fname!=f:# si el archivo a reproducir es el mismo no hacer nada
-		audio.stop()
-		var au = load(f)
-		audio.stream = au
-		audio.play()
-		audio.playing = true
-		fname = f
+	if f is String:
+		if fname!=f:# si el archivo a reproducir es el mismo no hacer nada
+			audio.stop()
+			var au = load(f)
+			audio.stream = au
+			audio.play()
+			audio.playing = true
+			fname = f
+			pass
+		elif f=="none": # si es "none" parar la musica
+			audio.stop()
 		pass
-	elif f=="none": # si es "none" parar la musica
-		audio.stop()
-	
+	elif (
+		(f  is AudioStreamOGGVorbis) or
+		(f  is AudioStreamSample) or
+		(f  is AudioStreamMP3)
+		) :
+		var au = f
+		if au is AudioStreamOGGVorbis: au.loop = false
+		if au is AudioStreamSample: au.loop_mode = AudioStreamSample.LOOP_DISABLED
+		if au is AudioStreamMP3: au.loop = false
+		
+		sound.stream = au
+		sound.play()
+		pass
 	
 	pass
