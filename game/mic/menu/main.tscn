@@ -79,19 +79,19 @@ valign = 3
 [node name="Tfont" parent="main" instance=ExtResource( 1 )]
 anchor_top = -0.00333333
 anchor_bottom = -0.00333333
-margin_left = -1.49835
-margin_top = 38.5857
-margin_right = 1018.5
-margin_bottom = 77.5857
+margin_left = 1.88004
+margin_top = 521.404
+margin_right = 1021.88
+margin_bottom = 560.404
 text = "Undertale (2015) TobyFox - Deltarune (2018)"
 align = 1
 
 [node name="Tfont2" parent="main" instance=ExtResource( 1 )]
-margin_left = 1.50171
-margin_top = 518.916
-margin_right = 1021.5
-margin_bottom = 557.916
-text = "UnderDom Pre-Alfa 0.2.2 (2021) - Frask - Vinestar"
+margin_left = 1.44769
+margin_top = 39.4761
+margin_right = 1021.45
+margin_bottom = 78.4761
+text = "UnderDom Pre-Alfa 0.2.4 (2021) - Frask - Vinestar"
 align = 1
 
 [node name="Control" type="Control" parent="main"]
