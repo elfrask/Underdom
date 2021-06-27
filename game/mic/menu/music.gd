@@ -13,8 +13,9 @@ var lista = []
 var lista_renderizada = []
 
 func _ready():
-	$bg/U/data/title.text = game.lang["gui"]["music"]["title"]
-	$bg/U/data/gui.text = game.lang["gui"]["music"]["author"]
+	var idioma = Lang.get(Lang.MENUGAME)
+	$bg/U/data/title.text = idioma["gui"]["music"]["title"]
+	$bg/U/data/gui.text = idioma["gui"]["music"]["author"]
 	loaddata()
 	render(0)
 	pass

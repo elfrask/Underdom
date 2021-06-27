@@ -190,7 +190,7 @@ func use(personaje, id):
 	
 	pass
 
-
+var pad = false
 var hp
 func regen():# regenerar a los personajes
 	hp={

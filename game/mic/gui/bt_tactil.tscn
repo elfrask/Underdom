@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/sprites/gui/android/controls/play.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/gui/android/controls/pad.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/gui/android/controls/cancel.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/gui/android/controls/cross.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/gui/android/controls/square.png" type="Texture" id=5]
+[ext_resource path="res://mic/gui/bt_tactil.gd" type="Script" id=6]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+layer = 2
+script = ExtResource( 6 )
+
+[node name="gui" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0.34902 )
+
+[node name="move" type="TouchScreenButton" parent="gui"]
+position = Vector2( 100, 300 )
+scale = Vector2( 6, 6 )
+normal = ExtResource( 2 )
+
+[node name="moveshow" type="TouchScreenButton" parent="gui"]
+position = Vector2( 40, 40 )
+scale = Vector2( 1.5, 1.5 )
+normal = ExtResource( 2 )
+action = "show"
+
+[node name="play" type="TouchScreenButton" parent="gui"]
+position = Vector2( 448, 20 )
+scale = Vector2( 6, 6 )
+normal = ExtResource( 1 )
+action = "menu"
+
+[node name="actions" type="Node2D" parent="gui"]
+position = Vector2( 800, 360 )
+
+[node name="done" type="TouchScreenButton" parent="gui/actions"]
+position = Vector2( -60, 60 )
+scale = Vector2( 6, 6 )
+normal = ExtResource( 4 )
+action = "aceptar"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cancel" type="TouchScreenButton" parent="gui/actions"]
+position = Vector2( 60.0001, -60 )
+scale = Vector2( 6, 6 )
+normal = ExtResource( 3 )
+action = "cancelar"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="run" type="TouchScreenButton" parent="gui/actions"]
+position = Vector2( -180, -60 )
+scale = Vector2( 6, 6 )
+normal = ExtResource( 5 )
+action = "run"
+visibility_mode = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="to" type="Position2D" parent="."]
+position = Vector2( 0, 600 )

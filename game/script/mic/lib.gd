@@ -10,6 +10,11 @@ enum vista {
 	Abajo=2,
 	Izquierda=3
 }
+func interpolate(n):
+	var salida = 0
+	if n<0:salida=-1
+	elif n>0:salida=1
+	return salida
 #usar este valot unicamente cuando estes seguro que estas pasando una funcion
 class Funcion:
 	var call

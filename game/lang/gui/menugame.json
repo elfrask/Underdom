@@ -21,6 +21,16 @@
 			"action":"    Usar       Tirar      Info",
 			"nouse":"no puede usar un"
 		},
+		"music":{
+			"author":"Autor:",
+			"title":"Rincon Musical"
+		},
+		"galery":{
+			"title":"Galeria",
+			"gui1":"por:",
+			"des":"Descripcion:",
+
+		}
 	},
 	"soul":{
 		"red":"Determinacion",
