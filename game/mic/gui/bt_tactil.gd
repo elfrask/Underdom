@@ -3,7 +3,7 @@ extends CanvasLayer
 
 func _ready():
 	$gui.position = $to.position
-	if true:#OS.get_name() == "Android":
+	if OS.get_name() == "Android":
 		$gui.position = Vector2()
 		pass
 	pass
