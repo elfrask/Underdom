@@ -2,36 +2,10 @@ extends CanvasLayer
 
 
 func _ready():
-	$gui.position = $to.position
+	$gui.visible = false
 	if OS.get_name() == "Android":
-		$gui.position = Vector2()
+		$gui.visible = true
 		pass
-	pass
-var up = 0
-
-func pad(d:Array=[0,0]):
-	if d==[0,0]:
-		print("parar")
-		Input.action_release("up")
-		Input.action_release("down")
-		Input.action_release("left")
-		Input.action_release("right")
-		pass
-
-	if d[0]>0:
-		Input.action_press("right")
-		pass
-	elif d[0]<0:
-		Input.action_press("left")
-		pass
-	
-	if d[1]>0:
-		Input.action_press("down")
-		pass
-	elif d[1]<0:
-		Input.action_press("up")
-		pass
-	
 	pass
 
 func _process(delta):
@@ -47,8 +21,13 @@ func _process(delta):
 		actions.position.y=360
 		pass
 	else:
-		actions.position.y=280
+		actions.position.y=240
 		pass
 	pad.visible = game.pad
 	
 	pass
+
+
+func _on_hide_pressed():
+	$gui.visible = !$gui.visible
+	pass # Replace with function body.

@@ -5,9 +5,10 @@ var sel:int=0
 var limit:int = 0
 
 func _ready():
-	$bg/L/title.text = game.lang["gui"]["galery"]["title"]
-	$bg/L/gui1.text = game.lang["gui"]["galery"]["gui1"]
-	$bg/L/des.text = game.lang["gui"]["galery"]["des"]
+	var idioma = Lang.get(Lang.MENUGAME)
+	$bg/L/title.text = idioma["gui"]["galery"]["title"]
+	$bg/L/gui1.text = idioma["gui"]["galery"]["gui1"]
+	$bg/L/des.text = idioma["gui"]["galery"]["des"]
 	img(0)
 	pass
 

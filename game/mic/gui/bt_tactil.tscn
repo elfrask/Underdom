@@ -64,7 +64,7 @@ __meta__ = {
 }
 
 [node name="moveshow" type="TouchScreenButton" parent="gui"]
-position = Vector2( 40, 40 )
+position = Vector2( 190, 40 )
 scale = Vector2( 1.5, 1.5 )
 normal = ExtResource( 2 )
 action = "show"
@@ -106,5 +106,11 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="to" type="Position2D" parent="."]
-position = Vector2( 0, 600 )
+[node name="hide" type="TouchScreenButton" parent="."]
+modulate = Color( 1, 1, 1, 0.466667 )
+position = Vector2( 40, 40 )
+scale = Vector2( 3, 3 )
+normal = ExtResource( 7 )
+action = "show"
+
+[connection signal="pressed" from="hide" to="." method="_on_hide_pressed"]

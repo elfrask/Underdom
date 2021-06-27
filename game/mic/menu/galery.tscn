@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/sprites/bg/galery.png" type="Texture" id=1]
 [ext_resource path="res://mic/fonts/Tfont.tscn" type="PackedScene" id=2]
@@ -6,8 +6,11 @@
 [ext_resource path="res://assets/sprites/gui/marco.png" type="Texture" id=4]
 [ext_resource path="res://assets/sprites/gui/control.png" type="Texture" id=5]
 [ext_resource path="res://assets/music/galery.ogg" type="AudioStream" id=6]
+[ext_resource path="res://mic/gui/bt_tactil.tscn" type="PackedScene" id=7]
 
-[node name="menu" type="Control"]
+[node name="galery" type="Node"]
+
+[node name="menu" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
@@ -16,11 +19,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="music" type="AudioStreamPlayer" parent="."]
+[node name="music" type="AudioStreamPlayer" parent="menu"]
 stream = ExtResource( 6 )
 autoplay = true
 
-[node name="bg" type="TextureRect" parent="."]
+[node name="bg" type="TextureRect" parent="menu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 1 )
@@ -29,14 +32,14 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="L" type="Control" parent="bg"]
+[node name="L" type="Control" parent="menu/bg"]
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="title" parent="bg/L" instance=ExtResource( 2 )]
+[node name="title" parent="menu/bg/L" instance=ExtResource( 2 )]
 margin_left = 240.0
 margin_top = 160.0
 margin_right = 460.0
@@ -47,7 +50,7 @@ align = 1
 autowrap = true
 clip_text = true
 
-[node name="gui1" parent="bg/L" instance=ExtResource( 2 )]
+[node name="gui1" parent="menu/bg/L" instance=ExtResource( 2 )]
 margin_left = 240.0
 margin_top = 200.0
 margin_right = 460.0
@@ -58,7 +61,7 @@ align = 1
 autowrap = true
 clip_text = true
 
-[node name="des" parent="bg/L" instance=ExtResource( 2 )]
+[node name="des" parent="menu/bg/L" instance=ExtResource( 2 )]
 margin_left = 240.0
 margin_top = 300.0
 margin_right = 460.0
@@ -69,7 +72,7 @@ align = 1
 autowrap = true
 clip_text = true
 
-[node name="autor" parent="bg/L" instance=ExtResource( 2 )]
+[node name="autor" parent="menu/bg/L" instance=ExtResource( 2 )]
 margin_left = 200.0
 margin_top = 240.0
 margin_right = 500.0
@@ -80,7 +83,7 @@ align = 1
 autowrap = true
 clip_text = true
 
-[node name="detalle" parent="bg/L" instance=ExtResource( 2 )]
+[node name="detalle" parent="menu/bg/L" instance=ExtResource( 2 )]
 margin_left = 200.0
 margin_top = 340.0
 margin_right = 500.0
@@ -91,14 +94,14 @@ align = 1
 autowrap = true
 clip_text = true
 
-[node name="R" type="Control" parent="bg"]
+[node name="R" type="Control" parent="menu/bg"]
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="marco" type="TextureRect" parent="bg/R"]
+[node name="marco" type="TextureRect" parent="menu/bg/R"]
 margin_left = 560.0
 margin_top = 180.0
 margin_right = 820.0
@@ -110,7 +113,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="c" type="Control" parent="bg/R/marco"]
+[node name="c" type="Control" parent="menu/bg/R/marco"]
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 240.0
@@ -120,7 +123,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="img" type="TextureRect" parent="bg/R/marco/c"]
+[node name="img" type="TextureRect" parent="menu/bg/R/marco/c"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 1 )
@@ -131,7 +134,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="U" type="Control" parent="bg"]
+[node name="U" type="Control" parent="menu/bg"]
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -139,7 +142,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="C" type="TextureRect" parent="bg/U"]
+[node name="C" type="TextureRect" parent="menu/bg/U"]
 margin_left = 540.0
 margin_top = 140.0
 margin_right = 580.0
@@ -151,7 +154,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="C2" type="TextureRect" parent="bg/U"]
+[node name="C2" type="TextureRect" parent="menu/bg/U"]
 margin_left = 455.0
 margin_top = 140.0
 margin_right = 495.0
@@ -164,10 +167,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="count" parent="." instance=ExtResource( 2 )]
+[node name="count" parent="menu" instance=ExtResource( 2 )]
 margin_left = 420.0
 margin_top = 40.0
 margin_right = 620.0
 margin_bottom = 79.0
 text = "0/0"
 align = 1
+
+[node name="CanvasLayer" parent="." instance=ExtResource( 7 )]
