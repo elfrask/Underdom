@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://obj/mic/scene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://obj/chars/frisk.tscn" type="PackedScene" id=2]
@@ -9,6 +9,41 @@
 [ext_resource path="res://obj/scene/general/saybox.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/sprites/scene/completa/h3.png" type="Texture" id=8]
 [ext_resource path="res://obj/scene/general/point.tscn" type="PackedScene" id=9]
+[ext_resource path="res://obj/mic/events.tscn" type="PackedScene" id=10]
+[ext_resource path="res://obj/mic/scriptarray.tscn" type="PackedScene" id=11]
+[ext_resource path="res://obj/mic/Script.tscn" type="PackedScene" id=12]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node
+
+func play():
+	print(\"finalizo!\")
+"
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Node
+
+func play(e:int=0):
+	print(\"inicio!\")
+	pass
+
+"
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Node
+
+func play(e):
+	var salida = Lib.dialogbox()
+	salida[\"text\"] = [
+		\"el codigo de salida es: \" + str(e)
+	]
+	Api.get(\"say\").play(
+		salida
+	)
+	
+	pass
+
+"
 
 [node name="h4" type="Node2D"]
 
@@ -48,14 +83,14 @@ __meta__ = {
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="scene/vs/body"]
 visible = false
 scale = Vector2( 0.99157, 1.08305 )
-polygon = PoolVector2Array( 201.7, 424.726, 181.53, 424.726, 181.53, 461.659, 282.38, 461.659, 282.38, 590.924, 584.931, 590.924, 584.931, 517.058, 826.971, 517.058, 826.971, 590.924, 1129.52, 590.924, 1129.52, 147.731, 1008.5, 147.731, 1008.5, 129.265, 968.162, 129.265, 968.162, 147.731, 847.141, 147.731, 847.141, 276.996, 826.971, 276.996, 826.971, 480.126, 726.121, 480.126, 726.121, 443.193, 786.631, 443.193, 786.631, 313.928, 625.271, 313.928, 625.271, 443.193, 685.781, 443.193, 685.781, 480.126, 584.931, 480.126, 584.931, 276.996, 564.761, 276.996, 564.761, 221.596, 282.38, 221.596, 282.38, 424.726, 201.7, 424.726, 201.7, -92.3318, 1452.24, -92.3318, 1452.24, 830.987, -322.721, 830.987, -322.721, -92.3318, 201.7, -92.3318 )
+polygon = PoolVector2Array( 201.7, 424.726, 181.53, 424.726, 181.53, 461.659, 282.38, 461.659, 282.38, 590.924, 383.231, 590.924, 383.231, 572.457, 443.741, 572.457, 443.741, 590.924, 584.931, 590.924, 584.931, 517.058, 826.971, 517.058, 826.971, 590.924, 1129.52, 590.924, 1129.52, 147.731, 1008.5, 147.731, 1008.5, 129.265, 968.162, 129.265, 968.162, 147.731, 847.141, 147.731, 847.141, 276.996, 826.971, 276.996, 826.971, 480.126, 726.121, 480.126, 726.121, 443.193, 786.631, 443.193, 786.631, 313.928, 625.271, 313.928, 625.271, 443.193, 685.781, 443.193, 685.781, 480.126, 584.931, 480.126, 584.931, 276.996, 564.761, 276.996, 564.761, 221.596, 282.38, 221.596, 282.38, 424.726, 201.7, 424.726, 201.7, -92.3318, 1452.24, -92.3318, 1452.24, 830.987, -322.721, 830.987, -322.721, -92.3318, 201.7, -92.3318 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="scene/vs/body"]
 visible = false
-polygon = PoolVector2Array( 360, 560, 360, 320, 460, 320, 460, 560 )
+polygon = PoolVector2Array( 360, 560, 360, 320, 460, 320, 460, 560, 440, 560, 440, 580, 380, 580, 380, 560 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -107,6 +142,19 @@ position = Vector2( 980, 300 )
 scale = Vector2( 4.16, 4.16 )
 dialog_file = "res://lang/dialogos/poso2.json"
 
+[node name="events" parent="scene/vs/saybox" instance=ExtResource( 10 )]
+
+[node name="finish" type="Node" parent="scene/vs/saybox/events"]
+script = SubResource( 1 )
+
+[node name="play" type="Node" parent="scene/vs/saybox/events"]
+script = SubResource( 2 )
+
+[node name="list" parent="scene/vs/saybox" instance=ExtResource( 11 )]
+
+[node name="s1" parent="scene/vs/saybox/list" instance=ExtResource( 12 )]
+script = SubResource( 3 )
+
 [node name="obj" type="YSort" parent="scene"]
 __meta__ = {
 "_edit_lock_": true
@@ -120,3 +168,4 @@ see = 1
 position = Vector2( 700, 400 )
 texture = ExtResource( 6 )
 dialog_file = "res://lang/dialogos/sans.json"
+voice = "sans"

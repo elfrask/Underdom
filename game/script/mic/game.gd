@@ -191,6 +191,8 @@ func use(personaje, id):
 	pass
 
 var pad = false
+var gamepad = false
+func gamepag_assing(): if OS.get_name()=="Android": gamepad = true
 var hp
 func regen():# regenerar a los personajes
 	hp={
@@ -239,6 +241,7 @@ func savegame():#guardar el juego
 
 func _ready():
 	_inicio()
+	
 	return
 
 func _inicio(): # al iniciar
@@ -246,6 +249,7 @@ func _inicio(): # al iniciar
 	ini()
 	loadgame()
 	regen()
+	gamepag_assing()
 	
 	pass
 

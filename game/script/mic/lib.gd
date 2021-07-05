@@ -40,15 +40,52 @@ func funci(f):
 func dialogbox(event="[Object:null]"):
 
 	var out = []
-	print(event)
+	#print(event)
 	if str(event)!="[Object:null]": out.append(event)
 	return {
-		"onfinish":out,
+		"events":out,
 		"text":["texto"],
 		"face":false,
 		"name":"",
-		"voice":"global"
+		"voice":"global",
+		"persist":false,
+		"speed":1.0,
+		"list":[]
 	}
+func dialog_options(options = ["1", "2", "3", "4"], event="[Object:null]"):
+	var out = []
+	#print(event)
+	if str(event)!="[Object:null]": out.append(event)
+	return {
+		"events":out,
+		"data":options,
+		"type":"options",
+		"text":"..."
+	}
+#res://lang/options/
+func dialog_process(data, e=[]):
+	var salida = []
+	var ee = 0
+	for i in data:
+		if i is String: salida.append(i)
+		elif i is Dictionary:
+			if i["type"]=="options":
+				var nodo = get_node_or_null("vacio")
+				var res = len(e) > ee
+				#print("resultado: ", res)
+				if res: 
+					nodo =(e[ee])
+				#print(nodo)
+				var t = dialog_options(i["data"], nodo)
+				t["text"] = i["text"]
+				salida.append(t)
+				ee+=1
+				pass
+			pass
+		pass
+	
+	return salida
+
 func re_list():
 	var salida = []#generar un recopilador
 	var index = 0#crear una indexacion empezando de 0
@@ -67,3 +104,14 @@ func re_list():
 			pass
 		index +=1#sumarle 1 al indexador
 		pass
+
+func playevent(event:Array, nom:String="", data:Dictionary={}):
+	
+	for valor in (event):
+		var obtener:Dictionary =valor.data
+		var yes = obtener.get(nom, false)
+		if !(yes is bool):
+			if str(data)=="{}":
+				return yes.play()
+			else:
+				return yes.play(data)

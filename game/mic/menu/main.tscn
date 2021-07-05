@@ -8,8 +8,15 @@
 [ext_resource path="res://mic/gui/bt_tactil.tscn" type="PackedScene" id=6]
 
 [node name="Node" type="Node"]
+__meta__ = {
+"_edit_horizontal_guides_": [  ],
+"_edit_vertical_guides_": [  ]
+}
 
 [node name="bg" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="bg" parent="bg" instance=ExtResource( 5 )]
 

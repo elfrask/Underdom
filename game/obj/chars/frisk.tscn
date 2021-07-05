@@ -30,11 +30,6 @@ animations = [ {
 "name": "derecha",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 16 ) ],
-"loop": true,
-"name": "izquierda",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "abajo",
@@ -43,6 +38,11 @@ animations = [ {
 "frames": [ ExtResource( 12 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "arriba",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "izquierda",
 "speed": 5.0
 } ]
 
@@ -116,7 +116,7 @@ text = "UnderDom Alpha-Preview 0.2.1"
 align = 2
 valign = 2
 
-[node name="CanvasLayer" parent="camara" instance=ExtResource( 22 )]
+[node name="bt_tactil" parent="camara" instance=ExtResource( 22 )]
 
 [node name="Timer" type="Timer" parent="."]
 process_mode = 0

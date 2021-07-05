@@ -21,7 +21,7 @@ func vew(ver:int):
 	pass
 
 func _ready(): #esta funcion se ejecuta al inicio
-	print("crear personaje")
+	#print("crear personaje")
 	var vis = $v/visual #captura el sprite
 	y_l = vis.position.y #asignar el valor de este
 	vis.play(array_see[see])

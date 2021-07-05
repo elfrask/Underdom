@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://obj/mic/tiles/ruinas.tscn" type="PackedScene" id=1]
 [ext_resource path="res://obj/mic/scene.tscn" type="PackedScene" id=2]
@@ -10,15 +10,31 @@
 [ext_resource path="res://obj/scene/general/saybox.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/sprites/scene/completa/h2.png" type="Texture" id=9]
 [ext_resource path="res://obj/scene/general/point.tscn" type="PackedScene" id=10]
+[ext_resource path="res://obj/mic/events.tscn" type="PackedScene" id=11]
+
+[sub_resource type="Animation" id=2]
+resource_name = "play"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1.5, 2 )
+}
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node
 
-func _dialog_finish():
-	$ani.play(\"play\")
+func play():
+	$\"../../ani\".play(\"play\")
 	pass
+
 func _ready():
-	$ani.connect(\"animation_finished\", self, \"_on_ani_animation_finished\")
+	$\"../../ani\".connect(\"animation_finished\", self, \"_on_ani_animation_finished\")
 	pass
 
 func _on_ani_animation_finished(anim_name):
@@ -34,20 +50,6 @@ func _on_ani_animation_finished(anim_name):
 	Api.get(\"say\").play(decir)
 	pass 
 "
-
-[sub_resource type="Animation" id=2]
-resource_name = "play"
-length = 2.0
-tracks/0/type = "bezier"
-tracks/0/path = NodePath("..:modulate:a")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.6, 1.4, 2 )
-}
 
 [node name="mundo" type="Node2D"]
 __meta__ = {
@@ -161,8 +163,12 @@ texture = ExtResource( 5 )
 dialog_file = "res://lang/dialogos/asriel.json"
 voice = "asriel"
 
-[node name="event" parent="scene/obj/static_char" instance=ExtResource( 7 )]
+[node name="ani" type="AnimationPlayer" parent="scene/obj/static_char"]
+anims/play = SubResource( 2 )
+
+[node name="events" parent="scene/obj/static_char" instance=ExtResource( 11 )]
+
+[node name="finish" parent="scene/obj/static_char/events" instance=ExtResource( 7 )]
 script = SubResource( 1 )
 
-[node name="ani" type="AnimationPlayer" parent="scene/obj/static_char/event"]
-anims/play = SubResource( 2 )
+[connection signal="animation_finished" from="scene/obj/static_char/ani" to="scene/obj/static_char/events/finish" method="_on_ani_animation_finished"]

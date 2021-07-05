@@ -1,6 +1,5 @@
-extends KinematicBody2D
+extends Node
 
-export (Texture) var texture:Texture
 export (Texture) var texture_face:Texture
 export (String, FILE, "*.json, *.JSON") var dialog_file = "none"
 export (String) var nombre = ""
@@ -26,7 +25,6 @@ func _ready():
 		dialogo = di["say"]
 	else:
 		dialogo = di
-	$vs.texture = texture
 	
 	pass 
 
@@ -42,5 +40,6 @@ func say():
 	out["persist"] = persist
 	out["speed"] = speed
 	
-	return out
+	
+	Api.get("say").play(out)
 

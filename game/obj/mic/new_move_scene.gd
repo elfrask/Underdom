@@ -23,13 +23,11 @@ func loadpoints():
 		pass
 	else:
 		Auda.seti("res://assets/music/" + sound + ".ogg")
-	
+	#print(points)
 	for i in points:
 		var x:Position2D = i
 		if x.nombre == punto:
-			print("puesto en " + str(x.position) + 
-			" en la escena " +curret_scene + "en el punto: " 
-			+ punto)
+			
 			pla.position = x.position
 			pla.vew(x.see)
 			break
@@ -50,7 +48,7 @@ func to_scene(s, p):
 	var pla = get_node(player)
 	game.player["last"]["room"] = s
 	game.player["last"]["point"] = p
-	print(s)
+	print("'"+s+"'")
 	game.clear_points()
 	
 	get_tree().change_scene(s)

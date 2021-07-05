@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://mic/gui/dialogbox.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/8bitoperator.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://mic/fonts/Tfont.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/sprites/gui/completo/dialog.png" type="Texture" id=4]
 [ext_resource path="res://assets/sprites/gui/completo/name_d.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/gui/completo/options.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/gui/control_new.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 21
@@ -72,6 +74,101 @@ crear este fangame para todo el mundo"
 autowrap = true
 clip_text = true
 max_lines_visible = 3
+
+[node name="opt" type="TextureRect" parent="u"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="list" type="VBoxContainer" parent="u/opt"]
+margin_left = 615.0
+margin_top = 264.0
+margin_right = 913.0
+margin_bottom = 518.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="T1" parent="u/opt/list" instance=ExtResource( 3 )]
+margin_right = 298.0
+margin_bottom = 39.0
+text = "-opcion"
+
+[node name="T2" parent="u/opt/list" instance=ExtResource( 3 )]
+margin_top = 43.0
+margin_right = 298.0
+margin_bottom = 82.0
+text = "-opcion"
+
+[node name="T3" parent="u/opt/list" instance=ExtResource( 3 )]
+margin_top = 86.0
+margin_right = 298.0
+margin_bottom = 125.0
+text = "-opcion"
+
+[node name="T4" parent="u/opt/list" instance=ExtResource( 3 )]
+margin_top = 129.0
+margin_right = 298.0
+margin_bottom = 168.0
+text = "-opcion"
+
+[node name="T5" parent="u/opt/list" instance=ExtResource( 3 )]
+margin_top = 172.0
+margin_right = 298.0
+margin_bottom = 211.0
+text = "-opcion"
+
+[node name="T6" parent="u/opt/list" instance=ExtResource( 3 )]
+margin_top = 215.0
+margin_right = 298.0
+margin_bottom = 254.0
+text = "-opcion"
+
+[node name="p1" type="Position2D" parent="u/opt"]
+position = Vector2( 575.341, 283.034 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="p2" type="Position2D" parent="u/opt"]
+position = Vector2( 575.341, 327.034 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="p3" type="Position2D" parent="u/opt"]
+position = Vector2( 575.341, 370.034 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="p4" type="Position2D" parent="u/opt"]
+position = Vector2( 575.341, 414.034 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="p5" type="Position2D" parent="u/opt"]
+position = Vector2( 575.341, 457.034 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="p6" type="Position2D" parent="u/opt"]
+position = Vector2( 575.341, 500.034 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="sel" type="Sprite" parent="u/opt"]
+position = Vector2( 408.77, 450.868 )
+scale = Vector2( 1.4132, 1.6683 )
+texture = ExtResource( 7 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.025

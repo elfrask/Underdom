@@ -18,7 +18,12 @@ func _ready():
 	
 	pass
 
-func beat(f) -> void:
+func beat(f, persist=false) -> void:
+	#print(persist)
+	if sound.playing:
+		if persist: 
+			return
+		pass
 	if f is String:
 		if f != "none":# si no es none entonces reproducir el sonido
 			sound.stop()
