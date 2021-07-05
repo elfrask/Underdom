@@ -29,12 +29,12 @@ func _ready():
 	pass 
 
 func say():
-	if (list is Node): list = list.data
-	else: list = []
+	var list_out = []
+	if (list is Node): list_out = list.data
 	
 	var out = Lib.dialogbox(event)
 	out["name"] = nombre
-	out["text"] = Lib.dialog_process(dialogo, list)
+	out["text"] = Lib.dialog_process(dialogo, list_out)
 	out["face"] = texture_face
 	out["voice"] = voice
 	out["persist"] = persist

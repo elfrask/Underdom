@@ -33,6 +33,10 @@ func play(e:int=0):
 script/source = "extends Node
 
 func play(e):
+	print(\"codigo de salida: \", e)
+	
+	
+\"\"\"
 	var salida = Lib.dialogbox()
 	salida[\"text\"] = [
 		\"el codigo de salida es: \" + str(e)
@@ -42,7 +46,7 @@ func play(e):
 	)
 	
 	pass
-
+\"\"\"
 "
 
 [node name="h4" type="Node2D"]

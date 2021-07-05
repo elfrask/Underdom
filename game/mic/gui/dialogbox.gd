@@ -189,10 +189,11 @@ func _process(delta):
 				if Input.is_action_just_pressed("aceptar"):
 					#print(action)
 					Auda.beat(Lib.control_sound_acept)
+					$u/opt.visible = false
 					for i in action:
 						i.play(sec)
 						pass
-					$u/opt.visible = false
+					modo = "text"
 					next()
 				pass
 				

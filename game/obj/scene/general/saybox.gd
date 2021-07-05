@@ -25,13 +25,13 @@ func _ready():
 	pass
 
 func say():
-	if (list is Node): list = list.data
-	else: list = []
+	var list_out = []
+	if (list is Node): list_out = list.data
 	#print("lista: ", list)
 	
 	var decir = Lib.dialogbox(event)
 	decir["name"] = nombre
-	decir["text"] = Lib.dialog_process(dialogo, list)
+	decir["text"] = Lib.dialog_process(dialogo, list_out)
 	return decir
 
 

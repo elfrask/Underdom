@@ -72,7 +72,7 @@ func dialog_process(data, e=[]):
 			if i["type"]=="options":
 				var nodo = get_node_or_null("vacio")
 				var res = len(e) > ee
-				#print("resultado: ", res)
+				#print("resultado: val: "+str(ee) + " data: ", e)
 				if res: 
 					nodo =(e[ee])
 				#print(nodo)
