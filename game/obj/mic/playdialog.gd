@@ -6,14 +6,12 @@ export (String) var nombre = ""
 export (bool) var persist = false
 export (float) var speed = 1.0
 export (String) var voice = "letters"
-export (bool) var Disable = false
 var dialogo = []
 var event
 var list
 
 func _ready():
-	$coll.disabled = Disable
-	$vs.visible = !Disable
+	
 	event = get_node_or_null("events")
 	list = get_node_or_null("list")
 	

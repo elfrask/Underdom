@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://obj/mic/scene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://obj/chars/frisk.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://obj/mic/events.tscn" type="PackedScene" id=10]
 [ext_resource path="res://obj/mic/scriptarray.tscn" type="PackedScene" id=11]
 [ext_resource path="res://obj/mic/Script.tscn" type="PackedScene" id=12]
+[ext_resource path="res://obj/mic/playdialog.tscn" type="PackedScene" id=13]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node
@@ -34,7 +35,8 @@ script/source = "extends Node
 
 func play(e):
 	print(\"codigo de salida: \", e)
-	
+	var child = get_children()
+	child[e].say()
 	
 \"\"\"
 	var salida = Lib.dialogbox()
@@ -156,8 +158,14 @@ script = SubResource( 2 )
 
 [node name="list" parent="scene/vs/saybox" instance=ExtResource( 11 )]
 
-[node name="s1" parent="scene/vs/saybox/list" instance=ExtResource( 12 )]
+[node name="script1" parent="scene/vs/saybox/list" instance=ExtResource( 12 )]
 script = SubResource( 3 )
+
+[node name="si" parent="scene/vs/saybox/list/script1" instance=ExtResource( 13 )]
+dialog_file = "res://lang/options/1/si.json"
+
+[node name="no" parent="scene/vs/saybox/list/script1" instance=ExtResource( 13 )]
+dialog_file = "res://lang/options/1/no.json"
 
 [node name="obj" type="YSort" parent="scene"]
 __meta__ = {
