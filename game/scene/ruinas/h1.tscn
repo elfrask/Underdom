@@ -2,7 +2,7 @@
 
 [ext_resource path="res://obj/mic/scene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://obj/chars/frisk.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/sprites/scene/tiles/enter.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/scene/completa/ruinas_h1.png" type="Texture" id=3]
 [ext_resource path="res://obj/scene/general/Portal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://obj/scene/general/point.tscn" type="PackedScene" id=5]
 
@@ -21,10 +21,10 @@ __meta__ = {
 }
 
 [node name="point" parent="scene/puntos" instance=ExtResource( 5 )]
-position = Vector2( 120, 440 )
+position = Vector2( 400, 540 )
 
 [node name="point2" parent="scene/puntos" instance=ExtResource( 5 )]
-position = Vector2( 120, 140 )
+position = Vector2( 560, 460 )
 nombre = "out"
 see = 2
 
@@ -33,29 +33,27 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="v" type="Sprite" parent="scene/mundo"]
-scale = Vector2( 1.07623, 1.07623 )
+[node name="Sprite" type="Sprite" parent="scene/mundo"]
 texture = ExtResource( 3 )
 centered = false
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="coll" type="CollisionPolygon2D" parent="scene/mundo"]
-visible = false
-polygon = PoolVector2Array( 100, 100, 100, 80, 140, 80, 140, 100, 320, 100, 320, 480, -80, 480, -80, 100, 80, 100, 80, 0, -180, 0, -180, 580, 420, 580, 420, 0, 80, 0, 80, 100 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="scene/mundo"]
+polygon = PoolVector2Array( 380, 600, 420, 600, 420, 540, 480, 540, 480, 520, 600, 520, 600, 440, 580, 440, 560, 420, 540, 440, 480, 440, 480, 420, 220, 420, 220, 500, 260, 500, 260, 520, 320, 520, 320, 540, 180, 540, 180, 320, 480, 320, 480, 280, 460, 280, 460, 260, 420, 260, 420, 180, 380, 180, 380, 260, 340, 260, 340, 280, 320, 280, 320, 300, 300, 300, 300, 320, 260, 320, 260, 140, 520, 140, 520, 340, 640, 340, 640, 620, 320, 620, 320, 540, 380, 540 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Portal" parent="scene/mundo" instance=ExtResource( 4 )]
-position = Vector2( 120, 100 )
+position = Vector2( 560, 420 )
 scale = Vector2( 2.64, -2.28 )
 to_scene = "res://scene/ruinas/h2.tscn"
 point = "in"
 
 [node name="Portal2" parent="scene/mundo" instance=ExtResource( 4 )]
-position = Vector2( 120, 480 )
+position = Vector2( 400, 580 )
 scale = Vector2( 2.63566, 1.89007 )
 to_scene = "res://scene/start.tscn"
 point = "out"
@@ -66,5 +64,5 @@ __meta__ = {
 }
 
 [node name="frisk" parent="scene/YSort" instance=ExtResource( 2 )]
-position = Vector2( 80, 400 )
+position = Vector2( 300, 580 )
 see = 0
