@@ -54,14 +54,19 @@ func moving(dir): #esta funcion se llama cuando se esta moviendo
 		if dir.x == 0: #si el movimiento X es igual a 0
 			
 			if dir.y > 0: #si Y es mayor a 0
-				vs("abajo")#asignamos la animacion de bajar
+				if vis.animation != "abajo" or !vis.playing:
+					vs("abajo")#asignamos la animacion de bajar
+					vis.frame = 1
+					
 				see = 2
 				$cast.cast_to = Vector2(0, 1*ray_distant)#cambiar la direccion del rayo a vertical
 				pass
 				
 			elif dir.y < 0:#si es menor a 0, lo mismo que el de arriba pero el rayo al otro lado
 				see = 0
-				vs("arriba")
+				if vis.animation != "arriba" or !vis.playing:
+					vs("arriba")#asignamos la animacion de bajar
+					vis.frame = 1
 				$cast.cast_to = Vector2(0, -1*ray_distant)
 				pass
 				
@@ -70,14 +75,18 @@ func moving(dir): #esta funcion se llama cuando se esta moviendo
 			if dir.x > 0:# si X es mayor a 0
 				
 				$cast.cast_to = Vector2(1*ray_distant, 0)# asignar una orientacion horizontal al rayo
-				vs("derecha") # asginar una animacion a la derecha
+				if vis.animation != "derecha" or !vis.playing:
+					vs("derecha") # asginar una animacion a la derecha
+					vis.frame = 1
 				see = 1
 				
 				pass
 			elif dir.x < 0:# si es menor a 0, lo mismo de arriba pero al revez
 				
 				$cast.cast_to = Vector2(-1*ray_distant, 0)
-				vs("izquierda")
+				if vis.animation != "izquierda" or !vis.playing:
+					vs("izquierda")
+					vis.frame = 1
 				see = 3
 				
 				pass

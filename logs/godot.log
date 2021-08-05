@@ -1,0 +1,3 @@
+Godot Engine v3.3.2.stable.official - https://godotengine.org
+**ERROR**: Error initializing GLAD
+   At: drivers/gles3/rasterizer_gles3.cpp:141:is_viable() - Error initializing GLAD
