@@ -1,0 +1,113 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/sprite/bg.png" type="Texture" id=1]
+[ext_resource path="res://Obj/gui/options.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Obj/Script.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Obj/gui/inicio_real.gd" type="Script" id=4]
+[ext_resource path="res://Obj/gui/Tfont.tscn" type="PackedScene" id=5]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node
+
+func play(n:int):
+	
+	print(\"code:\", n)
+	if n == 2: get_tree().quit()
+	if n == 0: get_tree().change_scene(\"res://Obj/game.tscn\")
+	if n == 1: 
+		get_parent().visible = false
+		get_parent().get_parent().get_child(2).visible = true
+	pass
+"
+
+[sub_resource type="Animation" id=2]
+resource_name = "ini"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("gui/bg:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.247059, 0.247059, 0.247059, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("gui/options:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="root" type="Node"]
+script = ExtResource( 4 )
+
+[node name="gui" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="bg" type="TextureRect" parent="gui"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+stretch_mode = 4
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="options" parent="gui" instance=ExtResource( 2 )]
+visible = false
+margin_left = 154.279
+margin_top = 140.346
+margin_right = -625.721
+margin_bottom = -403.654
+rect_scale = Vector2( 3, 3 )
+lista = [ "Jugar!", "Creditos", "Salir" ]
+center = true
+eventScript = NodePath("Script")
+
+[node name="Script" parent="gui/options" instance=ExtResource( 3 )]
+script = SubResource( 1 )
+
+[node name="info" parent="gui" instance=ExtResource( 5 )]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 0.0
+margin_bottom = 0.0
+text = "
+UnderDom Battle Demo with Samuel (Voluntad)
+- UnderDom (2021) - Vinestar Studio - Frask -
+
+este proyecto no hibera sido posible de no ser por:
+
+-Frask Dreemurr (Lider)-
+
+Moises Alejandro
+Chibbi Lone Cherry CLS's
+Ultra Legend B
+Valentin A
+"
+align = 1
+
+[node name="node" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ani" type="AnimationPlayer" parent="."]
+anims/ini = SubResource( 2 )

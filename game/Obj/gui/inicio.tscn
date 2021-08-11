@@ -4,7 +4,7 @@
 [ext_resource path="res://Obj/gui/Tfont.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Obj/gui/inicio.gd" type="Script" id=3]
 
-[sub_resource type="GDScript" id=3]
+[sub_resource type="GDScript" id=1]
 script/source = "extends Label
 
 
@@ -98,7 +98,7 @@ margin_right = 443.0
 margin_bottom = 78.0
 rect_scale = Vector2( 4.5, 4.5 )
 text = "Start"
-script = SubResource( 3 )
+script = SubResource( 1 )
 
 [node name="node" type="Node2D" parent="."]
 __meta__ = {
