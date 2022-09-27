@@ -37,7 +37,7 @@ func isnull(o):
 func funci(f): 
 	
 	return Funcion.new(f)
-func dialogbox(event="[Object:null]"):
+func dialogbox(event="[Object:null]") -> Dictionary:
 
 	var out = []
 	#print(event)

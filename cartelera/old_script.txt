@@ -1,0 +1,23 @@
+extends Node
+
+func play():
+	$"../../ani".play("play")
+	pass
+
+func _ready():
+	$"../../ani".connect("animation_finished", self, "_on_ani_animation_finished")
+	pass
+
+func _on_ani_animation_finished(anim_name):
+	var decir = Lib.dialogbox()
+	decir["text"] = [
+		"jeje no es genial? :3",
+		"bueno creo que deberia parar -w-'' no te quiero quitar mucho tiempo",
+		"este juego tiene muy buena pinta y no quiero arruinarlo u.u",
+		"ok vale ya puedes irte si quieres ^^.",
+		"Byeee"
+	]
+	decir["name"] = "Asriel"
+	decir["voice"] = "asriel"
+	Api.get("say").play(decir)
+	pass 

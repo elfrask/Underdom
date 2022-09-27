@@ -10,8 +10,13 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node
 
+#var var_me = self
+#onready var kl = Lang.get(\"\")
+
 func _process(delta):
 	#get_tree().get_root().size = Vector2(200, 120)
+	#self.queue_free()
+	
 	pass
 
 "
@@ -31,6 +36,7 @@ __meta__ = {
 }
 
 [node name="bg" parent="bg" instance=ExtResource( 5 )]
+position = Vector2( -3.5636, 1.7818 )
 
 [node name="main" type="Control" parent="."]
 anchor_right = 1.0

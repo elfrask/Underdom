@@ -26,7 +26,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1.5, 2 )
 }
 
-[sub_resource type="GDScript" id=1]
+[sub_resource type="GDScript" id=3]
 script/source = "extends Node
 
 func play():
@@ -47,6 +47,7 @@ func _on_ani_animation_finished(anim_name):
 		\"Byeee\"
 	]
 	decir[\"name\"] = \"Asriel\"
+	decir[\"voice\"] = \"asriel\"
 	Api.get(\"say\").play(decir)
 	pass 
 "
@@ -154,7 +155,7 @@ __meta__ = {
 }
 
 [node name="frisk" parent="scene/obj" instance=ExtResource( 3 )]
-position = Vector2( 240, 440 )
+position = Vector2( 160, 380 )
 see = 0
 
 [node name="static_char" parent="scene/obj" instance=ExtResource( 6 )]
@@ -169,6 +170,6 @@ anims/play = SubResource( 2 )
 [node name="events" parent="scene/obj/static_char" instance=ExtResource( 11 )]
 
 [node name="finish" parent="scene/obj/static_char/events" instance=ExtResource( 7 )]
-script = SubResource( 1 )
+script = SubResource( 3 )
 
 [connection signal="animation_finished" from="scene/obj/static_char/ani" to="scene/obj/static_char/events/finish" method="_on_ani_animation_finished"]
