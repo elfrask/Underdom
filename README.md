@@ -13,4 +13,8 @@
 	O puedes contactarlo por su correo: elfraskodev@gmail.com.
 
 </div>
+<h4>Este repositorio esta protegido bajo la licencia de:</h4>
+	<a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons</a>
+	<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Atribución-CompartirIgual 4.0 Internacional</a>.
+	
 <!--git commit -m "Eliminacion de los Addons innesesarios y el archivo README.MD fue agregado"-->
